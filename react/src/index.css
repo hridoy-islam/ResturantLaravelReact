@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: "ClintonBold";
+    src: local("ClintonBold");
+    src: url("./assets/fonts/ClintonBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "ClintonSemibold";
+    src: local("ClintonSemibold");
+    src: url("./assets/fonts/ClintonSemibold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "ClintonExtraBold";
+    src: local("ClintonExtraBold");
+    src: url("./assets/fonts/ClintonExtraBold.ttf") format("truetype");
+}
+
+.ridoy-bold {
+    font-family: ClintonExtraBold;
+    font-weight: 800;
+}
+
+.ridoy-medium {
+    font-family: ClintonSemibold;
+    font-weight: 600;
+}
+
+.ridoy-light {
+    font-family: ClintonBold;
+    font-weight: 700;
+}
