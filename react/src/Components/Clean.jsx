@@ -1,27 +1,24 @@
-import banner_img from '../../assets/banner_img.png'
+import clean_img from '../../src/assets/clean.png'
 
-export default function Banner() {
+export default function Clean() {
 
     return (
         <div className="bg-white flex justify-around items-center">
+            <div className=''>
+                <img className='pt-24' src={clean_img} alt="" />
+            </div>
             <div>
                 <div className="relative isolate px-6 pt-6 lg:px-8">
 
                     <div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-20">
 
                         <div className="text-left">
-                            <h2 className='text-2xl font-bold text-primary tracking-widest'>Classic</h2>
+                            <h2 className='text-2xl font-bold text-primary tracking-widest'>CLEAN</h2>
                             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                Eat Good
-                            </h1>
-                            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                Feel Good
-                            </h1>
-                            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                Look Good
+                                You’re looking to maintain your body
                             </h1>
                             <p className="mt-6 text-lg leading-8 text-gray-600">
-                                Curated healthy meal plans to achieve your fitness goals
+                                Fitbar provides Tasty, Affordable, and Healthy meal plans in Dubai. The 3 pillars that makes Fitbar stand out from everyone else.
                             </p>
                             <div className="mt-10 flex items-center justify-start gap-x-6">
                                 <a
@@ -50,10 +47,12 @@ export default function Banner() {
                     </div>
                 </div>
             </div>
-            <div className=''>
-                <img className='pt-24' src={banner_img} alt="" />
-            </div>
+
 
         </div>
     )
 }
+
+
+
+

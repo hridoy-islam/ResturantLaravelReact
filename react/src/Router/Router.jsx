@@ -2,10 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import AdminLayout from "../Components/Layouts/AdminLayout";
 import Main from "../Components/Layouts/Main";
 import Header from "../Components/Shared/Header";
+import About from "../Pages/About";
 import AllOrders from "../Pages/Admin/AllOrders";
 import CreatePlan from "../Pages/Admin/CreatePlan";
 import PlanList from "../Pages/Admin/PlanList";
 import UserList from "../Pages/Admin/UserList";
+import Blog from "../Pages/Blog";
+import Faq from "../Pages/Faq";
+import Forgot from "../Pages/Forgot";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import NotFound from "../Pages/NotFound";
@@ -24,6 +28,10 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
+                path: "/about",
+                element: <About />,
+            },
+            {
                 path: "/login",
                 element: <Login />,
             },
@@ -32,8 +40,20 @@ const router = createBrowserRouter([
                 element: <Register />,
             },
             {
+                path: "/forgot",
+                element: <Forgot />,
+            },
+            {
                 path: "/order-now",
                 element: <OrderNow />,
+            },
+            {
+                path: "/blog",
+                element: <Blog />,
+            },
+            {
+                path: "/faq",
+                element: <Faq />,
             },
             {
                 path: "/user/profile",

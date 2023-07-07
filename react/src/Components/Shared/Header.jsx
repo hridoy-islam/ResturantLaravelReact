@@ -1,17 +1,26 @@
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Fragment } from 'react';
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.png';
 
 const navigation = [
-    { name: 'Order Now', href: '/order-now' },
     { name: 'Home', href: '/' },
-    { name: 'Login', href: 'login' },
-    { name: 'Register', href: 'register' },
-    { name: 'Create Plan', href: '/admin/create-plan' },
-    { name: 'All Plan', href: '/admin/all-plans' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Meal Plan', href: '/' },
+    { name: 'View Menu', href: '/' },
+    { name: 'Order Now', href: '/order-now' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'Blog', href: '/blog' },
+
+    // { name: 'Create Plan', href: '/admin/create-plan' },
+    // { name: 'All Plan', href: '/admin/all-plans' },
+    // { nameAuth: ' ', href: 'login' },
+    // { nameAuth: 'Register', href: 'register' },
 ]
+// const auth = [
+//     { name: ' Login ', href: 'login' },
+//     { name: 'Register', href: 'register' },
+// ]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -19,14 +28,14 @@ function classNames(...classes) {
 
 export default function Header() {
     return (
-        <Disclosure as="nav" className="bg-gray-800">
+        <Disclosure as="nav" className="bg-primary fixed w-full z-10">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                 {/* Mobile menu button*/}
-                                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
                                         <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -35,7 +44,7 @@ export default function Header() {
                                     )}
                                 </Disclosure.Button>
                             </div>
-                            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                                 <div className="flex flex-shrink-0 items-center">
                                     <img
                                         className="block h-8 w-auto lg:hidden"
@@ -48,7 +57,7 @@ export default function Header() {
                                         alt="Your Company"
                                     />
                                 </div>
-                                <div className="hidden sm:ml-6 sm:block">
+                                <div className="hidden sm:mx-6 sm:block">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
                                             <Link
@@ -56,7 +65,7 @@ export default function Header() {
                                                 to={item.href}
                                                 className={classNames(
                                                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                                    'rounded-md text-white px-3 py-2 text-md font-medium'
                                                 )}
                                             >
                                                 {item.name}
@@ -64,71 +73,95 @@ export default function Header() {
                                         ))}
                                     </div>
                                 </div>
+                                <div className="hidden sm:mx-8 sm:block">
+                                    <div className="flex space-x-4">
+                                        <Link to='/login' className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                        </svg>
+                                        </span> <span className='pl-2'>Login</span></Link>
+                                        <Link to="/register" className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white' href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                        </svg>
+                                        </span><span className='pl-2'>Register</span> </Link>
+                                        {/* {auth.map((item) => (
+                                            <Link
+                                                key={item.name}
+                                                to={item.href}
+                                                className={classNames(
+                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-600 hover:text-white',
+                                                    'rounded-xl bg-white text-gray-900 px-8 py-2 text-sm font-medium'
+                                                )}
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        ))} */}
+                                    </div>
+                                </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
+                                {/* <button
                                     type="button"
                                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 >
                                     <span className="sr-only">View notifications</span>
                                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
+                                </button> */}
 
                                 {/* Profile dropdown */}
-                                <Menu as="div" className="relative ml-3">
-                                    <div>
-                                        <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                            <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
-                                            />
-                                        </Menu.Button>
-                                    </div>
-                                    <Transition
-                                        as={Fragment}
-                                        enter="transition ease-out duration-100"
-                                        enterFrom="transform opacity-0 scale-95"
-                                        enterTo="transform opacity-100 scale-100"
-                                        leave="transition ease-in duration-75"
-                                        leaveFrom="transform opacity-100 scale-100"
-                                        leaveTo="transform opacity-0 scale-95"
-                                    >
-                                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <Link
-                                                        to={'/user/profile'}
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Your Profile
-                                                    </Link>
-                                                )}
-                                            </Menu.Item>
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <Link
-                                                        to={'/user/orders'}
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        My Orders
-                                                    </Link>
-                                                )}
-                                            </Menu.Item>
-                                            <Menu.Item>
-                                                {({ active }) => (
-                                                    <a
-                                                        href="#"
-                                                        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                                                    >
-                                                        Sign out
-                                                    </a>
-                                                )}
-                                            </Menu.Item>
-                                        </Menu.Items>
-                                    </Transition>
-                                </Menu>
+                                {/* <Menu as="div" className="relative ml-3">
+                                <div>
+                                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                        <span className="sr-only">Open user menu</span>
+                                        <img
+                                            className="h-8 w-8 rounded-full"
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            alt=""
+                                        />
+                                    </Menu.Button>
+                                </div>
+                                <Transition
+                                    as={Fragment}
+                                    enter="transition ease-out duration-100"
+                                    enterFrom="transform opacity-0 scale-95"
+                                    enterTo="transform opacity-100 scale-100"
+                                    leave="transition ease-in duration-75"
+                                    leaveFrom="transform opacity-100 scale-100"
+                                    leaveTo="transform opacity-0 scale-95"
+                                >
+                                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <Link
+                                                    to={'/user/profile'}
+                                                    className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                >
+                                                    Your Profile
+                                                </Link>
+                                            )}
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <Link
+                                                    to={'/user/orders'}
+                                                    className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                >
+                                                    My Orders
+                                                </Link>
+                                            )}
+                                        </Menu.Item>
+                                        <Menu.Item>
+                                            {({ active }) => (
+                                                <a
+                                                    href="#"
+                                                    className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                                                >
+                                                    Sign out
+                                                </a>
+                                            )}
+                                        </Menu.Item>
+                                    </Menu.Items>
+                                </Transition>
+                            </Menu> */}
                             </div>
                         </div>
                     </div>
@@ -152,7 +185,8 @@ export default function Header() {
                         </div>
                     </Disclosure.Panel>
                 </>
-            )}
-        </Disclosure>
+            )
+            }
+        </Disclosure >
     )
 }
