@@ -1,10 +1,14 @@
+import blog_banner from "../../src/assets/blog_banner.png";
 import img1 from "../../src/assets/Healthy.png";
-import PageTitle from "../Components/Shared/PageTitle";
 const Blog = () => {
     return (
         <div>
-            <PageTitle title="Blog" />
-            <div className="grid grid-cols-3 gap-8 mx-24 mt-8">
+            <div className="">
+                <img src={blog_banner} alt="blog_banner" />
+                <h2 className="text-4xl inset-2/4 font-bold text-white absolute">Blogs</h2>
+                {/* <PageTitle title="Blog" /> */}
+            </div>
+            <div className="grid grid-cols-3 gap-8 mx-24 my-24">
                 <div className="p-8 border-2 rounded-lg">
                     <img className=" rounded-lg" src={img1} alt="img" />
                     <h2 className="text-2xl font-bold text-secondary py-3">Unlocking A Healthier Lifestyle: The Best Meal Plan In UAE</h2>
