@@ -38,24 +38,28 @@ export default function Header() {
                                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-secondary hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
-                                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                                        <XMarkIcon className="block h-6 w-6 text-white" aria-hidden="true" />
                                     ) : (
-                                        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                                        <Bars3Icon className="block h-6 w-6 text-white" aria-hidden="true" />
                                     )}
                                 </Disclosure.Button>
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                                 <div className="flex flex-shrink-0 items-center">
+                                    <Link to='/'>
                                     <img
-                                        className="block h-8 w-auto lg:hidden"
+                                        className="block h-10 w-auto lg:hidden"
                                         src={logo}
                                         alt="Your Company"
                                     />
+                                    </Link>
+                                    <Link to='/'>
                                     <img
-                                        className="hidden h-8 w-auto lg:block"
+                                        className="hidden h-10 w-auto lg:block"
                                         src={logo}
                                         alt="Your Company"
                                     />
+                                    </Link>
                                 </div>
                                 <div className="hidden sm:mx-6 sm:block">
                                     <div className="flex space-x-4">

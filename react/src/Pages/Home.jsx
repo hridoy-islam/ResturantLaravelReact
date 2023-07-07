@@ -1,7 +1,8 @@
 
 import Clean from "../Components/Clean";
 import Banner from "../Components/Shared/Banner";
-import Location from "../Components/location";
+import Location from "../Components/Location";
+
 
 const Home = () => {
     return (
