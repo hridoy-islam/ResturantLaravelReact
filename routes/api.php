@@ -22,6 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/logout', [AuthController::class, 'logout']);
-Route::apiResource('category',CategoryController::class);
+Route::get('category', [CategoryController::class, 'index']);
+Route::get('/category/:id', [CategoryController::class, 'show']);
+Route::post('category', [CategoryController::class, 'store']);
+
+Route::post('/post', [PostsController::class, 'store']);

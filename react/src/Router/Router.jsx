@@ -4,10 +4,13 @@ import Main from "../Components/Layouts/Main";
 import Header from "../Components/Shared/Header";
 import About from "../Pages/About";
 import AllOrders from "../Pages/Admin/AllOrders";
+import Blog from "../Pages/Admin/Blog";
+import Category from "../Pages/Admin/Category";
+import CreateBlog from "../Pages/Admin/CreateBlog";
+import CreateCategory from "../Pages/Admin/CreateCategory";
 import CreatePlan from "../Pages/Admin/CreatePlan";
 import PlanList from "../Pages/Admin/PlanList";
 import UserList from "../Pages/Admin/UserList";
-import Blog from "../Pages/Blog";
 import Faq from "../Pages/Faq";
 import Forgot from "../Pages/Forgot";
 import Home from "../Pages/Home";
@@ -79,12 +82,28 @@ const router = createBrowserRouter([
                 element: <AllOrders />,
             },
             {
-                path: "/admin/create-plan",
+                path: "/admin/plan/create",
                 element: <CreatePlan />,
             },
             {
                 path: "/admin/all-plans",
                 element: <PlanList />,
+            },
+            {
+                path: "/admin/category",
+                element: <Category />,
+            },
+            {
+                path: "/admin/category/create",
+                element: <CreateCategory />,
+            },
+            {
+                path: "/admin/blog",
+                element: <Blog />,
+            },
+            {
+                path: "/admin/blog/create",
+                element: <CreateBlog />,
             },
         ]
     },

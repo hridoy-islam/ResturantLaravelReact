@@ -29,7 +29,19 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json($request->all());
+        $posts = new Posts;
+        $posts->name = $request->title;
+        $posts->description = $request->description;
+        $posts->thumbnail = $request->thumbnail;
+        $posts->category_id = $request->category_id;
+        $posts->save();
+
+        return response()->json([
+            'sccuess' => true,
+            'message' => 'Post Added Successfully',
+            'data' => $posts,
+        ]);
     }
 
     /**

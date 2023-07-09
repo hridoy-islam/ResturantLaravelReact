@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import axiosClient from "../../AxiosClient";
 import { userContext } from "../../Contexts/MainContext";
 import Footer from "../Shared/Footer";
-import Header from "../Shared/Header";
+import HeaderMenu from '../Shared/HeaderMenu';
 
 const AdminLayout = () => {
     const { user, token, setUser } = useContext(userContext)
@@ -20,7 +20,7 @@ const AdminLayout = () => {
 
     return (
         <div>
-            <Header />
+            <HeaderMenu />
             <Outlet></Outlet>
             <Footer />
         </div>

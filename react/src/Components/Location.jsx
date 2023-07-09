@@ -3,7 +3,7 @@ import location_icon from '../../src/assets/location_icon.svg';
 export default function Location() {
     return (
         <div className="my-24">
-            <h1 className="text-4xl mb-12 text-center font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1 className="text-2xl mb-12 text-center font-bold tracking-tight text-gray-900 sm:text-5xl">
                 We deliver Healthy Meal Plans Across <span className="text-primary">UAE</span>
             </h1>
             <div className='grid grid-cols-3 gap-8 w-10/12 mx-auto'>

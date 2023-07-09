@@ -1,7 +1,8 @@
 
 import Clean from "../Components/Clean";
-import Banner from "../Components/Shared/Banner";
 import Location from "../Components/Location";
+import Banner from "../Components/Shared/Banner";
+import Step from "../Components/Step";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
             <Banner />
             <Clean />
+            <Step />
             <Location />
         </div>
     );
