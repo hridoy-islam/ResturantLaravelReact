@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageTitle from '../../Components/Shared/PageTitle';
 
-const Blog = () => {
+const AllBlog = () => {
     return (
         <div>
             <PageTitle title="Blog" />
@@ -12,4 +12,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default AllBlog;

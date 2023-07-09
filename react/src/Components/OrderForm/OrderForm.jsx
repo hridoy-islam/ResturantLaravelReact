@@ -45,7 +45,7 @@ const OrderForm = () => {
 
     if (order?.step === 0) {
         content = <div className="container mx-auto py-10">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 mx-8/12 mx-auto">
                 {plans.map((plan, index) => <MealPlan plan={plan} key={index} />)}
             </div>
         </div>

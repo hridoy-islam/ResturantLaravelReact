@@ -15,7 +15,7 @@ const MealPlan = ({ plan }) => {
     }
     return (
         <article
-            className="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg bg-blue-200"
+            className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg bg-blue-200"
         >
             <img
                 alt="Office"
@@ -31,7 +31,7 @@ const MealPlan = ({ plan }) => {
                     <h3 className="mt-0.5 text-2xl font-bold text-primary top-10 absolute">
                         {name}
                     </h3>
-                    <button className="btn btn-primary"
+                    <button className="btn text-white btn-primary"
                         onClick={selectOrder}
                     >Select Plan</button>
                 </div>
