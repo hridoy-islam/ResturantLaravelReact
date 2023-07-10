@@ -1,6 +1,8 @@
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useContext } from 'react';
 import { Link } from "react-router-dom";
+import { userContext } from '../../Contexts/MainContext';
 import logo from '../../assets/logo.png';
 
 const navigation = [
@@ -27,6 +29,7 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+    const { user } = useContext(userContext);
     return (
         <Disclosure as="nav" className="bg-primary fixed w-full z-10">
             {({ open }) => (
@@ -47,18 +50,18 @@ export default function Header() {
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                                 <div className="flex flex-shrink-0 items-center">
                                     <Link to='/'>
-                                    <img
-                                        className="block h-10 w-auto lg:hidden"
-                                        src={logo}
-                                        alt="Your Company"
-                                    />
+                                        <img
+                                            className="block h-10 w-auto lg:hidden"
+                                            src={logo}
+                                            alt="Your Company"
+                                        />
                                     </Link>
                                     <Link to='/'>
-                                    <img
-                                        className="hidden h-10 w-auto lg:block"
-                                        src={logo}
-                                        alt="Your Company"
-                                    />
+                                        <img
+                                            className="hidden h-10 w-auto lg:block"
+                                            src={logo}
+                                            alt="Your Company"
+                                        />
                                     </Link>
                                 </div>
                                 <div className="hidden sm:mx-6 sm:block">
@@ -78,16 +81,24 @@ export default function Header() {
                                     </div>
                                 </div>
                                 <div className="hidden sm:mx-8 sm:block">
-                                    <div className="flex space-x-4">
-                                        <Link to='/login' className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                                        </svg>
-                                        </span> <span className='pl-2'>Login</span></Link>
-                                        <Link to="/register" className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white' href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                                        </svg>
-                                        </span><span className='pl-2'>Register</span> </Link>
-                                        {/* {auth.map((item) => (
+                                    {
+                                        user?.id ? <>
+                                            <div className="flex space-x-4">
+                                                <Link to='/user/orders' className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'> Orders</Link>
+                                                <Link to='/user/profile' className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'>  {user.name}</Link>
+
+                                            </div>
+                                        </> : <>
+                                            <div className="flex space-x-4">
+                                                <Link to='/login' className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                                </svg>
+                                                </span> <span className='pl-2'>Login</span></Link>
+                                                <Link to="/register" className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white' href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                                </svg>
+                                                </span><span className='pl-2'>Register</span> </Link>
+                                                {/* {auth.map((item) => (
                                             <Link
                                                 key={item.name}
                                                 to={item.href}
@@ -99,7 +110,9 @@ export default function Header() {
                                                 {item.name}
                                             </Link>
                                         ))} */}
-                                    </div>
+                                            </div>
+                                        </>
+                                    }
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

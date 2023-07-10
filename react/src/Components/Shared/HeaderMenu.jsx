@@ -1,6 +1,9 @@
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useContext } from 'react';
 import { Link } from "react-router-dom";
+import axiosClient from '../../AxiosClient';
+import { userContext } from '../../Contexts/MainContext';
 
 const navigation = [
     { name: 'Blog', href: '/admin/blog' },
@@ -13,6 +16,19 @@ function classNames(...classes) {
 }
 
 export default function HeaderMenu() {
+    const { setUser, createToken } = useContext(userContext);
+
+    const onLogout = ev => {
+        ev.preventDefault()
+
+        axiosClient.post('/logout')
+            .then(() => {
+                setUser({})
+                createToken(null)
+            })
+    }
+
+
     return (
         <Disclosure as="nav" className="bg-gray-500">
             {({ open }) => (
@@ -55,6 +71,7 @@ export default function HeaderMenu() {
                                 <button
                                     type="button"
                                     className="btn btn-info"
+                                    onClick={onLogout}
                                 >
                                     Logout
                                 </button>

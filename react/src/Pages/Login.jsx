@@ -7,26 +7,23 @@ import logo from '../assets/blacklogo.png';
 
 export default function Login() {
 
-    const { token, setUser, setToken } = useContext(userContext)
+    const { token, setUser, createToken } = useContext(userContext)
     const {
         register,
         handleSubmit,
     } = useForm()
     const onSubmit = (data) => {
-        console.log(data);
-        axiosClient.post('/login', data).then(({ data }) => {
+        axiosClient.post('login', data).then(({ data }) => {
             setUser(data.user);
-            setToken(data.token);
+            createToken(data.token);
         }).catch((error) => {
             const response = error.response;
             console.log(response)
         })
     }
     if (token) {
-        return <Navigate to="/admin" />
+        return <Navigate to="/user/profile" />
     }
-
-
 
     return (
         <>

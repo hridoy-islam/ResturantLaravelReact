@@ -3,9 +3,9 @@ import { Navigate, Outlet } from "react-router-dom";
 import axiosClient from "../../AxiosClient";
 import { userContext } from "../../Contexts/MainContext";
 import Footer from "../Shared/Footer";
-import HeaderMenu from '../Shared/HeaderMenu';
+import Header from "../Shared/Header";
 
-const AdminLayout = () => {
+const UserLayout = () => {
     const { token, setUser } = useContext(userContext)
     if (!token) {
         return <Navigate to="/login" />
@@ -20,11 +20,14 @@ const AdminLayout = () => {
 
     return (
         <div>
-            <HeaderMenu />
-            <Outlet></Outlet>
+            <Header />
+            <div className="pt-14">
+                <Outlet></Outlet>
+            </div>
             <Footer />
         </div>
     );
 };
 
-export default AdminLayout;
+
+export default UserLayout;

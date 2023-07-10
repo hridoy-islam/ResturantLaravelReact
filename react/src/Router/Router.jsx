@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdminLayout from "../Components/Layouts/AdminLayout";
 import Main from "../Components/Layouts/Main";
+import UserLayout from "../Components/Layouts/UserLayout";
 import Header from "../Components/Shared/Header";
 import About from "../Pages/About";
 import AllOrders from "../Pages/Admin/AllOrders";
@@ -58,11 +59,17 @@ const router = createBrowserRouter([
                 path: "/faq",
                 element: <Faq />,
             },
+        ]
+    },
+
+    {
+        path: '/user',
+        element: <UserLayout />,
+        children: [
             {
                 path: "/user/profile",
                 element: <Profile />,
             },
-
             {
                 path: "/user/orders",
                 element: <Orders />,

@@ -1,18 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosClient from '../../AxiosClient';
 import PageTitle from '../../Components/Shared/PageTitle';
-import { userContext } from '../../Contexts/MainContext';
 
 const Category = () => {
 
     const [cat, setCat] = useState();
-    const { setLoading, loading } = useContext(userContext);
     useEffect(() => {
         axiosClient.get('category')
             .then(res => {
                 setCat(res.data);
-                console.log(res.data);
             })
     }, [])
 
@@ -30,19 +27,17 @@ const Category = () => {
                 <table className="table table-xs">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Actions</th>
+                            <th className='text-lg font-bold'>Name</th>
+                            <th className='text-lg font-bold'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
 
 
-                        {cat?.map((item, index) => {
+                        {cat?.map((item, index) =>
                             <>
                                 <tr key={index}>
-                                    <th>{index}</th>
-                                    <td>{item.title}</td>
+                                    <td className='text-lg'>{item.title}</td>
                                     <td>
                                         <button>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-green-500">
@@ -67,7 +62,7 @@ const Category = () => {
                                     </td>
                                 </tr>
                             </>
-                        })}
+                        )}
 
 
                     </tbody>
