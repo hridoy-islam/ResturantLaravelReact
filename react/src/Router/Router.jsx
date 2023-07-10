@@ -5,7 +5,7 @@ import UserLayout from "../Components/Layouts/UserLayout";
 import Header from "../Components/Shared/Header";
 import About from "../Pages/About";
 import AllOrders from "../Pages/Admin/AllOrders";
-import Blog from "../Pages/Admin/Blog";
+import Blog from "../Pages/Blog";
 import Category from "../Pages/Admin/Category";
 import CreateBlog from "../Pages/Admin/CreateBlog";
 import CreateCategory from "../Pages/Admin/CreateCategory";
@@ -21,6 +21,7 @@ import OrderNow from "../Pages/OrderNow";
 import Register from "../Pages/Register";
 import Orders from "../Pages/User/Orders";
 import Profile from "../Pages/User/Profile";
+import AllBlog from "../Pages/Admin/AllBlog";
 
 const router = createBrowserRouter([
     {
@@ -106,7 +107,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/admin/blog",
-                element: <Blog />,
+                element: <AllBlog />,
             },
             {
                 path: "/admin/blog/create",

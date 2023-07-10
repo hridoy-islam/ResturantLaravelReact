@@ -1,7 +1,6 @@
-import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import axiosClient from '../AxiosClient';
 import { userContext } from '../Contexts/MainContext';
 import logo from '../assets/blacklogo.png';
@@ -12,7 +11,7 @@ export default function Register() {
         handleSubmit,
     } = useForm()
 
-    const { setUser, createToken } = useContext(userContext)
+    const { setUser, createToken, token } = useContext(userContext)
     const onSubmit = (data) => {
 
         axiosClient.post('/signup', data)
@@ -21,22 +20,18 @@ export default function Register() {
                 createToken(data.token);
             })
             .catch(error => {
-                console.log(error);
                 const res = error.response;
                 if (res && res.status === 422) {
                     setErrors(res.data.errors);
                 }
             })
     }
-    function love() {
-        axios.get('http://fitnessdine.test/sanctum/csrf-cookie').then(res => {
-            console.log(res.headers)
-        })
 
+
+    if (token) {
+        return <Navigate to="/user/profile" />
     }
-    useEffect(() => {
-        love()
-    })
+
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-24 lg:px-8">

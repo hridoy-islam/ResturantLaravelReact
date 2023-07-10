@@ -1,9 +1,10 @@
-export default function Example() {
+export default function BreadCumb(props) {
+    const {image, title} = props;
     return (
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
             <img
-                src="https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt=""
+                src={image}
+                alt={title}
                 className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
             />
             <div
@@ -32,8 +33,8 @@ export default function Example() {
             </div>
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0">
-                    <h2 className="text-5xl tracking-tight text-primary sm:text-6xl ridoy-bold">Order Now</h2>
-                    <p className="mt-6 text-lg leading-8 text-secondary">BUILD YOUR MEAL PLAN</p>
+                    <h2 className="text-5xl tracking-tight text-primary sm:text-6xl ridoy-bold">{title}</h2>
+                    
                 </div>
             </div>
         </div>

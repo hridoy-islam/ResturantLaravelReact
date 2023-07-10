@@ -13,7 +13,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return response('hello');
+        $data = Posts::all();
+        return response()->json($data, 200);
     }
 
     /**
@@ -29,19 +30,21 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json($request->all());
-        $posts = new Posts;
-        $posts->name = $request->title;
-        $posts->description = $request->description;
-        $posts->thumbnail = $request->thumbnail;
-        $posts->category_id = $request->category_id;
-        $posts->save();
+        // $data = $request->validate([
 
-        return response()->json([
-            'sccuess' => true,
-            'message' => 'Post Added Successfully',
-            'data' => $posts,
-        ]);
+        // ])
+        // // $posts = new Posts;
+        // // $posts->name = $request->title;
+        // // $posts->description = $request->description;
+        // // $posts->thumbnail = $request->thumbnail;
+        // // $posts->category_id = $request->category_id;
+        // // $posts->save();
+
+        // return response()->json([
+        //     'sccuess' => true,
+        //     'message' => 'Post Added Successfully',
+        //     'data' => $posts,
+        // ]);
     }
 
     /**
