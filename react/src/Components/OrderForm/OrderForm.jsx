@@ -38,6 +38,16 @@ const OrderForm = () => {
             name: 'DIABETIC',
             image: '',
         },
+        {
+            id: '7',
+            name: 'WEIGHT GAIN',
+            image: '',
+        },
+        {
+            id: '8',
+            name: 'KETO',
+            image: '',
+        },
     ]
     const { order } = useContext(userContext)
 
@@ -45,7 +55,7 @@ const OrderForm = () => {
 
     if (order?.step === 0) {
         content = <div className="container mx-auto py-10">
-            <div className="grid grid-cols-3 gap-4 mx-8/12 mx-auto">
+            <div className="grid grid-cols-4 gap-6 mx-8/12 mx-auto">
                 {plans.map((plan, index) => <MealPlan plan={plan} key={index} />)}
             </div>
         </div>
@@ -66,7 +76,7 @@ const OrderForm = () => {
         </div>
     }
     if (order.step === 4) {
-        content = <div className="container mx-auto py-10">
+        content = <div className=" bg-gray-100 mx-auto py-10">
             <OrderReview />
         </div>
     }

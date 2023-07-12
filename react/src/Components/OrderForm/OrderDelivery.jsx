@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { userContext } from "../../Contexts/MainContext";
+
+import info_img from '../../assets/Healthy.png'
+
 const OrderDelivery = () => {
     const { register, handleSubmit } = useForm()
     const { order, setOrder } = useContext(userContext)
@@ -17,8 +20,8 @@ const OrderDelivery = () => {
         <div className="container mx-auto grid grid-cols-2 gap-10">
             <div className="bg-green-50 p-10 rounded-lg">
 
-                <h3>Delivery Information</h3>
-                <p>We bring joy at your doorstep!</p>
+                <h3 className="text-3xl text-primary font-bold">Delivery Information</h3>
+                <p className="text-lg text-secondary font-medium mt-3 mb-6">We bring joy at your doorstep!</p>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex gap-4 mt-4">
                         <label className="w-full">Starting Date
@@ -45,10 +48,13 @@ const OrderDelivery = () => {
                             <input {...register("deliveryinstruction")} type="text" className="input input-bordered input-accent w-full max-w-xs" /></label>
 
                     </div>
-                    <div className="mt-4">
-                        <button type="submit" className="btn btn-primary rounded-none py-2 px-6">Next</button>
+                    <div className="mt-4 ">
+                        <button type="submit" className="btn text-white rounded-md bg-primary py-2 px-6 hover:bg-secondary hover:text-white">Next</button>
                     </div>
                 </form>
+            </div>
+            <div >
+                <img className="rounded-xl" src={info_img} alt="" />
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ const MealPlan = ({ plan }) => {
     }
     return (
         <article
-            className="relative overflow-hidden rounded-2xl shadow transition hover:shadow-lg bg-blue-200"
+            className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl shadow-[#2b34407a] "
         >
             <img
                 alt="Office"
@@ -24,7 +24,7 @@ const MealPlan = ({ plan }) => {
             />
 
             <div
-                className="relative pt-32 sm:pt-48 lg:pt-64"
+                className="relative pt-32 sm:pt-24 lg:pt-48"
             >
                 <div className="p-4 sm:p-6">
 
