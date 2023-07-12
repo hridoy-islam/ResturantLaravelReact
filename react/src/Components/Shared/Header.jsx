@@ -87,6 +87,7 @@ export default function Header() {
                                                 <Link to='/user/orders' className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'> Orders</Link>
                                                 <Link to='/user/profile' className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'>  {user.name}</Link>
 
+
                                             </div>
                                         </> : <>
                                             <div className="flex space-x-4">

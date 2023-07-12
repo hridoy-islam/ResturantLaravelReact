@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext, useEffect } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import axiosClient from "../../AxiosClient";
@@ -6,8 +7,8 @@ import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
 
 const UserLayout = () => {
-    const { token, setUser } = useContext(userContext)
-    if (!token) {
+    const { token, setUser, user } = useContext(userContext)
+    if (!token && !user?.email) {
         return <Navigate to="/login" />
     }
 
