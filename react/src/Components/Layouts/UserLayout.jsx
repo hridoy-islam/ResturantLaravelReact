@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useContext, useEffect } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import axiosClient from "../../AxiosClient";
@@ -12,15 +11,8 @@ const UserLayout = () => {
         return <Navigate to="/login" />
     }
 
-    function love() {
-        axios.get('http://fitnessdine.test/sanctum/csrf-cookie').then(res => {
-            console.log(res.headers)
-        })
-
-    }
 
     useEffect(() => {
-        love();
         axiosClient.get('/user')
             .then(({ data }) => {
                 setUser(data);

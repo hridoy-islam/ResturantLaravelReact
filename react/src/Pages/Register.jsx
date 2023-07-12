@@ -45,9 +45,9 @@ export default function Register() {
                         Register your account
                     </h2>
                     {errors &&
-                        <div className="alert">
+                        <div className="alert mt-2">
                             {Object.keys(errors).map(key => (
-                                <p key={key}>{errors[key][0]}</p>
+                                <p className="text-red-500 font-bold" key={key}>{errors[key][0]} </p>
                             ))}
                         </div>
                     }
