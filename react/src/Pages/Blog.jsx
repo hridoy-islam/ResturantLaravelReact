@@ -1,11 +1,10 @@
-import blog_banner from "../../src/assets/blog_banner.png";
 import img1 from "../../src/assets/Healthy.png";
 import BreadCumb from "../Components/Shared/BreadCumb";
 const Blog = () => {
     return (
         <div>
             <BreadCumb title="Blog" image="https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
-            <div className="grid grid-cols-3 gap-8 mx-24 my-24">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:mx-24 lg:my-24 mx-8 my-8">
                 <div className="p-8 border-2 rounded-lg">
                     <img className=" rounded-lg" src={img1} alt="img" />
                     <h2 className="text-2xl font-bold text-secondary py-3">Unlocking A Healthier Lifestyle: The Best Meal Plan In UAE</h2>
