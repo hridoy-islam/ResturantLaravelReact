@@ -1,5 +1,4 @@
 import BreadCumb from '../Components/Shared/BreadCumb';
-import PageTitle from '../Components/Shared/PageTitle';
 
 const About = () => {
     return (
