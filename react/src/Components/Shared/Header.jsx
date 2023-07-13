@@ -15,15 +15,7 @@ const navigation = [
     { name: 'FAQ', href: '/faq' },
     { name: 'Blog', href: '/blog' },
 
-    // { name: 'Create Plan', href: '/admin/create-plan' },
-    // { name: 'All Plan', href: '/admin/all-plans' },
-    // { nameAuth: ' ', href: 'login' },
-    // { nameAuth: 'Register', href: 'register' },
 ]
-// const auth = [
-//     { name: ' Login ', href: 'login' },
-//     { name: 'Register', href: 'register' },
-// ]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -81,7 +73,7 @@ export default function Header() {
                                                 key={item.name}
                                                 to={item.href}
                                                 className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                                    item.current ? 'bg-gray-900 text-white' : 'hover:bg-gray-900',
                                                     'rounded-md text-white px-3 py-2 text-md font-medium'
                                                 )}
                                             >
