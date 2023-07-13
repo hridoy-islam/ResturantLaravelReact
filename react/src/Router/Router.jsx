@@ -4,14 +4,15 @@ import Main from "../Components/Layouts/Main";
 import UserLayout from "../Components/Layouts/UserLayout";
 import Header from "../Components/Shared/Header";
 import About from "../Pages/About";
+import AllBlog from "../Pages/Admin/AllBlog";
 import AllOrders from "../Pages/Admin/AllOrders";
-import Blog from "../Pages/Blog";
 import Category from "../Pages/Admin/Category";
 import CreateBlog from "../Pages/Admin/CreateBlog";
 import CreateCategory from "../Pages/Admin/CreateCategory";
 import CreatePlan from "../Pages/Admin/CreatePlan";
 import PlanList from "../Pages/Admin/PlanList";
 import UserList from "../Pages/Admin/UserList";
+import Blog from "../Pages/Blog";
 import Faq from "../Pages/Faq";
 import Forgot from "../Pages/Forgot";
 import Home from "../Pages/Home";
@@ -19,9 +20,9 @@ import Login from "../Pages/Login";
 import NotFound from "../Pages/NotFound";
 import OrderNow from "../Pages/OrderNow";
 import Register from "../Pages/Register";
+import Thanks from "../Pages/Thanks";
 import Orders from "../Pages/User/Orders";
 import Profile from "../Pages/User/Profile";
-import AllBlog from "../Pages/Admin/AllBlog";
 
 const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
             {
                 path: "/faq",
                 element: <Faq />,
+            },
+            {
+                path: "/thanks",
+                element: <Thanks />,
             },
         ]
     },
