@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, Navigate } from "react-router-dom";
 import axiosClient from "../AxiosClient";
@@ -6,7 +6,7 @@ import { userContext } from "../Contexts/MainContext";
 import logo from '../assets/blacklogo.png';
 
 export default function Login() {
-
+    const [errors, setErrors] = useState(null)
     const { token, setUser, createToken } = useContext(userContext)
     const {
         register,
@@ -16,9 +16,11 @@ export default function Login() {
         axiosClient.post('login', data).then(({ data }) => {
             setUser(data.user);
             createToken(data.token);
-        }).catch((error) => {
-            const response = error.response;
-            console.log(response)
+        }).catch(error => {
+            const res = error.response;
+            if (res && res.status === 422) {
+                setErrors(res.data.errors);
+            }
         })
     }
     if (token) {
@@ -37,6 +39,13 @@ export default function Login() {
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Login
                     </h2>
+                    {errors &&
+                        <div className="alert mt-2">
+                            {Object.keys(errors).map(key => (
+                                <p className="text-red-500 font-bold" key={key}>{errors[key][0]}</p>
+                            ))}
+                        </div>
+                    }
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

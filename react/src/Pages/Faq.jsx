@@ -60,21 +60,21 @@ const Faq = () => {
         <div>
             <BreadCumb title="FAQ" image="https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
             <div className='container w-11/12 mx-auto max-w-6xl py-10  '>
-            
-            {
-                faqitems.map((data, idx) => 
-                <div key={idx} className="collapse collapse-plus bg-base-50 border rounded-md my-4">
-                    <input type="radio" name="my-accordion-3"  />
-                    <div className="collapse-title text-xl font-medium">
-                        {data.question}
-                    </div>
-                    <div className="collapse-content">
-                        <p>{data.answer}</p>
-                    </div>
-                </div>
-                )
-            }
-               
+
+                {
+                    faqitems.map((data, idx) =>
+                        <div key={idx} className="collapse collapse-plus bg-base-50 border rounded-md my-4">
+                            <input type="radio" name="my-accordion-3" />
+                            <div className="collapse-title text-xl font-medium">
+                                {data.question}
+                            </div>
+                            <div className="collapse-content">
+                                <p>{data.answer}</p>
+                            </div>
+                        </div>
+                    )
+                }
+
             </div>
 
         </div>
