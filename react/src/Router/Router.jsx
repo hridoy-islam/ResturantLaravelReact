@@ -23,6 +23,8 @@ import Register from "../Pages/Register";
 import Thanks from "../Pages/Thanks";
 import Orders from "../Pages/User/Orders";
 import Profile from "../Pages/User/Profile";
+import Menu from "../Pages/Menu";
+import Plan from "../Pages/Plan";  
 
 const router = createBrowserRouter([
     {
@@ -36,6 +38,15 @@ const router = createBrowserRouter([
             {
                 path: "/about",
                 element: <About />,
+            },
+            {
+                path: "/menu",
+                element: <Menu />,
+            },
+            
+            {
+                path: "/plan",
+                element: <Plan />,
             },
             {
                 path: "/login",

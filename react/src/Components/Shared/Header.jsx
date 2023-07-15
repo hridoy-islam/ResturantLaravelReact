@@ -9,8 +9,8 @@ import logo from '../../assets/logo.png';
 const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Meal Plan', href: '/' },
-    { name: 'View Menu', href: '/' },
+    { name: 'Meal Plan', href: '/plan' },
+    { name: 'View Menu', href: '/menu' },
     { name: 'Order Now', href: '/order-now' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Blog', href: '/blog' },
