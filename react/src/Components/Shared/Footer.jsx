@@ -2,7 +2,7 @@ import logo from '../../assets/logo.png';
 
 const Footer = () => {
     return (
-        <footer className=" p-10 bg-neutral text-neutral-content">
+        <footer className=" p-10 pt-24  bg-neutral text-neutral-content">
             <div>
                 <div className="footer-top grid lg:grid-cols-2 gap-6 w-full">
                     <div className='flex justify-between lg:justify-around'>
