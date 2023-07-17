@@ -1,0 +1,19 @@
+.slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: red !important;
+    border: none;
+    outline: none;
+    /* background: transparent; */
+    background: #699A2D !important;
+    border-radius: 100%;
+    z-index: 99;
+}

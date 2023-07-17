@@ -7,8 +7,8 @@ import order from '../../assets/order.png'
 const OrderStep = () => {
 
     return (
-        <div className="text-center bg-gray-100 container mx-auto my-4 rounded-full px-5 py-5">
-            <div className="flex justify-between align-middle items-center">
+        <div className="text-center bg-gray-100 container mx-auto my-4 lg:rounded-full px-5 py-5">
+            <div className="lg:flex justify-between align-middle items-center">
                 <button className="flex bg-white text-parimary font-semibold px-6 py-4 rounded-full">
                 <img className="w-6 mr-2" src={plan} alt="arrow" />
                 <span>    Select Plan</span>

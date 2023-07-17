@@ -5,7 +5,8 @@ import CustomerInformation from "./CustomerInformation";
 import OrderCustomize from "./OrderCustomize";
 import OrderDelivery from "./OrderDelivery";
 import OrderReview from "./OrderReview";
-import StepButton from "../StepButton";
+import OrderFaq from "../OrderFaq";
+import OrderSlider from "../OrderSlider";
 
 const OrderForm = () => {
     const plans = [
@@ -55,34 +56,31 @@ const OrderForm = () => {
     let content;
 
     if (order?.step === 0) {
-        content = <div className="container mx-auto py-10">
-            <StepButton></StepButton>
-            <div className="grid xs:grid-cols-1 sm:grid-cols-2 w-10/12 lg:w-full lg:grid-cols-4 gap-6 mx-8/12 mx-auto">
+        content = <div className=" mx-auto py-10">
+            <div className="grid xs:grid-cols-1 container sm:grid-cols-2 w-10/12 lg:w-full lg:grid-cols-4 gap-6 mx-8/12 mx-auto">
                 {plans.map((plan, index) => <MealPlan plan={plan} key={index} />)}
             </div>
+            <OrderFaq></OrderFaq>
+            <OrderSlider></OrderSlider>
         </div>
     }
     if (order.step === 1) {
         content = <div className="container mx-auto py-10">
-            <StepButton></StepButton>
             <OrderCustomize />
         </div>
     }
     if (order.step === 2) {
         content = <div className="container mx-auto py-10">
-            <StepButton></StepButton>
             <CustomerInformation />
         </div>
     }
     if (order.step === 3) {
         content = <div className="container mx-auto py-10">
-            <StepButton></StepButton>
             <OrderDelivery />
         </div>
     }
     if (order.step === 4) {
         content = <div className=" bg-gray-100 mx-auto py-10">
-            <StepButton></StepButton>
             <OrderReview />
         </div>
     }
