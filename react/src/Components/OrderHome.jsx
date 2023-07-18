@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { userContext } from "../../Contexts/MainContext";
-import MealPlan from "../Shared/MealPlan";
-import CustomerInformation from "./CustomerInformation";
-import OrderCustomize from "./OrderCustomize";
-import OrderDelivery from "./OrderDelivery";
-import OrderReview from "./OrderReview";
-import OrderFaq from "../OrderFaq";
+import { userContext } from "../Contexts/MainContext";
+import MealPlan from "../Components/Shared/MealPlan";
+import CustomerInformation from "../Components/OrderForm/CustomerInformation";
+import OrderCustomize from "../Components/OrderForm/OrderCustomize";
+import OrderDelivery from "../Components/OrderForm/OrderDelivery";
+import OrderReview from "../Components/OrderForm/OrderReview";
+import OrderStep from "./OrderForm/OrderStep";
 
 const OrderForm = () => {
     const plans = [
@@ -56,10 +56,12 @@ const OrderForm = () => {
 
     if (order?.step === 0) {
         content = <div className=" mx-auto py-10">
+            <div className="py-6">
+            <OrderStep></OrderStep>
+            </div>
             <div className="grid xs:grid-cols-1 container sm:grid-cols-2 w-10/12 lg:w-full lg:grid-cols-4 gap-6 mx-8/12 mx-auto">
                 {plans.map((plan, index) => <MealPlan plan={plan} key={index} />)}
             </div>
-            <OrderFaq></OrderFaq>
         </div>
     }
     if (order.step === 1) {

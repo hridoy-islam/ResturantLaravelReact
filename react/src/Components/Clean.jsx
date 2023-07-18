@@ -17,7 +17,7 @@ export default function Clean() {
                             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                                 You’re looking to maintain your body
                             </h1>
-                            <p className="mt-6 text-lg leading-8 text-gray-600">
+                            <p className="mt-6 lg:w-10/12 text-lg leading-8 text-gray-600">
                                 Fitbar provides Tasty, Affordable, and Healthy meal plans in Dubai. The 3 pillars that makes Fitbar stand out from everyone else.
                             </p>
                             <div className="mt-10 flex items-center lg:justify-start justify-center gap-x-6">

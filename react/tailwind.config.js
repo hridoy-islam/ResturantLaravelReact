@@ -19,13 +19,14 @@ export default {
                     ...require("daisyui/src/theming/themes")["[data-theme=light]"],
                     "primary": "#699A2D",
                     "secondary": "#2B3440",
+                    "star": "#4d7120",
                     "accent": "#1dcdbc",
                     "neutral": "#2b3440",
                     "base-100": "#ffffff",
                     "info": "#3abff8",
                     "success": "#36d399",
-                    "warning": "#fbbd23",
-                    "error": "#f87272",
+                    "primaryThin": "#7ab3354c",
+                    "primaryBold": "#4d7120",
                     "shadow": "#E0EFDF",
 
                     "--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
