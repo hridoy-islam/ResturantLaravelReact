@@ -10,30 +10,15 @@ class PlanController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|max:2048',
-            'name' => 'required|unique:plan'
-        ]);
+        $plan = new Plan;
+        $plan->name = $request->input('name');
+        $plan->image = $request->file('image')->store('images');
+        $plan->save();
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $filename = $file->getClientOriginalName();
-            $finalName = date('his') . $filename;
-            $request->file('image')->storeAs('images/', $finalName, 'public');
-            $plan = new Plan;
-            $plan->name = $request->name;
-            $plan->image = $finalName;
-            $plan->save();
-            return response()->json([
-                "success" => true,
-                "message" => "Plan Added successfully.",
-                "data" => $plan
-            ]);
-        } else {
-            return response()->json([
-                "success" => false,
-                "message" => "Please Upload File.",
-            ]);
-        }
+        return response()->json([
+            "success" => true,
+            "message" => "Plan Added successfully.",
+            "data" => $plan
+        ]);
     }
 }

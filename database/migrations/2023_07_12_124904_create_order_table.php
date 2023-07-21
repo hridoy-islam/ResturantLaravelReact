@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('order', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('plan_id')->unsigned()->index()->nullable();
-            $table->foreign('plan_id')->references('id')->on('plan');
+            $table->foreign('plan_id')->references('id')->on('plans');
             $table->string('deliveryperweek');
             $table->string('offday');
             $table->string('planduration');
