@@ -18,13 +18,18 @@ import Forgot from "../Pages/Forgot";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import NotFound from "../Pages/NotFound";
-import OrderNow from "../Pages/OrderNow";
 import Register from "../Pages/Register";
 import Thanks from "../Pages/Thanks";
 import Orders from "../Pages/User/Orders";
 import Profile from "../Pages/User/Profile";
 import Menu from "../Pages/Menu";
-import Plan from "../Pages/Plan";  
+import WeightLoss from "../Pages/WeightLoss";
+import WeightGain from "../Pages/WeightGain";
+import Keto from "../Pages/Keto";
+import MusclesGain from "../Pages/MusclesGain";
+import Vegetarian from "../Pages/Vegetarian";
+import Diabetic from "../Pages/Diabetic";
+import MealPlan from "../Pages/MealPlan";
 
 const router = createBrowserRouter([
     {
@@ -43,10 +48,29 @@ const router = createBrowserRouter([
                 path: "/menu",
                 element: <Menu />,
             },
-            
             {
-                path: "/plan",
-                element: <Plan />,
+                path: "/weight-loss-plan",
+                element: <WeightLoss />,
+            },
+            {
+                path: "/weight-gain-plan",
+                element: <WeightGain />,
+            },
+            {
+                path: "/keto-plan",
+                element: <Keto />,
+            },
+            {
+                path: "/muscles-Gain-plan",
+                element: <MusclesGain />,
+            },
+            {
+                path: "/vegetarian-plan",
+                element: <Vegetarian />,
+            },
+            {
+                path: "/diabetic-plan",
+                element: <Diabetic />,
             },
             {
                 path: "/login",
@@ -61,8 +85,8 @@ const router = createBrowserRouter([
                 element: <Forgot />,
             },
             {
-                path: "/order-now",
-                element: <OrderNow />,
+                path: "/meal-plan",
+                element: <MealPlan />,
             },
             {
                 path: "/blog",

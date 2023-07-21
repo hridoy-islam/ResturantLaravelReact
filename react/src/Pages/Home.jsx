@@ -4,14 +4,24 @@ import Location from "../Components/Location";
 import Banner from "../Components/Shared/Banner";
 import Step from "../Components/Step";
 import Subscribe from "../Components/Subscribe";
+import OrderSlider from "../Components/OrderSlider";
+import VarityMeal from "../Components/VarityMeal";
+import BlogHome from "../Components/BlogHome";
+import OrderHome from "../Components/OrderHome";
 
 
 const Home = () => {
     return (
         <div>
             <Banner />
-            <Clean />
+            {/* <VarityMeals /> */}
+            <OrderHome />
+            <VarityMeal />
             <Step />
+            <Clean />
+            <OrderSlider />
+            <BlogHome />
+            
             <Location />
             <Subscribe />
         </div>

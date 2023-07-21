@@ -9,9 +9,8 @@ import logo from '../../assets/logo.png';
 const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Meal Plan', href: '/plan' },
     { name: 'View Menu', href: '/menu' },
-    { name: 'Order Now', href: '/order-now' },
+    { name: 'Meal Plan', href: '/meal-plan' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Blog', href: '/blog' },
 
@@ -33,7 +32,7 @@ export default function Header() {
             })
     }
     return (
-        <Disclosure as="nav" className="bg-primary fixed w-full z-10">
+        <Disclosure as="nav" className="bg-primary fixed w-full z-50">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
