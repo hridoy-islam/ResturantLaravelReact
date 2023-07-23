@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\PostsController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/post', [PostsController::class, 'create'])->name('post.create');
     Route::post('/post', [PostsController::class, 'store'])->name('post.store');
+    Route::resource('menu', MenuController::class);
 });
 
 require __DIR__ . '/auth.php';
