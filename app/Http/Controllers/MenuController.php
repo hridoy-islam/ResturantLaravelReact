@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Menu\StoreRequest;
 use App\Models\Menu;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
@@ -17,12 +18,17 @@ class MenuController extends Controller
         ]);
     }
 
+    public function showAll(){
+        $data = Menu::all();
+        return response()->json($data, 200);
+    }
+
     public function create()
     {
         return response()->view('menu.create');
     }
 
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request) : RedirectResponse
     {
         $validated = $request->validated();
 

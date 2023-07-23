@@ -6,6 +6,7 @@ use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\PostsController;
 use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\PlanController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::get('/category/:id', [CategoryController::class, 'show']);
 Route::post('category', [CategoryController::class, 'store']);
 
 Route::post('/post', [PostsController::class, 'store']);
+Route::get('/menu', [MenuController::class, 'showAll']);
+Route::post('/menu', [MenuController::class, 'store']);
