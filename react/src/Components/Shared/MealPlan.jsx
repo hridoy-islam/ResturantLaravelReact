@@ -1,18 +1,10 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { userContext } from "../../Contexts/MainContext";
 
 const MealPlan = ({ plan }) => {
-    const { name, id } = plan
-    const { setOrder, order } = useContext(userContext)
-    const selectOrder = e => {
-        e.preventDefault();
-        let updatedValue = { "plan": parseInt(id), step: 1 };
-        setOrder(order => ({
-            ...order,
-            ...updatedValue
-        }));
-
-    }
+    const { name, url } = plan
+    
     return (
         <article
             className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl shadow-[#2b34407a] "
@@ -31,9 +23,8 @@ const MealPlan = ({ plan }) => {
                     <h3 className="mt-0.5 text-2xl font-bold text-primary top-10 absolute">
                         {name}
                     </h3>
-                    <button className="btn text-white btn-primary"
-                        onClick={selectOrder}
-                    >Select Plan</button>
+                    <Link to={url} className="btn text-white btn-primary"
+                    >Select Plan</Link>
                 </div>
             </div>
         </article >

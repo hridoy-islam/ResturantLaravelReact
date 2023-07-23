@@ -8,6 +8,7 @@ import OrderSlider from "../Components/OrderSlider";
 import VarityMeal from "../Components/VarityMeal";
 import BlogHome from "../Components/BlogHome";
 import OrderHome from "../Components/OrderHome";
+import OrderHomeStep from "../Components/OrderHomeStep";
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
         <div>
             <Banner />
             {/* <VarityMeals /> */}
+            <OrderHomeStep />
             <OrderHome />
             <VarityMeal />
             <Step />

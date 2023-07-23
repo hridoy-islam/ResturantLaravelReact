@@ -7,6 +7,7 @@ const MainContext = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
     const [loading, setLoading] = useState(true);
+    
     const [order, setOrder] = useState({
         plan: 0,
         step: 0,
