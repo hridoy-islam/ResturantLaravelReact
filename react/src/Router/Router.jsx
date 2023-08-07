@@ -30,6 +30,7 @@ import MusclesGain from "../Pages/MusclesGain";
 import Vegetarian from "../Pages/Vegetarian";
 import Diabetic from "../Pages/Diabetic";
 import MealPlan from "../Pages/MealPlan";
+import Payment from "../Pages/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
                 path: "/thanks",
                 element: <Thanks />,
             },
+            {
+                path: "/payment",
+                element: <Payment/>,
+            },
         ]
     },
 
@@ -114,7 +119,8 @@ const router = createBrowserRouter([
             {
                 path: "/user/orders",
                 element: <Orders />,
-            },
+            }
+            
         ]
     },
     {
