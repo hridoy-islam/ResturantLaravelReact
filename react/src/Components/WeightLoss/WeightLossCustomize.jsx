@@ -4,23 +4,30 @@ import { userContext } from "../../Contexts/MainContext";
 const WeightLossCustomize = () => {
     const { order, setOrder } = useContext(userContext)
     const [duration, setDuration] = useState('')
+    const [mealTime, setMealTime] = useState('')
     const [meal, setMeal] = useState([]);
     const durationPlan = [
-        '1 Week (6 Days)',
-        '1 Month (24 Days)'
+        '6 Days/week',
+        '5 Days/Week',
+        '20 Days/Month',
+        '24 Days/Month',
     ]
-    
+    const mealsTime = [
+        '1 meal',
+        '2 meal',
+        '3 meal',
+    ]
     const mealType = [
-        'Breakfast',
-        'Launch',
-        'Dinner',
+        'Breakfast Light',
         'Snack + Drink'
     ]
     const selectDuration = (item) => {
         setDuration(item)
     }
+    const selectMealTime= (item) => {
+        setMealTime(item)
+    }
     const selectMealType = (item) => {
-        console.log(item)
         if (meal.length > 1) {
             return 'Something Went Wrong';
         }
@@ -30,11 +37,12 @@ const WeightLossCustomize = () => {
         ]))
     }
     const handleNext = () => {
-        let updatedValue = { step: 2, duration: duration, days: days, offday: offday, meal: meal };
+        let updatedValue = { step: 2, duration: duration, mealTime: mealTime, meal: meal };
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
+        console.log(order)
     }
     return (
         <div className="container mx-auto grid grid-cols-2 gap-10">
@@ -59,7 +67,17 @@ const WeightLossCustomize = () => {
                         }
                     </div>
                 </div>
-                
+                <div className="my-10">
+                    <h2 className="text-2xl font-bold">Choose your meal type :</h2>
+                    <div className="flex gap-3 mt-4">
+
+                        {
+                            mealsTime.map((item, idx) => <>
+                                <button onClick={() => selectMealTime(item)} key={idx} className={`btn py-2 px-6 rounded-md text-white ${mealTime === item ? 'btn-secondary' : 'btn-primary'}`}> {item}</button>
+                            </>)
+                        }
+                    </div>
+                </div>
 
                 <div className="my-10">
                     <h2 className="text-2xl font-bold">Choose your meal type (2 minimum) :</h2>

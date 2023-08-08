@@ -7,6 +7,7 @@ const WeightLossCustomerInformation = () => {
     const { order, setOrder } = useContext(userContext)
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
+        console.log(data)
         let updatedValue = { step: 3, ...data };
         setOrder(order => ({
             ...order,

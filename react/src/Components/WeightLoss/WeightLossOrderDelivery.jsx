@@ -9,10 +9,12 @@ const WeightLossOrderDelivery = () => {
     const { order, setOrder } = useContext(userContext)
     const onSubmit = (data) => {
         let updatedValue = { step: 4, ...data };
+        console.log(updatedValue)
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
+        console.log(order)
     }
 
 
