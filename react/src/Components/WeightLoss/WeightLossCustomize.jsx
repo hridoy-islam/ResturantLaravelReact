@@ -30,11 +30,12 @@ const WeightLossCustomize = () => {
         ]))
     }
     const handleNext = () => {
-        let updatedValue = { step: 2, duration: duration, days: days, offday: offday, meal: meal };
+        let updatedValue = { step: 2, duration: duration, meal: meal };
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
+        console.log(order)
     }
     return (
         <div className="container mx-auto grid grid-cols-2 gap-10">
@@ -72,7 +73,7 @@ const WeightLossCustomize = () => {
                     </div>
                 </div>
                 <div className="my-10">
-                    <h2 className="text-3xl font-bold">Price: 689.00 AED</h2>
+                    <h2 className="text-3xl font-bold">Price: 32.00 AED</h2>
                     <p className="text-xm mt-1 text-secondary">Price Exclusive of VAT</p>
                 </div>
 
