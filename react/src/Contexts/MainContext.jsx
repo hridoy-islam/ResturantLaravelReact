@@ -11,6 +11,22 @@ const MainContext = ({ children }) => {
     const [order, setOrder] = useState({
         plan: 0,
         step: 0,
+        duration: 0,
+        meal: 0,
+        price: 0,
+        basePrice: 0,
+        snacks: {
+            price: 0,
+            added: false,
+        },
+        breakFastLight: {
+            price: 0,
+            added: false,
+        },
+        breakFastFull: {
+            price: 0,
+            added: false,
+        },
     })
 
     const createToken = (token) => {
