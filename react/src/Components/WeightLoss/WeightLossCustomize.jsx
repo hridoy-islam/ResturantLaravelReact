@@ -186,9 +186,9 @@ const WeightLossCustomize = () => {
     //     console.log(order)
     // }
     return (
-        <div className="container mx-auto grid grid-cols-2 gap-10">
-            <div className=" p-10 rounded-lg">
-                <div className="flex justify-between items-center">
+        <div className="container mx-auto bg-white rounded-xl">
+            <div className=" p-10 rounded-lg ">
+                <div className="flex justify-between items-center ">
                     <h2 className="text-2xl font-bold">Customise your plan - Price {order.price}</h2>
                     <button className="text-secondary btn bg-white border border-primary rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -197,7 +197,7 @@ const WeightLossCustomize = () => {
 
                         Our Menu</button>
                 </div>
-                <div className="my-10">
+                <div className="my-10 bg-white">
                     <h2 className="text-2xl font-bold">Choose plan duration :</h2>
                     <div className="flex gap-3 mt-4">
 
@@ -238,7 +238,7 @@ const WeightLossCustomize = () => {
                 <div className="my-10">
                     <h2 className="text-2xl font-bold">Add Snacks to your meal plan :</h2>
                     
-                    <button onClick={addSnacks} className={`border  py-2 px-4 rounded-md text-md ${order.snacks.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Snacks </button>
+                    <button onClick={addSnacks} className={`border mt-4 py-2 px-4 rounded-md text-md ${order.snacks.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Snacks </button>
                 </div> 
 
                 {/* <div className="my-10">
@@ -252,16 +252,16 @@ const WeightLossCustomize = () => {
                     </div>
                 </div> */}
                 <div className="my-10">
-                    <h2 className="text-3xl font-bold">Price: 32.00 AED</h2>
+                    <h2 className="text-3xl font-bold">Price: {order.price} AED</h2>
                     <p className="text-xm mt-1 text-secondary">Price Exclusive of VAT</p>
                 </div>
 
-                <div className="my-10">
-                    <button className="btn  py-2 px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                <div className="mt-10">
+                    <button className="btn  pt-2 px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                 </div>
-                <div className="border-b border-secondary">
+                {/* <div className="border-b border-secondary">
 
-                </div>
+                </div> */}
             </div>
 
         </div >

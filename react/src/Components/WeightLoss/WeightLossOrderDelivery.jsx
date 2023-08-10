@@ -19,7 +19,7 @@ const WeightLossOrderDelivery = () => {
 
 
     return (
-        <div className="container mx-auto grid grid-cols-2 gap-10">
+        <div className="container mx-auto bg-white my-12 py-12 rounded-xl">
             <div className="  px-10 rounded-lg">
 
                 <h3 className="text-3xl text-primary font-bold mb-8">Delivery Information</h3>
@@ -35,14 +35,15 @@ const WeightLossOrderDelivery = () => {
                                 <option value={'ctg'}>Ctg</option>
                             </select>
                         </label>
-                    </div>
-                    <div className="flex gap-4 mt-4">
                         <label className="w-full">Address
                             <input {...register("address")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
-                        <label className="w-full">Apartment/Villa Number *
-                            <input {...register("apartment")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
                     </div>
+                    {/* <div className="flex gap-4 mt-4">
+
+                    </div> */}
                     <div className="flex gap-4 mt-4">
+                    <label className="w-full">Apartment/Villa Number *
+                            <input {...register("apartment")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
                         <label className="w-full">Google Maps Link *
                             <input {...register("gmap")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
 
@@ -50,10 +51,10 @@ const WeightLossOrderDelivery = () => {
                             <input {...register("deliveryinstruction")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
 
                     </div>
-                    <div className="my-10">
-                    <button type="submit" className="btn  py-2 px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                    <div className="mt-10">
+                    <button type="submit" className="btn  pt-2 px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                     </div>
-                    <div className="border-b border-secondary"></div>
+                    {/* <div className="border-b border-secondary"></div> */}
                     
                 </form>
             </div>
