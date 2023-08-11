@@ -9,11 +9,24 @@
     padding: 0;
     transform: translate(0, -50%);
     cursor: pointer;
-    color: red !important;
+   
     border: none;
     outline: none;
     /* background: transparent; */
-    background: #699A2D !important;
+    
     border-radius: 100%;
     z-index: 9;
+}
+.slick-next {
+    right: -10px;
+}
+.slick-prev::before{
+    
+    font-size: 60px;
+    color: #699A2D;
+}
+.slick-next::before{
+    
+    font-size: 60px;
+    color: #699A2D;
 }
