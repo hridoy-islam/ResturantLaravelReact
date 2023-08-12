@@ -2,7 +2,7 @@
     font-size: 0;
     line-height: 0;
     position: absolute;
-    top: 50%;
+    top: 40%;
     display: block;
     width: 50px;
     height: 50px;
@@ -30,3 +30,17 @@
     font-size: 60px;
     color: #699A2D;
 }
+@media only screen and (max-width: 600px) {
+    .slick-next {
+        right: 6px;
+    }
+    .slick-prev {
+        left: 6px;
+    }
+    .slick-prev::before{
+        font-size: 50px;
+    }
+    .slick-next::before{
+        font-size: 50px;
+    }
+  }

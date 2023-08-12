@@ -1,5 +1,6 @@
 import banner_img from '../../assets/banner_img.png'
-
+import banner_2 from '../../assets/banner_2.png'
+import banner_3 from '../../assets/banner_3.png'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
@@ -42,14 +43,14 @@ export default class SimpleSlider extends Component {
       ]
     };
     return (
-      <div className="container mx-auto pb-8">
+      <div className="container mx-auto lg:pb-8 lg:px-12">
         <Slider {...settings}>
         <div>
-            <div className="bg-white lg:flex justify-around items-center">
-                <div>
+            <div className="bg-white lg:flex md:flex-row lg:flex-row flex flex-col-reverse justify-around items-center">
+                <div className='w-full'>
                     <div className="relative  px-6 pt-6 lg:px-8">
 
-                        <div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-20">
+                        <div className="lg:ml-12 max-w-2xl sm:py-48 lg:py-20">
 
                             <div className="lg:text-left text-center">
                                 <h2 className='text-2xl font-bold text-primary tracking-widest'>Classic</h2>
@@ -78,32 +79,20 @@ export default class SimpleSlider extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div
-                            className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-                            aria-hidden="true"
-                        >
-                            <div
-                                className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                                style={{
-                                    clipPath:
-                                        'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                                }}
-                            />
-                        </div>
                     </div>
                 </div>
-                <div className=''>
-                    <img className='pt-12' src={banner_img} alt="" />
+                <div className='lg:mr-12'>
+                    <img className='pt-12 ' src={banner_img} alt="" />
                 </div>
 
             </div>
         </div>
         <div>
-            <div className="bg-white lg:flex justify-around items-center">
-                <div>
+            <div className="bg-white lg:flex md:flex-row lg:flex-row flex flex-col-reverse justify-around items-center">
+                <div className='w-full'>
                     <div className="relative px-6 pt-6 lg:px-8">
 
-                        <div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-20">
+                        <div className="lg:ml-12 max-w-2xl  sm:py-48 lg:py-20">
 
                             <div className="lg:text-left text-center">
                                 <h2 className='text-2xl font-bold text-primary tracking-widest'>Classic</h2>
@@ -132,32 +121,20 @@ export default class SimpleSlider extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div
-                            className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-                            aria-hidden="true"
-                        >
-                            <div
-                                className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                                style={{
-                                    clipPath:
-                                        'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                                }}
-                            />
-                        </div>
                     </div>
                 </div>
-                <div className=''>
-                    <img className='pt-12' src={banner_img} alt="" />
+                <div className='lg:mr-12'>
+                    <img className='pt-12 lg:w-10/12 lg:ml-auto' src={banner_2} alt="" />
                 </div>
 
             </div>
         </div> 
         <div>
-            <div className="bg-white lg:flex justify-around items-center">
-                <div>
+            <div className="bg-white lg:flex md:flex-row lg:flex-row flex flex-col-reverse justify-around items-center">
+                <div className='w-full'>
                     <div className="relative px-6 pt-6 lg:px-8">
 
-                        <div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-20">
+                        <div className="lg:ml-12 sm:py-48 lg:py-20">
 
                             <div className="lg:text-left text-center">
                                 <h2 className='text-2xl font-bold text-primary tracking-widest'>Classic</h2>
@@ -186,29 +163,16 @@ export default class SimpleSlider extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div
-                            className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-                            aria-hidden="true"
-                        >
-                            <div
-                                className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                                style={{
-                                    clipPath:
-                                        'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                                }}
-                            />
-                        </div>
+                        
                     </div>
                 </div>
-                <div className=''>
-                    <img className='pt-12' src={banner_img} alt="" />
+                <div className='lg:mr-12'>
+                    <img className='pt-12 lg:w-10/12 lg:ml-auto w-full mx-auto' src={banner_3} alt="" />
                 </div>
 
             </div>
         </div> 
         </Slider>
-        
-        <button className="px-8 py-3 rounded-3xl bg-primary text-lg hover:bg-secondary text-white flex justify-center mx-auto mt-12">View Menu</button>
       </div>
     );
   }
