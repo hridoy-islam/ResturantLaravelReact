@@ -13,6 +13,7 @@ const navigation = [
     { name: 'Meal Plan', href: '/meal-plan' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Dashboard', href: '/dashboard' },
 
 ]
 

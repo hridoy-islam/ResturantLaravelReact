@@ -31,6 +31,7 @@ import Vegetarian from "../Pages/Vegetarian";
 import Diabetic from "../Pages/Diabetic";
 import MealPlan from "../Pages/MealPlan";
 import Payment from "../Pages/Payment/Payment";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
             {
                 path: "/payment",
                 element: <Payment/>,
+            },
+            {
+                path: "/dashboard",
+                element: <Dashboard/>,
             },
         ]
     },
