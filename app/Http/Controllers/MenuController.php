@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Menu\StoreRequest;
+use App\Http\Requests\Menu\UpdateRequest;
 use App\Models\Menu;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class MenuController extends Controller
         ]);
     }
 
-    public function showAll(){
+    public function showAll()
+    {
         $data = Menu::all();
         return response()->json($data, 200);
     }
@@ -28,7 +30,7 @@ class MenuController extends Controller
         return response()->view('menu.create');
     }
 
-    public function store(StoreRequest $request) : RedirectResponse
+    public function store(StoreRequest $request): RedirectResponse
     {
         $validated = $request->validated();
 
@@ -65,12 +67,12 @@ class MenuController extends Controller
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
         $menu = Menu::findOrFail($id);
         $validated = $request->validated();
 
-        if ($request->hasFile('featured_image')) {
+        if ($request->hasFile('menu_image')) {
             // delete image
             Storage::disk('public')->delete($menu->menu_image);
 
@@ -81,8 +83,8 @@ class MenuController extends Controller
         $update = $menu->update($validated);
 
         if ($update) {
-            session()->flash('notif.success', 'Post updated successfully!');
-            return redirect()->route('posts.index');
+            session()->flash('notif.success', 'Menu updated successfully!');
+            return redirect()->route('menu.index');
         }
 
         return abort(500);
@@ -98,7 +100,7 @@ class MenuController extends Controller
 
         if ($delete) {
             session()->flash('notif.success', 'Post deleted successfully!');
-            return redirect()->route('posts.index');
+            return redirect()->route('menu.index');
         }
 
         return abort(500);

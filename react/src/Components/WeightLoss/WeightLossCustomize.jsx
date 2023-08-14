@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { userContext } from "../../Contexts/MainContext";
 
 const WeightLossCustomize = () => {
@@ -68,34 +68,36 @@ const WeightLossCustomize = () => {
 
     const addBreakfastLight = () => {
         const duration = order.duration;
+        const price = order.price;
         const breakFastLight = duration * order.breakFastLight.price;
         const breakFastFull = duration * order.breakFastFull.price;
         const status = order.breakFastLight.added
         const bfFullStatus = order.breakFastFull.added
-        let price;
+        let total;
         let added;
         let full;
 
-        if(bfFullStatus){
-            price = order.price - breakFastFull
+        if (bfFullStatus === true) {
+            total = price - breakFastFull
         }
 
-        if(!status){
-            price = order.price + breakFastLight
+        if (!status) {
+            total = price + breakFastLight
             added = true
             full = false
         }
-        
+
         else {
-            price = order.price - breakFastLight
+            total = price - breakFastLight
             added = false
             full = order.breakFastFull.added
         }
-        let updatedValue = { price: price, 
-            breakFastLight: {price: order.breakFastLight.price, added},
-            breakFastFull: {price: order.breakFastFull.price, added: full},
+        let updatedValue = {
+            price: total,
+            breakFastLight: { price: order.breakFastLight.price, added },
+            breakFastFull: { price: order.breakFastFull.price, added: full },
 
-         };
+        };
         setOrder(order => ({
             ...order,
             ...updatedValue
@@ -104,45 +106,45 @@ const WeightLossCustomize = () => {
 
     const addBreakfastFull = () => {
         const duration = order.duration;
+        const price = order.price;
         const breakFastFull = duration * order.breakFastFull.price;
         const breakFastLight = duration * order.breakFastLight.price;
         const status = order.breakFastFull.added
         const bfLightStatus = order.breakFastFull.added
-        let price;
+        let total;
         let added;
         let light;
-
-        if(bfLightStatus){
-            price = order.price - breakFastLight
+        if (bfLightStatus === true) {
+            total = price - breakFastLight
         }
-
-        if(!status){
-            price = order.price + breakFastFull
+        if (!status) {
+            total = price + breakFastFull
             added = true
             light = false
         }
         else {
-            price = order.price - breakFastFull
+            total = price - breakFastFull
             added = false
             light = order.breakFastLight.added
         }
-        let updatedValue = { price: price, 
-            breakFastFull: {price: order.breakFastFull.price, added},
-            breakFastLight: {price: order.breakFastLight.price, added: light}
-         };
+        let updatedValue = {
+            price: total,
+            breakFastFull: { price: order.breakFastFull.price, added },
+            breakFastLight: { price: order.breakFastLight.price, added: light }
+        };
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
     }
 
-    const addSnacks =  () => {
+    const addSnacks = () => {
         const duration = order.duration;
         const snacks = duration * order.snacks.price;
         const status = order.snacks.added
         let price;
         let added;
-        if(!status){
+        if (!status) {
             price = order.price + snacks
             added = true
         }
@@ -150,8 +152,8 @@ const WeightLossCustomize = () => {
             price = order.price - snacks
             added = false
         }
-        
-        let updatedValue = { price: price, snacks: {price: order.snacks.price, added} };
+
+        let updatedValue = { price: price, snacks: { price: order.snacks.price, added } };
         setOrder(order => ({
             ...order,
             ...updatedValue
@@ -165,12 +167,12 @@ const WeightLossCustomize = () => {
         let defaultPrice = basePrice * 6
         let updatedValue = {
             price: defaultPrice,
-            duration: 6, 
-            meal: 1, 
+            duration: 6,
+            meal: 1,
             basePrice: basePrice,
-            breakFastLight: {price : 10, added: false},
-            breakFastFull: {price : 32, added: false},
-            snacks: {price : 7, added: false},
+            breakFastLight: { price: 10, added: false },
+            breakFastFull: { price: 32, added: false },
+            snacks: { price: 7, added: false },
         };
         setOrder(order => ({
             ...order,
@@ -226,20 +228,20 @@ const WeightLossCustomize = () => {
                     </div>
                 </div>
 
-                 <div className="my-10">
+                <div className="my-10">
                     <h2 className="text-2xl font-bold">Choose your meal type (2 minimum) :</h2>
                     <div className="flex gap-3 mt-4">
-                    <button onClick={addBreakfastLight} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastLight.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Light </button>
+                        <button onClick={addBreakfastLight} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastLight.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Light </button>
 
-                    <button onClick={addBreakfastFull} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastFull.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Full </button>
+                        <button onClick={addBreakfastFull} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastFull.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Full </button>
                     </div>
                 </div>
 
                 <div className="my-10">
                     <h2 className="text-2xl font-bold">Add Snacks to your meal plan :</h2>
-                    
+
                     <button onClick={addSnacks} className={`border mt-4 py-2 px-4 rounded-md text-md ${order.snacks.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Snacks </button>
-                </div> 
+                </div>
 
                 {/* <div className="my-10">
                     <h2 className="text-2xl font-bold">Choose your meal type (2 minimum) :</h2>

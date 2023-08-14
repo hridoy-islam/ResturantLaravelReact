@@ -12,14 +12,14 @@ const WeightLoss = () => {
 
             <OrderStep></OrderStep>
             <div className='  bg-gray-100'>
-                <div className='flex container mx-auto'>
-                <div className='w-7/12 mr-12 mt-12'>
+                <div className='lg:flex container mx-auto'>
+                <div className='lg:w-7/12 lg:mr-12 mt-12'>
                     <WeightLossCustomize />
                     <WeightLossCustomerInformation />
                     <WeightLossOrderDelivery />
                     {/* <WeightLossOrderReview/> */}
                 </div>
-                <div className='w-4/12'>
+                <div className='lg:w-4/12'>
                    <OrderSummary/>
                 </div>
                 </div>

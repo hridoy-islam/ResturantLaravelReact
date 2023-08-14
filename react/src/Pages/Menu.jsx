@@ -59,7 +59,7 @@ const Menu = () => {
                 <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-center">Meals packed with flavor</h2>
                 <p className="mt-6 text-xl leading-8 text-gray-600 text-center">Choose the menu that’s right for you</p>
             </div>
-            <div className="grid grid-cols-3 gap-4 container mx-auto text-center py-10">
+            <div className="grid lg:grid-cols-3 gap-4 container mx-auto text-center py-10">
             {plans.map((plan, index) => 
                 <div key={index} className="shadow p-6 hover:bg-gray-50">
                     <img className="w-70 mx-auto" src="https://fitbar.ae/wp-content/uploads/2022/07/clean-new.png" />

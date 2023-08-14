@@ -33,8 +33,8 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
-                            <img class="h-64 w-128" src="{{ Storage::url($menu->menu_image) }}"
-                                alt="{{ $menu->name }}" srcset="">
+                            <img class="h-64 w-96" src="{{ $menu->menu_image }}" alt="{{ $menu->name }}"
+                                srcset="">
                         </p>
                     </div>
                     <div class="mb-6">
