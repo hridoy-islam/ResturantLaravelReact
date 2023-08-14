@@ -12,7 +12,7 @@ import CreateCategory from "../Pages/Admin/CreateCategory";
 import CreatePlan from "../Pages/Admin/CreatePlan";
 import PlanList from "../Pages/Admin/PlanList";
 import UserList from "../Pages/Admin/UserList";
-import Blog from "../Pages/Blog";
+import Blog from "../Pages/Blogs";
 import Faq from "../Pages/Faq";
 import Forgot from "../Pages/Forgot";
 import Home from "../Pages/Home";
@@ -21,7 +21,7 @@ import NotFound from "../Pages/NotFound";
 import Register from "../Pages/Register";
 import Thanks from "../Pages/Thanks";
 import Orders from "../Pages/User/Orders";
-import Profile from "../Pages/User/Profile";
+import Profile from "../Pages/User/Account";
 import Menu from "../Pages/Menu";
 import WeightLoss from "../Pages/WeightLoss";
 import WeightGain from "../Pages/WeightGain";
@@ -31,7 +31,9 @@ import Vegetarian from "../Pages/Vegetarian";
 import Diabetic from "../Pages/Diabetic";
 import MealPlan from "../Pages/MealPlan";
 import Payment from "../Pages/Payment/Payment";
-import Dashboard from "../Pages/Dashboard/Dashboard";
+import Dashboard from "../Pages/User/Dashboard";
+import MyProfile from "../Pages/User/MyProfile";
+import BlogDetails from "../Pages/BlogDetails";
 
 const router = createBrowserRouter([
     {
@@ -95,6 +97,10 @@ const router = createBrowserRouter([
                 element: <Blog />,
             },
             {
+                path: "/blog/:id",
+                element: <BlogDetails />,
+            },
+            {
                 path: "/faq",
                 element: <Faq />,
             },
@@ -105,20 +111,23 @@ const router = createBrowserRouter([
             {
                 path: "/payment",
                 element: <Payment/>,
-            },
-            {
-                path: "/dashboard",
-                element: <Dashboard/>,
-            },
-        ]
+            }
+        ], 
     },
-
     {
         path: '/user',
         element: <UserLayout />,
         children: [
             {
-                path: "/user/profile",
+                path: "/user/dashboard",
+                element: <Dashboard />,
+            },
+            {
+                path: "/user/myprofile",
+                element: <MyProfile />,
+            },
+            {
+                path: "/user/account",
                 element: <Profile />,
             },
             {
