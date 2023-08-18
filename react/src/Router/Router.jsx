@@ -34,6 +34,7 @@ import Payment from "../Pages/Payment/Payment";
 import Dashboard from "../Pages/User/Dashboard";
 import MyProfile from "../Pages/User/MyProfile";
 import BlogDetails from "../Pages/BlogDetails";
+import PrivateRoute from "./PriveteRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -120,7 +121,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/user/dashboard",
-                element: <Dashboard />,
+                element: <PrivateRoute><Dashboard /></PrivateRoute>,
             },
             {
                 path: "/user/myprofile",

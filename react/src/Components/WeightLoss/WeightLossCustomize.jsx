@@ -259,7 +259,7 @@ const WeightLossCustomize = () => {
                 </div>
 
                 <div className="mt-10">
-                    <button className="btn  pt-2 px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                    <button className="btn px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                 </div>
                 {/* <div className="border-b border-secondary">
 

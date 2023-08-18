@@ -4,7 +4,7 @@ import {  Outlet } from "react-router-dom";
 // import { userContext } from "../../Contexts/MainContext";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
-import SideNav from "../../Pages/User/SideNav/SideNav";
+import SideNav from "../../Pages/SideNav/SideNav";
 
 const UserLayout = () => {
     // const { token, setUser, user } = useContext(userContext)

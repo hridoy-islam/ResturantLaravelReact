@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { userContext } from "../../Contexts/MainContext";
-import info_img from '../../assets/Healthy.png'
 
 const WeightLossCustomerInformation = () => {
     const { order, setOrder } = useContext(userContext)
@@ -13,6 +12,7 @@ const WeightLossCustomerInformation = () => {
             ...order,
             ...updatedValue
         }));
+        console.log(order)
     }
     return (
         <div className="container mx-auto  bg-white my-12 py-12 rounded-xl">
@@ -40,7 +40,7 @@ const WeightLossCustomerInformation = () => {
                         
                     </div> */}
                     <div className="mt-10">
-                    <button type="submit" className="btn  pt-2 px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                    <button type="submit" className="btn px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                     </div>
                     {/* <div className="border-b border-secondary"></div> */}
                 </form>

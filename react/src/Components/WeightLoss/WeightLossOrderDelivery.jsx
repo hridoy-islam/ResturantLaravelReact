@@ -47,12 +47,12 @@ const WeightLossOrderDelivery = () => {
                         <label className="w-full">Google Maps Link *
                             <input {...register("gmap")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
 
-                        <label className="w-full">Delivery Instructions (Optional)
+                        <label className="w-full">Delivery Instructions
                             <input {...register("deliveryinstruction")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
 
                     </div>
                     <div className="mt-10">
-                    <button type="submit" className="btn  pt-2 px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                    <button type="submit" className="btn px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                     </div>
                     {/* <div className="border-b border-secondary"></div> */}
                     
