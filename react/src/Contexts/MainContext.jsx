@@ -1,14 +1,13 @@
 import { createContext, useEffect, useState } from 'react';
-import app from '../firebase/firebase.config';
-import { createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged , getAuth } from 'firebase/auth';
+import { redirect } from 'react-router-dom';
 
 export const userContext = createContext();
-const auth = getAuth(app);
+
 
 const MainContext = ({ children }) => {
     const [error, setError] = useState(null);
-    const [user, setUser] = useState(null);
-    const [token, setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('details')));
+    const [token, setToken] = useState(localStorage.getItem('fitnesstoken'));
     const [loading, setLoading] = useState(true);
     
     const [order, setOrder] = useState({
@@ -31,55 +30,35 @@ const MainContext = ({ children }) => {
             added: false,
         },
     })
+    console.log(order)
 
-    const createToken = (token) => {
-        setToken(token);
-        if (token) {
-            localStorage.setItem('ACCESS_TOKEN', token);
-        }
-        else {
-            localStorage.removeItem('ACCESS_TOKEN');
-        }
-    }
-    const createUser = (email, password) => {
-        setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
-    }
-    const signIn = (email, password) => {
-        setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
-    }
 
-    const providerLogin = (Provider) => {
-        return signInWithPopup(auth, Provider);
-    }
     const logOut = () => {
-        setLoading(true);
-        return signOut(auth);
+        localStorage.removeItem('details');
+        localStorage.removeItem('fitnesstoken');
     }
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-            setLoading(false)
-        })
 
-        return () => unSubscribe()
-    }, [])
+    // const createToken = (token) => {
+    //     setToken(token);
+    //     if (token) {
+    //         localStorage.setItem('fitnesstoken', token);
+    //     }
+    //     else {
+    //         localStorage.removeItem('fitnesstoken');
+    //     }
+    // }
+    
     const info = {
         user,
         loading,
         order,
         setOrder,
-        setUser,
-        setLoading,
-        createToken,
         token,
         error,
         setError,
-        createUser,
-        signIn,
-        logOut,
-        providerLogin
+        setLoading,
+        logOut
+
     }
     return (
         <userContext.Provider value={info}>

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import axiosClient from '../../AxiosClient';
 import PageTitle from '../../Components/Shared/PageTitle';
 
-const Category = () => {
+const Customer = () => {
 
     const [cat, setCat] = useState();
     useEffect(() => {
-        axiosClient.get('category')
+        axiosClient.get('')
             .then(res => {
                 setCat(res.data);
             })
@@ -17,9 +17,9 @@ const Category = () => {
 
     return (
         <div>
-            <PageTitle title="Category" />
+            <PageTitle title="Customer" />
             <div className="py-4 container mx-auto">
-                <Link className='py-2 px-4 bg-primary rounded-none' to='/admin/category/create'>Create Category</Link>
+                <Link className='py-2 px-4 bg-primary rounded-none' to='/admin/category/create'>Customers</Link>
             </div>
 
 
@@ -72,4 +72,4 @@ const Category = () => {
     );
 };
 
-export default Category;
+export default Customer;

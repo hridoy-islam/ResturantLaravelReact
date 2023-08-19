@@ -1,24 +1,19 @@
 // import { useContext, useEffect } from "react";
-import {  Outlet } from "react-router-dom";
+import {  Navigate, Outlet } from "react-router-dom";
 // import axiosClient from "../../AxiosClient";
 // import { userContext } from "../../Contexts/MainContext";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
 import SideNav from "../../Pages/SideNav/SideNav";
+import { useEffect } from "react";
 
 const UserLayout = () => {
-    // const { token, setUser, user } = useContext(userContext)
-    // if (!token && !user?.email) {
-    //     return <Navigate to="/login" />
-    // }
-
-
-    // useEffect(() => {
-    //     axiosClient.get('/user')
-    //         .then(({ data }) => {
-    //             setUser(data);
-    //         })
-    // }, []);
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("fitnesstoken");
+        if (!loggedInUser) {
+            return <Navigate replace to="/login" />;
+        }
+      }, []);
 
     return (
         <div>

@@ -1,57 +1,33 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate, } from "react-router-dom";
+import { Link, redirect, useLocation, useNavigate} from "react-router-dom";
 // import axiosClient from "../AxiosClient";
 import  { userContext } from "../Contexts/MainContext";
 import logo from '../assets/blacklogo.png';
-import { GoogleAuthProvider } from "firebase/auth";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function Login() {
-    let [error, setError] = useState("");
+    const navigate = useNavigate();
+    const {user} = useContext(userContext)
+    const { register, handleSubmit, } = useForm();
+    const onSubmit = data => 
+    
+     axios.post('http://localhost:5000/auth/login', data)
+    .then(({ data }) => {
+        localStorage.setItem('fitnesstoken', data.accessToken);
+        localStorage.setItem('details', JSON.stringify(data.user));
+        return navigate("/user/dashboard");
+    })
+    .catch(error => {
+        console.log(error)
+    });
+    
+    if(user?.email){
+        return navigate("/user/dashboard");
+    }
 
-    let {signIn, providerlogin} = useContext(userContext);
-    let navigate = useNavigate();
-    let location = useLocation();
-  
-    let from = location.state?.from?.pathname || "/";
-  
-    const googleProvider = new GoogleAuthProvider();
-  
-    let handleGoogleSignIn = () => {
-      providerlogin(googleProvider)
-        .then((result) => {
-          const user = result.user;
-          navigate(from, { replace: true });
-          console.log(user);
-        })
-        .catch((error) => console.error(error));
-    };
-  
-    let handleSubmit = (event) => {
-      event.preventDefault();
-      let form = event.target;
-      let email = form.email.value;
-      let password = form.password.value;
-      // console.log(email, password);
-  
-      signIn(email, password)
-        .then((result) => {
-          const user = result.user;
-          console.log(user);
-          form.reset();
-          navigate(from, { replace: true });
-        })
-        .catch((error) => {
-          console.log(error);
-          if (error.message === "Firebase: Error (auth/user-not-found).") {
-            setError("User Not found. Please Create your account.");
-          }
-  
-          if (error.message === "Firebase: Error (auth/wrong-password).") {
-            setError("Wrong Password. Please Try Again.");
-          }
-        });
-    };
+
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -68,7 +44,7 @@ export default function Login() {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" onSubmit={handleSubmit}>
+                    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
 
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
@@ -82,7 +58,7 @@ export default function Login() {
                                     autoComplete="email"
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 px-2"
-                                    // {...register('email')}
+                                    {...register('email')}
                                 />
                             </div>
                         </div>
@@ -101,7 +77,7 @@ export default function Login() {
                                     autoComplete="current-password"
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 px-2"
-                                    // {...register('password')}
+                                    {...register('password')}
                                 />
                             </div>
                         </div>
@@ -113,7 +89,7 @@ export default function Login() {
                             >
                                 Login
                             </button>
-                            <button  onClick={handleGoogleSignIn} className='mt-6 text-lg font -semibold text-center mx-auto w-full py-2 bg-secondary text-white rounded-xl'>Continue with Google</button>
+                            {/* <button  onClick={handleGoogleSignIn} className='mt-6 text-lg font -semibold text-center mx-auto w-full py-2 bg-secondary text-white rounded-xl'>Continue with Google</button> */}
                         </div>
                     </form>
                     {/* {errors &&
@@ -121,7 +97,7 @@ export default function Login() {
                                 <p className="text-red-500 text-center font-bold">Password Incorrect</p>
                         </div>
                     } */}
-                    <p className="mt-6 text-red-500">{error}</p>
+                    <p className="mt-6 text-red-500"></p>
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Don`t Have Account?{' '}
                         <Link to="/register" className="font-bold leading-6 text-secondary hover:text-primary">

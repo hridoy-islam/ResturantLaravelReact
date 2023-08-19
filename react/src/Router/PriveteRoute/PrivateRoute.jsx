@@ -10,10 +10,10 @@ const PrivateRoute = ({children}) => {
     //     return <Loader></Loader>
     // }
 
-    if(user && user.uid){
+    if(user && user?.role){
         return children;
     }
-    return <Navigate to='/login' state={{from: location}} replace></Navigate>
+    return <Navigate to='/login'></Navigate>
 };
 
 export default PrivateRoute;

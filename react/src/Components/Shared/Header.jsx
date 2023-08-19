@@ -85,7 +85,7 @@ export default function Header() {
                                 <div className="hidden sm:mx-8 sm:block">
                                     {
                                         
-                                            user?.uid ?
+                                            user?.role ?
                                             <>
                                               <div className='flex flex space-x-4'>
                                               <Link className='rounded-3xl flex items-center justify-center text-white pr-24 py-2 text-md font-medium ' to={'/user/dashboard'}>Dashboard</Link>

@@ -6,92 +6,108 @@ import { GoogleAuthProvider, getAuth } from 'firebase/auth';
 import app from '../firebase/firebase.config';
 
 import logo from '../assets/blacklogo.png';
+import { useForm } from 'react-hook-form';
+import axiosClient from '../AxiosClient';
+import { data } from 'autoprefixer';
+import axios from 'axios';
 
 export default function Register() {
-    const auth = getAuth(app)
+    // const auth = getAuth(app)
     const [errors, setErrors] = useState(null)
-    const[role, setRole] = useState('user')
-    const {token, createUser, providerLogin} = useContext(userContext);
-    let navigate = useNavigate();
-    let location = useLocation();
+    // const[role, setRole] = useState('user')
+    // const {token, createUser, providerLogin} = useContext(userContext);
+    // let navigate = useNavigate();
+    // let location = useLocation();
   
-    let from = location.state?.from?.pathname || "/";
+    // let from = location.state?.from?.pathname || "/";
     // const handleChange = (e) => {
     //     const info = e.target;
     //     const value = info.value;
     //     setRole(value);
     // }
     // const {  createToken } = useContext(MainContext)
-    const handleSubmit = event => {
-        event.preventDefault();
-        const form = event.target;
-        const userName = form.name.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        if(password.length < 6){
-            setErrors('Password should be a characters or more.');
-            return;
-        }
-        createUser(email, password, userName,auth, role)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            // updateProfile(auth.currentUser, {
-            //     displayName: userName
-            //   })
-            //     .then(() => {
-            //       console.log("profile updated");
-            //     })
-            //     .catch((error) => {
-            //       console.log(error);
-            //     });
-            navigate(from, { replace: true });
-            form.reset();
-            const currentUser = {
-                name: userName,
-                email: email,
-                role: role,
-            };
-            fetch('http://localhost:5000/auth/signup', {
-                 method: 'POST',
-                 headers: {
-                'content-type': 'application/json'
-            },
-                body: JSON.stringify(currentUser)
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
-            .catch((err) => console.error(err));
-            // axiosClient.post('http://localhost:5000/auth/signup', data)
-            // .then(({ data }) => {
-            //     setUser(data.user);
-            //     createToken(data.token);
-            // })
-            // .catch(error => {
-            //     const res = error.response;
-            //     if (res && res.status === 422) {
-            //         setErrors(res.data.errors);
-            //     }
-            // })
+//     const handleSubmit = event => {
+//         event.preventDefault();
+//         const form = event.target;
+//         const userName = form.name.value;
+//         const email = form.email.value;
+//         const password = form.password.value;
+//         if(password.length < 6){
+//             setErrors('Password should be a characters or more.');
+//             return;
+//         }
+//         createUser(email, password, userName,auth, role)
+//         .then(result => {
+//             const user = result.user;
+//             console.log(user);
+//             // updateProfile(auth.currentUser, {
+//             //     displayName: userName
+//             //   })
+//             //     .then(() => {
+//             //       console.log("profile updated");
+//             //     })
+//             //     .catch((error) => {
+//             //       console.log(error);
+//             //     });
+//             navigate(from, { replace: true });
+//             form.reset();
+//             const currentUser = {
+//                 name: userName,
+//                 email: email,
+//                 role: role,
+//             };
+//             fetch('http://localhost:5000/auth/signup', {
+//                  method: 'POST',
+//                  headers: {
+//                 'content-type': 'application/json'
+//             },
+//                 body: JSON.stringify(currentUser)
+//             })
+//             .then(res => res.json())
+//             .then(data => {
+//                 console.log(data)
+//             })
+//             .catch((err) => console.error(err));
+//             // axiosClient.post('http://localhost:5000/auth/signup', data)
+//             // .then(({ data }) => {
+//             //     setUser(data.user);
+//             //     createToken(data.token);
+//             // })
+//             // .catch(error => {
+//             //     const res = error.response;
+//             //     if (res && res.status === 422) {
+//             //         setErrors(res.data.errors);
+//             //     }
+//             // })
 
-        })
-        .catch(error => console.error(error)); 
-}
-const googleProvider = new GoogleAuthProvider();
-const handleGoogleSignIn = () => {
-    providerLogin(googleProvider)
-    .then(result => {
-        const user = result.user
-        console.log(user)
-    })
-    .catch(error => console.error(error))
-}
+//         })
+//         .catch(error => console.error(error)); 
+// }
+// const googleProvider = new GoogleAuthProvider();
+// const handleGoogleSignIn = () => {
+//     providerLogin(googleProvider)
+//     .then(result => {
+//         const user = result.user
+//         console.log(user)
+//     })
+//     .catch(error => console.error(error))
+// }
 
-    if (token) {
-        return <Navigate to="/user/profile" />
+//     if (token) {
+//         return <Navigate to="/user/profile" />
+//     }
+const { register, handleSubmit, } = useForm();
+const onSubmit = data => 
+ axios.post('http://localhost:5000/auth/signup', data)
+.then(({ data }) => {
+    console.log(data)
+})
+.catch(error => {
+    const res = error.response;
+    if (res && res.status === 422) {
+        setErrors(res.data.errors);
     }
+});
 
     return (
         <>
@@ -115,7 +131,7 @@ const handleGoogleSignIn = () => {
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" onSubmit={handleSubmit}>
+                    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                                 Your Name
@@ -127,7 +143,7 @@ const handleGoogleSignIn = () => {
                                     type="text"
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 px-2"
-                                    // {...register('name')}
+                                    {...register('name')}
                                 />
                             </div>
                         </div>
@@ -143,7 +159,7 @@ const handleGoogleSignIn = () => {
                                     autoComplete="email"
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 px-2"
-                                    // {...register('email')}
+                                    {...register('email')}
                                 />
                             </div>
                         </div>
@@ -167,7 +183,7 @@ const handleGoogleSignIn = () => {
                                     autoComplete="current-password"
                                     required
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 px-2"
-                                    // {...register('password')}
+                                    {...register('password')}
                                 />
                             </div>
                         </div>
@@ -181,7 +197,7 @@ const handleGoogleSignIn = () => {
                             >
                                 Sign Up
                             </button>
-                            <button  onClick={handleGoogleSignIn} className='mt-6 text-lg font -semibold text-center mx-auto w-full py-2 bg-secondary text-white rounded-xl'>Continue with Google</button>
+                            {/* <button  onClick={handleGoogleSignIn} className='mt-6 text-lg font -semibold text-center mx-auto w-full py-2 bg-secondary text-white rounded-xl'>Continue with Google</button> */}
                         </div>
                     </form>
 

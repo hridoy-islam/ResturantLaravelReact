@@ -3,6 +3,7 @@ import { userContext } from "../../Contexts/MainContext";
 
 const WeightLossCustomize = () => {
     const { order, setOrder } = useContext(userContext)
+    console.log(order)
     const durationPlan = [
         {
             day: 6,
@@ -36,10 +37,10 @@ const WeightLossCustomize = () => {
             name: '3 Meal'
         },
     ]
-    const mealType = [
-        'Breakfast Light',
-        'Snack + Drink'
-    ]
+    // const mealType = [
+    //     'Breakfast Light',
+    //     'Snack + Drink'
+    // ]
 
     const selectDuration = (item) => {
         const meal = order.meal;
@@ -51,7 +52,7 @@ const WeightLossCustomize = () => {
             ...updatedValue
         }));
 
-        console.log(order.price)
+        // console.log(order.price)
     }
     const selectMealTime = (item) => {
         const duration = order.duration;
@@ -63,7 +64,7 @@ const WeightLossCustomize = () => {
             ...updatedValue
         }));
 
-        console.log(order.price)
+        // console.log(order.price)
     }
 
     const addBreakfastLight = () => {
@@ -204,26 +205,21 @@ const WeightLossCustomize = () => {
                     <div className="flex gap-3 mt-4">
 
                         {
-                            durationPlan.map((item, idx) => <>
-                                {/*
-                                className={`border  py-2 px-3 rounded-md text-md ${duration === item ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
-                                */}
-                                <button onClick={() => selectDuration(item.day)} key={idx}
+                            durationPlan.map((item, index) =>
+                                <button key={index} onClick={() => selectDuration(item.day)}
                                     className={`border py-2 px-3 rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
                                 > {item.title}</button>
-                            </>)
+                            )
                         }
                     </div>
                 </div>
                 <div className="my-10">
                     <h2 className="text-2xl font-bold">Choose your meal type :</h2>
                     <div className="flex gap-3 mt-4">
-
                         {
-                            // ${mealTime === item ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`
-                            mealsTime.map((item, idx) => <>
-                                <button onClick={() => selectMealTime(item.meal)} key={idx} className={`border  py-2 px-4 rounded-md text-md ${order.meal === item.meal ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}> {item.name}</button>
-                            </>)
+                            mealsTime.map((item, idx) =>
+                                <button key={idx} onClick={() => selectMealTime(item.meal)}  className={`border  py-2 px-4 rounded-md text-md ${order.meal === item.meal ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}> {item.name}</button>
+                            )
                         }
                     </div>
                 </div>
@@ -242,17 +238,6 @@ const WeightLossCustomize = () => {
 
                     <button onClick={addSnacks} className={`border mt-4 py-2 px-4 rounded-md text-md ${order.snacks.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Snacks </button>
                 </div>
-
-                {/* <div className="my-10">
-                    <h2 className="text-2xl font-bold">Choose your meal type (2 minimum) :</h2>
-                    <div className="flex gap-3 mt-4">
-                        {mealType.map((item, index) => <>
-                            <button onClick={() => selectMealType(item)} key={index}
-                                className={`border  py-2 px-4 rounded-md text-md ${meal.includes(item) ? 'border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
-                            > {item} </button>
-                        </>)}
-                    </div>
-                </div> */}
                 <div className="my-10">
                     <h2 className="text-3xl font-bold">Price: {order.price} AED</h2>
                     <p className="text-xm mt-1 text-secondary">Price Exclusive of VAT</p>
@@ -261,9 +246,6 @@ const WeightLossCustomize = () => {
                 <div className="mt-10">
                     <button className="btn px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                 </div>
-                {/* <div className="border-b border-secondary">
-
-                </div> */}
             </div>
 
         </div >

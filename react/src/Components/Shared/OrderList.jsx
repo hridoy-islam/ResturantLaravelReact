@@ -4,16 +4,14 @@ const OrderList = () => {
             <table className="table table-sm">
                 <thead>
                     <tr className="text-md">
-                        <th></th>
-                        <th className="text-lg font-bold text-secondary">Name</th>
+                        <th className="text-lg font-bold text-secondary">Order ID</th>
                         <th className="text-lg font-bold text-secondary">Meal Type</th>
                         <th className="text-lg font-bold text-secondary">Address</th>
-                        <th className="text-lg font-bold text-secondary">Price</th>
+                        <th className="text-lg font-bold text-secondary">Payment</th>
                     </tr>
                 </thead>
                 <tbody className="pt-4">
                     <tr>
-                        <th className="text-sm font-bold text-secondary">1</th>
                         <td className="text-sm font-medium text-secondary">Keto</td>
                         <td className="text-sm font-medium text-secondary">20 Days a week</td>
                         <td className="text-sm font-medium text-secondary">Littel, Schaden and Vandervort</td>

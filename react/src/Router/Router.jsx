@@ -6,9 +6,8 @@ import Header from "../Components/Shared/Header";
 import About from "../Pages/About";
 import AllBlog from "../Pages/Admin/AllBlog";
 import AllOrders from "../Pages/Admin/AllOrders";
-import Category from "../Pages/Admin/Category";
 import CreateBlog from "../Pages/Admin/CreateBlog";
-import CreateCategory from "../Pages/Admin/CreateCategory";
+import Customer from "../Pages/Admin/Customer";
 import CreatePlan from "../Pages/Admin/CreatePlan";
 import PlanList from "../Pages/Admin/PlanList";
 import UserList from "../Pages/Admin/UserList";
@@ -30,11 +29,15 @@ import MusclesGain from "../Pages/MusclesGain";
 import Vegetarian from "../Pages/Vegetarian";
 import Diabetic from "../Pages/Diabetic";
 import MealPlan from "../Pages/MealPlan";
-import Payment from "../Pages/Payment/Payment";
 import Dashboard from "../Pages/User/Dashboard";
 import MyProfile from "../Pages/User/MyProfile";
 import BlogDetails from "../Pages/BlogDetails";
 import PrivateRoute from "./PriveteRoute/PrivateRoute";
+import Order from "../Pages/Admin/Order";
+import Subscribe from "../Pages/Admin/Subscribe";
+import OrderSummary from "../Components/OrderSummary";
+import Success from "../Components/Success";
+import Cancel from "../Components/Cancel";
 
 const router = createBrowserRouter([
     {
@@ -111,7 +114,15 @@ const router = createBrowserRouter([
             },
             {
                 path: "/payment",
-                element: <Payment/>,
+                element: <OrderSummary/>,
+            },
+            {
+                path: "/success",
+                element: <Success/>,
+            },
+            {
+                path: "/cancel",
+                element: <Cancel/>,
             }
         ], 
     },
@@ -159,12 +170,16 @@ const router = createBrowserRouter([
                 element: <PlanList />,
             },
             {
-                path: "/admin/category",
-                element: <Category />,
+                path: "/admin/Customer",
+                element: <Customer />,
             },
             {
-                path: "/admin/category/create",
-                element: <CreateCategory />,
+                path: "/admin/order",
+                element: <Order />,
+            },
+            {
+                path: "/admin/subscribe",
+                element: <Subscribe />,
             },
             {
                 path: "/admin/blog",
