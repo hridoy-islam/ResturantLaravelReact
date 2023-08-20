@@ -38,6 +38,8 @@ import Subscribe from "../Pages/Admin/Subscribe";
 import OrderSummary from "../Components/OrderSummary";
 import Success from "../Components/Success";
 import Cancel from "../Components/Cancel";
+import CreateMenu from "../Pages/Admin/CreateMenu";
+import AllMenu from "../Pages/Admin/AllMenu";
 
 const router = createBrowserRouter([
     {
@@ -132,7 +134,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/user/dashboard",
-                element: <PrivateRoute><Dashboard /></PrivateRoute>,
+                element: <Dashboard />,
             },
             {
                 path: "/user/myprofile",
@@ -188,6 +190,14 @@ const router = createBrowserRouter([
             {
                 path: "/admin/blog/create",
                 element: <CreateBlog />,
+            },
+            {
+                path: "/admin/menu",
+                element: <AllMenu />,
+            },
+            {
+                path: "/admin/menu/create",
+                element: <CreateMenu />,
             },
         ]
     },

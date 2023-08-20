@@ -1,13 +1,19 @@
 import { useContext } from 'react';
 import PageTitle from '../../Components/Shared/PageTitle';
+import { useForm } from 'react-hook-form';
 import { userContext } from '../../Contexts/MainContext';
 const Profile = () => {
-    const { user } = useContext(userContext)
+    const user = useContext(userContext)
+    console.log(user)
+    const { register, handleSubmit, } = useForm();
+const onSubmit = data =>{
+    console.log(data)
+}
     return (
         <div>
             <PageTitle title="Account Details" />
 
-            <form className='container mx-auto py-4'>
+            <form onSubmit={handleSubmit(onSubmit)} className='container mx-auto py-4'>
                 <div className="space-y-12 mt-6">
                     <div className="border-b border-gray-900/10 pb-8">
                         <h2 className="text-xl font-semibold leading-7 text-gray-900">Personal Information</h2>
@@ -23,8 +29,9 @@ const Profile = () => {
                                         type="text"
                                         name="name"
                                         id="name"
-                                        value={user?.name}
                                         className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('name')}
+
                                     />
                                 </div>
                             </div>
@@ -38,9 +45,11 @@ const Profile = () => {
                                         type="email"
                                         name="email"
                                         id="email"
-                                        value={user?.email}
+                                        value={user?.user?.email}
                                         disabled={true}
                                         className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('email')}
+
                                     />
                                 </div>
                             </div>
@@ -60,10 +69,12 @@ const Profile = () => {
                                 <div className="mt-2">
                                     <input
                                         type="text"
-                                        name="street-address"
+                                        name="bill-street-address"
                                         id="street-address"
                                         autoComplete="street-address"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('bill-street-address')}
+
                                     />
                                 </div>
                             </div>
@@ -75,10 +86,12 @@ const Profile = () => {
                                 <div className="mt-2">
                                     <input
                                         type="text"
-                                        name="city"
+                                        name="bill-city"
                                         id="city"
                                         autoComplete="address-level2"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('bill-city')}
+
                                     />
                                 </div>
                             </div>
@@ -90,10 +103,12 @@ const Profile = () => {
                                 <div className="mt-2">
                                     <input
                                         type="text"
-                                        name="region"
+                                        name="bill-region"
                                         id="region"
                                         autoComplete="address-level1"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('bill-region')}
+
                                     />
                                 </div>
                             </div>
@@ -105,10 +120,12 @@ const Profile = () => {
                                 <div className="mt-2">
                                     <input
                                         type="text"
-                                        name="postal-code"
+                                        name="bill-postal-code"
                                         id="postal-code"
                                         autoComplete="postal-code"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('bill-postal-code')}
+
                                     />
                                 </div>
                             </div>
@@ -132,6 +149,8 @@ const Profile = () => {
                                         id="street-address"
                                         autoComplete="street-address"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('Ship-street-address')}
+
                                     />
                                 </div>
                             </div>
@@ -147,6 +166,8 @@ const Profile = () => {
                                         id="city"
                                         autoComplete="address-level2"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('Ship-city')}
+
                                     />
                                 </div>
                             </div>
@@ -162,6 +183,8 @@ const Profile = () => {
                                         id="region"
                                         autoComplete="address-level1"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('Ship-region')}
+
                                     />
                                 </div>
                             </div>
@@ -177,6 +200,8 @@ const Profile = () => {
                                         id="postal-code"
                                         autoComplete="postal-code"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        {...register('Ship-postal-code')}
+
                                     />
                                 </div>
                             </div>

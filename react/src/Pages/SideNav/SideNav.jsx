@@ -15,10 +15,10 @@ const SideNav = () => {
                     <>
                       
                         <p className="text-xl font-semibold my-4">
-                            <Link to="/admin/blog/create">Blog</Link>
-                        </p >
+                            <Link to="/admin/blog/">Blog</Link>
+                        </p>
                         <p className="text-xl font-semibold my-4">
-                            <Link to="/admin/customer/"> Customer</Link>
+                            <Link to="/admin/menu/">Menu</Link>
                         </p>
                         <p className="text-xl font-semibold my-4">
                             <Link to="/admin/order">Order</Link>
@@ -41,9 +41,6 @@ const SideNav = () => {
                         <p className="text-xl font-semibold my-4">
                             <Link to="/user/orders">My Orders</Link>
                         </p >
-                        <p className="text-xl font-semibold my-4">
-                            <Link to="/user/myprofile">My Profile</Link>
-                        </p>
                         <p className="text-xl font-semibold my-4">
                             <Link to="/user/account">Account Details</Link>
                         </p>
