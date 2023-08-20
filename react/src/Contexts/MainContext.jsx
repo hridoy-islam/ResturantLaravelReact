@@ -1,5 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
-import { redirect } from 'react-router-dom';
+import { createContext, useState } from 'react';
 
 export const userContext = createContext();
 
@@ -9,7 +8,7 @@ const MainContext = ({ children }) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('details')));
     const [token, setToken] = useState(localStorage.getItem('fitnesstoken'));
     const [loading, setLoading] = useState(true);
-    
+
     const [order, setOrder] = useState({
         plan: 0,
         step: 0,
@@ -33,10 +32,7 @@ const MainContext = ({ children }) => {
     console.log(order)
 
 
-    const logOut = () => {
-        localStorage.removeItem('details');
-        localStorage.removeItem('fitnesstoken');
-    }
+
 
     // const createToken = (token) => {
     //     setToken(token);
@@ -47,7 +43,7 @@ const MainContext = ({ children }) => {
     //         localStorage.removeItem('fitnesstoken');
     //     }
     // }
-    
+
     const info = {
         user,
         loading,
@@ -57,7 +53,8 @@ const MainContext = ({ children }) => {
         error,
         setError,
         setLoading,
-        logOut
+        setUser,
+        setToken
 
     }
     return (

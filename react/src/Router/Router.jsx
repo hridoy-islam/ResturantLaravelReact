@@ -1,36 +1,39 @@
 import { createBrowserRouter } from "react-router-dom";
+import Cancel from "../Components/Cancel";
 import AdminLayout from "../Components/Layouts/AdminLayout";
 import Main from "../Components/Layouts/Main";
 import UserLayout from "../Components/Layouts/UserLayout";
+import OrderSummary from "../Components/OrderSummary";
 import Header from "../Components/Shared/Header";
+import Success from "../Components/Success";
 import About from "../Pages/About";
 import AllBlog from "../Pages/Admin/AllBlog";
 import AllOrders from "../Pages/Admin/AllOrders";
 import CreateBlog from "../Pages/Admin/CreateBlog";
-import Customer from "../Pages/Admin/Customer";
 import CreatePlan from "../Pages/Admin/CreatePlan";
+import Customer from "../Pages/Admin/Customer";
+import Order from "../Pages/Admin/Order";
 import PlanList from "../Pages/Admin/PlanList";
+import Subscribe from "../Pages/Admin/Subscribe";
 import UserList from "../Pages/Admin/UserList";
+import BlogDetails from "../Pages/BlogDetails";
 import Blog from "../Pages/Blogs";
+import Diabetic from "../Pages/Diabetic";
 import Faq from "../Pages/Faq";
 import Forgot from "../Pages/Forgot";
 import Home from "../Pages/Home";
+import Keto from "../Pages/Keto";
 import Login from "../Pages/Login";
+import MealPlan from "../Pages/MealPlan";
+import Menu from "../Pages/Menu";
+import MusclesGain from "../Pages/MusclesGain";
 import NotFound from "../Pages/NotFound";
 import Register from "../Pages/Register";
 import Thanks from "../Pages/Thanks";
-import Orders from "../Pages/User/Orders";
 import Profile from "../Pages/User/Account";
-import Menu from "../Pages/Menu";
-import WeightLoss from "../Pages/WeightLoss";
-import WeightGain from "../Pages/WeightGain";
-import Keto from "../Pages/Keto";
-import MusclesGain from "../Pages/MusclesGain";
-import Vegetarian from "../Pages/Vegetarian";
-import Diabetic from "../Pages/Diabetic";
-import MealPlan from "../Pages/MealPlan";
 import Dashboard from "../Pages/User/Dashboard";
 import MyProfile from "../Pages/User/MyProfile";
+<<<<<<< HEAD
 import BlogDetails from "../Pages/BlogDetails";
 import PrivateRoute from "./PriveteRoute/PrivateRoute";
 import Order from "../Pages/Admin/Order";
@@ -40,6 +43,12 @@ import Success from "../Components/Success";
 import Cancel from "../Components/Cancel";
 import CreateMenu from "../Pages/Admin/CreateMenu";
 import AllMenu from "../Pages/Admin/AllMenu";
+=======
+import Orders from "../Pages/User/Orders";
+import Vegetarian from "../Pages/Vegetarian";
+import WeightGain from "../Pages/WeightGain";
+import WeightLoss from "../Pages/WeightLoss";
+>>>>>>> 4ad15ba56307ffcc4ccfd878ea0b8e243e00f1cc
 
 const router = createBrowserRouter([
     {
@@ -116,17 +125,17 @@ const router = createBrowserRouter([
             },
             {
                 path: "/payment",
-                element: <OrderSummary/>,
+                element: <OrderSummary />,
             },
             {
                 path: "/success",
-                element: <Success/>,
+                element: <Success />,
             },
             {
                 path: "/cancel",
-                element: <Cancel/>,
+                element: <Cancel />,
             }
-        ], 
+        ],
     },
     {
         path: '/user',
@@ -148,7 +157,7 @@ const router = createBrowserRouter([
                 path: "/user/orders",
                 element: <Orders />,
             }
-            
+
         ]
     },
     {

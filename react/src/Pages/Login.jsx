@@ -1,29 +1,37 @@
-import { useContext, useEffect, useState } from "react";
-// import { useForm } from "react-hook-form";
-import { Link, redirect, useLocation, useNavigate} from "react-router-dom";
-// import axiosClient from "../AxiosClient";
-import  { userContext } from "../Contexts/MainContext";
-import logo from '../assets/blacklogo.png';
-import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from "react-router-dom";
+import { userContext } from "../Contexts/MainContext";
+import logo from '../assets/blacklogo.png';
 
 export default function Login() {
     const navigate = useNavigate();
-    const {user} = useContext(userContext)
+    const { user, setUser, setToken } = useContext(userContext)
     const { register, handleSubmit, } = useForm();
-    const onSubmit = data => 
-    
-     axios.post('http://localhost:5000/auth/login', data)
-    .then(({ data }) => {
-        localStorage.setItem('fitnesstoken', data.accessToken);
-        localStorage.setItem('details', JSON.stringify(data.user));
-        return navigate("/user/dashboard");
-    })
-    .catch(error => {
-        console.log(error)
-    });
-    
-    if(user?.email){
+    const onSubmit = data =>
+
+        axios.post('http://localhost:5000/auth/login', data)
+            .then(({ data }) => {
+                localStorage.setItem('fitnesstoken', data.accessToken);
+                localStorage.setItem('details', JSON.stringify(data.user));
+                setUser(data.user);
+                setToken(data.accessToken);
+                if (data.success) {
+                    toast.success(data.message);
+                    navigate('/user/dashboard');
+                }
+                else {
+                    toast.error(data.message);
+                    navigate('/login');
+                }
+            })
+            .catch(error => {
+                toast.error(error.message);
+            });
+
+    if (user?.email) {
         return navigate("/user/dashboard");
     }
 
@@ -40,7 +48,7 @@ export default function Login() {
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Login
                     </h2>
-                    
+
                 </div>
 
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -156,7 +164,7 @@ export default function Login() {
 //         })
 //         .catch(error => console.error(error));
 //     }
-    
+
 //     const googleProvider = new GoogleAuthProvider();
 //     const handleGoogleSignIn = () => {
 //         providerLogin(googleProvider)
