@@ -33,22 +33,12 @@ import Thanks from "../Pages/Thanks";
 import Profile from "../Pages/User/Account";
 import Dashboard from "../Pages/User/Dashboard";
 import MyProfile from "../Pages/User/MyProfile";
-<<<<<<< HEAD
-import BlogDetails from "../Pages/BlogDetails";
-import PrivateRoute from "./PriveteRoute/PrivateRoute";
-import Order from "../Pages/Admin/Order";
-import Subscribe from "../Pages/Admin/Subscribe";
-import OrderSummary from "../Components/OrderSummary";
-import Success from "../Components/Success";
-import Cancel from "../Components/Cancel";
 import CreateMenu from "../Pages/Admin/CreateMenu";
 import AllMenu from "../Pages/Admin/AllMenu";
-=======
-import Orders from "../Pages/User/Orders";
-import Vegetarian from "../Pages/Vegetarian";
-import WeightGain from "../Pages/WeightGain";
 import WeightLoss from "../Pages/WeightLoss";
->>>>>>> 4ad15ba56307ffcc4ccfd878ea0b8e243e00f1cc
+import WeightGain from "../Pages/WeightGain";
+import Vegetarian from "../Pages/Vegetarian";
+import Orders from "../Pages/User/Orders";
 
 const router = createBrowserRouter([
     {

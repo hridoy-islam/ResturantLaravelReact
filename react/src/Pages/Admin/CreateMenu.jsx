@@ -3,26 +3,38 @@ import { useForm } from 'react-hook-form';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import PageTitle from '../../Components/Shared/PageTitle';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const CreateMenu = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const [errors, setErrors] = useState(null)
     // const onsubmit = data =>{
     //     console.log(data)
     // }
-    const onsubmit = async (data) => {
+    const onsubmit = data =>
+        axios.post('http://localhost:5000/menu', data)
+            .then(({ data }) => {
+                console.log(data)
+                if (data.success) {
+                    toast.success("Create Menu");
+                    navigate('/admin/menu/create');
+                }
+                else {
+                    toast.success("Create Menu");
+                    navigate('/admin/menu/');
+                }
+                reset()
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        };
-    
-        const response = await fetch("http://localhost:5000/menu/", requestOptions);
-        const jsonData = await response.json();
-        reset()
-        console.log(jsonData);
-    }
+            })
+            .catch(error => {
+                const res = error.response;
+                if (res && res.status === 422) {
+                    setErrors(res.data.errors);
+                }
+            });
 
 //    .catch(error => {
 //        const res = error.response;

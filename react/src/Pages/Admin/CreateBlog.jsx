@@ -5,34 +5,38 @@ import 'react-quill/dist/quill.snow.css';
 import axiosClient from '../../AxiosClient';
 import PageTitle from '../../Components/Shared/PageTitle';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const CreateBlog = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const [errors, setErrors] = useState(null)
     // const [category, setCategory] = useState();
     // const onSubmit = data =>{
     //     console.log(data)
     // }
-    const onsubmit = async (data) => {
+    const onsubmit = data =>
+        axios.post('http://localhost:5000/blog', data)
+            .then(({ data }) => {
+                console.log(data)
+                if (data.success) {
+                    toast.success("Create Blog");
+                    navigate('/admin/blog');
+                }
+                else {
+                    toast.success("Create Blog");
+                    navigate('/admin/blog');
+                }
+                reset()
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        };
-    
-        const response = await fetch("http://localhost:5000/blog/", requestOptions);
-        const jsonData = await response.json();
-        reset()
-        console.log(jsonData);
-    }
-    // useEffect(() => {
-    //     axiosClient.get('category')
-    //         .then(res => {
-    //             setCategory(res.data);
-    //             console.log(res.data);
-    //         })
-    // }, [])
+            })
+            .catch(error => {
+                const res = error.response;
+                if (res && res.status === 422) {
+                    setErrors(res.data.errors);
+                }
+            });
     return (
         <div>
             <PageTitle title="Create Blog" />
@@ -52,6 +56,7 @@ const CreateBlog = () => {
                                             name="title"
                                             id="title"
                                             placeholder='title'
+                                            required
                                             className="block pl-4 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                                             {...register('title')}
 
@@ -64,15 +69,17 @@ const CreateBlog = () => {
                                         Image
                                     </label>
                                     <div className="mt-2">
-                                    <input type="file" id="picture" name="picture" className="file-input file-input-bordered file-input-success w-full " {...register('picture')}/>
+                                    <input type="file" id="picture" name="picture" required className="file-input file-input-bordered file-input-success w-full " {...register('picture')}/>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>             
-                    <p className='my-2'>Description</p>
+                    </div>
+                    <label htmlFor="region" className="block text-md mb-2 font-medium leading-6 text-gray-900">
+                    Description
+                    </label>   
                     <textarea
-                    type="text" id="description" name="description" className="file-input file-input-bordered file-input-success w-full max-w-xs" {...register('description')}
+                    type="text" id="description" name="description" required className="file-input file-input-bordered file-input-success w-full max-w-xs" {...register('description')}
                     ></textarea>
                     {/* <ReactQuill theme="snow"
                         value={editorContent}

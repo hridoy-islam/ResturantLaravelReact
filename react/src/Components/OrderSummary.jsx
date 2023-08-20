@@ -19,7 +19,7 @@ const OrderSummary = () => {
           mode:"cors",
           body: JSON.stringify({
             items: [
-                {id:1, quantity: 1, price: orderPrice.price, name: "red"}
+                {id:1, quantity: 1, price: orderPrice.price, name: "Pay Meal"}
             ]
           })
         })
