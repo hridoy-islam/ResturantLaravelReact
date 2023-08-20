@@ -1,113 +1,36 @@
-import { useContext, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate} from 'react-router-dom';
-// import axiosClient from '../AxiosClient';
-import { userContext } from '../Contexts/MainContext';
-import { GoogleAuthProvider, getAuth } from 'firebase/auth';
-import app from '../firebase/firebase.config';
-
-import logo from '../assets/blacklogo.png';
-import { useForm } from 'react-hook-form';
-import axiosClient from '../AxiosClient';
-import { data } from 'autoprefixer';
 import axios from 'axios';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../assets/blacklogo.png';
 
 export default function Register() {
-    // const auth = getAuth(app)
+
     const [errors, setErrors] = useState(null)
-    // const[role, setRole] = useState('user')
-    // const {token, createUser, providerLogin} = useContext(userContext);
-    // let navigate = useNavigate();
-    // let location = useLocation();
-  
-    // let from = location.state?.from?.pathname || "/";
-    // const handleChange = (e) => {
-    //     const info = e.target;
-    //     const value = info.value;
-    //     setRole(value);
-    // }
-    // const {  createToken } = useContext(MainContext)
-//     const handleSubmit = event => {
-//         event.preventDefault();
-//         const form = event.target;
-//         const userName = form.name.value;
-//         const email = form.email.value;
-//         const password = form.password.value;
-//         if(password.length < 6){
-//             setErrors('Password should be a characters or more.');
-//             return;
-//         }
-//         createUser(email, password, userName,auth, role)
-//         .then(result => {
-//             const user = result.user;
-//             console.log(user);
-//             // updateProfile(auth.currentUser, {
-//             //     displayName: userName
-//             //   })
-//             //     .then(() => {
-//             //       console.log("profile updated");
-//             //     })
-//             //     .catch((error) => {
-//             //       console.log(error);
-//             //     });
-//             navigate(from, { replace: true });
-//             form.reset();
-//             const currentUser = {
-//                 name: userName,
-//                 email: email,
-//                 role: role,
-//             };
-//             fetch('http://localhost:5000/auth/signup', {
-//                  method: 'POST',
-//                  headers: {
-//                 'content-type': 'application/json'
-//             },
-//                 body: JSON.stringify(currentUser)
-//             })
-//             .then(res => res.json())
-//             .then(data => {
-//                 console.log(data)
-//             })
-//             .catch((err) => console.error(err));
-//             // axiosClient.post('http://localhost:5000/auth/signup', data)
-//             // .then(({ data }) => {
-//             //     setUser(data.user);
-//             //     createToken(data.token);
-//             // })
-//             // .catch(error => {
-//             //     const res = error.response;
-//             //     if (res && res.status === 422) {
-//             //         setErrors(res.data.errors);
-//             //     }
-//             // })
+    const navigate = useNavigate()
 
-//         })
-//         .catch(error => console.error(error)); 
-// }
-// const googleProvider = new GoogleAuthProvider();
-// const handleGoogleSignIn = () => {
-//     providerLogin(googleProvider)
-//     .then(result => {
-//         const user = result.user
-//         console.log(user)
-//     })
-//     .catch(error => console.error(error))
-// }
+    const { register, handleSubmit, } = useForm();
+    const onSubmit = data =>
+        axios.post('http://localhost:5000/auth/signup', data)
+            .then(({ data }) => {
+                console.log(data)
+                if (data.success) {
+                    toast.success(data.message);
+                    navigate('/login');
+                }
+                else {
+                    toast.error(data.message);
+                    navigate('/login');
+                }
 
-//     if (token) {
-//         return <Navigate to="/user/profile" />
-//     }
-const { register, handleSubmit, } = useForm();
-const onSubmit = data => 
- axios.post('http://localhost:5000/auth/signup', data)
-.then(({ data }) => {
-    console.log(data)
-})
-.catch(error => {
-    const res = error.response;
-    if (res && res.status === 422) {
-        setErrors(res.data.errors);
-    }
-});
+            })
+            .catch(error => {
+                const res = error.response;
+                if (res && res.status === 422) {
+                    setErrors(res.data.errors);
+                }
+            });
 
     return (
         <>
@@ -187,9 +110,7 @@ const onSubmit = data =>
                                 />
                             </div>
                         </div>
-                        {/* <div>
-                        <input className='me-2 mb-2' onChange={handleChange} type="radio" id="f-option" name='selector' value='User' checked={role === "User"} />
-                        </div> */}
+
                         <div>
                             <button
                                 type="submit"
