@@ -5,32 +5,41 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
 import { userContext } from "../Contexts/MainContext";
 import logo from '../assets/blacklogo.png';
+import Loader from "../Components/Loader";
 
 export default function Login() {
     const navigate = useNavigate();
-    const { user, setUser, setToken } = useContext(userContext)
+    const { user, setUser, setToken, loading } = useContext(userContext)
     const { register, handleSubmit, } = useForm();
+    
     const onSubmit = data =>
 
         axios.post('http://localhost:5000/auth/login', data)
             .then(({ data }) => {
                 localStorage.setItem('fitnesstoken', data.accessToken);
                 localStorage.setItem('details', JSON.stringify(data.user));
+                
                 setUser(data.user);
+                
                 setToken(data.accessToken);
+                
                 if (data.success) {
                     toast.success(data.message);
                     navigate('/user/dashboard');
+                    if(loading){
+                        return <Loader></Loader>
+                    }
                 }
                 else {
                     toast.error(data.message);
                     navigate('/login');
                 }
+                
             })
             .catch(error => {
                 toast.error(error.message);
             });
-
+            
     if (user?.email) {
         return navigate("/user/dashboard");
     }
