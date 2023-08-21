@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
 
 const MusclesGainCustomize = () => {
@@ -36,10 +36,7 @@ const MusclesGainCustomize = () => {
             name: '3 Meal'
         },
     ]
-    const mealType = [
-        'Breakfast Light',
-        'Snack + Drink'
-    ]
+
 
     const selectDuration = (item) => {
         const meal = order.meal;
@@ -66,76 +63,67 @@ const MusclesGainCustomize = () => {
         console.log(order.price)
     }
 
-    const addBreakfastLight = () => {
-        const duration = order.duration;
-        const price = order.price;
-        const breakFastLight = duration * order.breakFastLight.price;
-        const breakFastFull = duration * order.breakFastFull.price;
-        const status = order.breakFastLight.added
-        const bfFullStatus = order.breakFastFull.added
-        let total;
-        let added;
-        let full;
-
-        if (bfFullStatus === true) {
-            total = price - breakFastFull
-        }
-
-        if (!status) {
-            total = price + breakFastLight
-            added = true
-            full = false
-        }
-
-        else {
-            total = price - breakFastLight
-            added = false
-            full = order.breakFastFull.added
-        }
-        let updatedValue = {
-            price: total,
-            breakFastLight: { price: order.breakFastLight.price, added },
-            breakFastFull: { price: order.breakFastFull.price, added: full },
-
-        };
-        setOrder(order => ({
-            ...order,
-            ...updatedValue
-        }));
-    }
-
-    const addBreakfastFull = () => {
+    const addBreakfast = (bftype) => {
         const duration = order.duration;
         const price = order.price;
         const breakFastFull = duration * order.breakFastFull.price;
         const breakFastLight = duration * order.breakFastLight.price;
-        const status = order.breakFastFull.added
-        const bfLightStatus = order.breakFastFull.added
+        const fullStatus = order.breakFastFull.added
+        const lightStatus = order.breakFastLight.added
+
         let total;
-        let added;
-        let light;
-        if (bfLightStatus === true) {
-            total = price - breakFastLight
-        }
-        if (!status) {
+        let bfFullStatus;
+        let bfLightStatus;
+
+
+        if (bftype === 'full') {
+            // first click add full
+            bfFullStatus = true;
+            bfLightStatus = false;
             total = price + breakFastFull
-            added = true
-            light = false
+            // toogle full
+            if (fullStatus) {
+                bfFullStatus = false;
+                bfLightStatus = false;
+                total = price - breakFastFull
+            }
+
+            // check negetive
+            if (lightStatus) {
+                bfFullStatus = true;
+                bfLightStatus = false;
+                total = price - breakFastLight + breakFastFull
+            }
+
         }
-        else {
-            total = price - breakFastFull
-            added = false
-            light = order.breakFastLight.added
+
+        if (bftype === 'light') {
+            bfFullStatus = false;
+            bfLightStatus = true;
+            total = price + breakFastLight
+
+            if (lightStatus) {
+                bfFullStatus = false;
+                bfLightStatus = false;
+                total = price - breakFastLight
+            }
+            if (fullStatus) {
+                bfFullStatus = false;
+                bfLightStatus = true;
+                total = price - breakFastFull + breakFastLight
+            }
         }
+
         let updatedValue = {
             price: total,
-            breakFastFull: { price: order.breakFastFull.price, added },
-            breakFastLight: { price: order.breakFastLight.price, added: light }
+            breakFastFull: { price: order.breakFastFull.price, added: bfFullStatus },
+            breakFastLight: { price: order.breakFastLight.price, added: bfLightStatus }
         };
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
+
     }
 
     const addSnacks = () => {
@@ -161,32 +149,13 @@ const MusclesGainCustomize = () => {
 
     }
 
-
-    useEffect(() => {
-        let basePrice = 32
-        let defaultPrice = basePrice * 6
-        let updatedValue = {
-            price: defaultPrice,
-            duration: 6,
-            meal: 1,
-            basePrice: basePrice,
-            breakFastLight: { price: 10, added: false },
-            breakFastFull: { price: 32, added: false },
-            snacks: { price: 7, added: false },
-        };
+    const handleNext = () => {
+        let updatedValue = { step: 2 };
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
-    }, []);
-    // const handleNext = () => {
-    //     let updatedValue = { step: 2, duration: duration, mealTime: mealTime, meal: meal };
-    //     setOrder(order => ({
-    //         ...order,
-    //         ...updatedValue
-    //     }));
-    //     console.log(order)
-    // }
+    }
     return (
         <div className="container mx-auto bg-white rounded-xl">
             <div className=" p-10 rounded-lg ">
@@ -205,9 +174,6 @@ const MusclesGainCustomize = () => {
 
                         {
                             durationPlan.map((item, idx) => <>
-                                {/*
-                                className={`border  py-2 px-3 rounded-md text-md ${duration === item ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
-                                */}
                                 <button onClick={() => selectDuration(item.day)} key={idx}
                                     className={`border py-2 px-3 rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
                                 > {item.title}</button>
@@ -220,7 +186,6 @@ const MusclesGainCustomize = () => {
                     <div className="flex gap-3 mt-4">
 
                         {
-                            // ${mealTime === item ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`
                             mealsTime.map((item, idx) => <>
                                 <button onClick={() => selectMealTime(item.meal)} key={idx} className={`border  py-2 px-4 rounded-md text-md ${order.meal === item.meal ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}> {item.name}</button>
                             </>)
@@ -231,9 +196,9 @@ const MusclesGainCustomize = () => {
                 <div className="my-10">
                     <h2 className="text-2xl font-bold">Choose your meal type (2 minimum) :</h2>
                     <div className="flex gap-3 mt-4">
-                        <button onClick={addBreakfastLight} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastLight.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Light </button>
+                        <button onClick={() => addBreakfast('light')} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastLight.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Light </button>
 
-                        <button onClick={addBreakfastFull} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastFull.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Full </button>
+                        <button onClick={() => addBreakfast('full')} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastFull.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Full </button>
                     </div>
                 </div>
 
@@ -243,27 +208,10 @@ const MusclesGainCustomize = () => {
                     <button onClick={addSnacks} className={`border mt-4 py-2 px-4 rounded-md text-md ${order.snacks.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Snacks </button>
                 </div>
 
-                {/* <div className="my-10">
-                    <h2 className="text-2xl font-bold">Choose your meal type (2 minimum) :</h2>
-                    <div className="flex gap-3 mt-4">
-                        {mealType.map((item, index) => <>
-                            <button onClick={() => selectMealType(item)} key={index}
-                                className={`border  py-2 px-4 rounded-md text-md ${meal.includes(item) ? 'border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
-                            > {item} </button>
-                        </>)}
-                    </div>
-                </div> */}
-                <div className="my-10">
-                    <h2 className="text-3xl font-bold">Price: {order.price} AED</h2>
-                    <p className="text-xm mt-1 text-secondary">Price Exclusive of VAT</p>
-                </div>
-
                 <div className="mt-10">
-                    <button className="btn  px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                    <button onClick={handleNext} className="btn  px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                 </div>
-                {/* <div className="border-b border-secondary">
 
-                </div> */}
             </div>
 
         </div >

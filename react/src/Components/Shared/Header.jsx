@@ -87,7 +87,7 @@ export default function Header() {
 
                                         user?.role ?
                                             <>
-                                                <div className='flex flex space-x-4'>
+                                                <div className='flex space-x-4'>
                                                     <Link className='rounded-3xl flex items-center justify-center text-white pr-24 py-2 text-md font-medium ' to={'/user/dashboard'}>Dashboard</Link>
                                                     <p className='rounded-3xl flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'><button className='log-out ' onClick={logOut}>Log Out</button></p>
                                                 </div>

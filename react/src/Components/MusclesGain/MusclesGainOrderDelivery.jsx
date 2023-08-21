@@ -5,7 +5,7 @@ import { userContext } from "../../Contexts/MainContext";
 
 const MusclesGainOrderDelivery = () => {
     const { register, handleSubmit } = useForm()
-    const { order, setOrder } = useContext(userContext)
+    const { setOrder } = useContext(userContext)
     const onSubmit = (data) => {
         let updatedValue = { step: 4, ...data };
         console.log(updatedValue)
@@ -13,7 +13,6 @@ const MusclesGainOrderDelivery = () => {
             ...order,
             ...updatedValue
         }));
-        console.log(order)
     }
 
 
@@ -41,7 +40,7 @@ const MusclesGainOrderDelivery = () => {
 
                     </div> */}
                     <div className="flex gap-4 mt-4">
-                    <label className="w-full">Apartment/Villa Number *
+                        <label className="w-full">Apartment/Villa Number *
                             <input {...register("apartment")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
                         <label className="w-full">Google Maps Link *
                             <input {...register("gmap")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
@@ -51,10 +50,10 @@ const MusclesGainOrderDelivery = () => {
 
                     </div>
                     <div className="mt-10">
-                    <button type="submit" className="btn  px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                        <button type="submit" className="btn  px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                     </div>
                     {/* <div className="border-b border-secondary"></div> */}
-                    
+
                 </form>
             </div>
             {/* <div >

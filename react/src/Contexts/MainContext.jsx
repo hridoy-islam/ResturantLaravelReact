@@ -10,7 +10,7 @@ const MainContext = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const [order, setOrder] = useState({
-        plan: 0,
+        plan: '',
         step: 0,
         duration: 0,
         meal: 0,
@@ -29,9 +29,6 @@ const MainContext = ({ children }) => {
             added: false,
         },
     })
-    console.log(order)
-
-
 
 
     // const createToken = (token) => {

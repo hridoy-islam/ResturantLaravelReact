@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { userContext } from "../../Contexts/MainContext";
 
 const MusclesCustomerInformation = () => {
-    const { order, setOrder } = useContext(userContext)
+    const { setOrder } = useContext(userContext)
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         console.log(data)
@@ -27,7 +27,7 @@ const MusclesCustomerInformation = () => {
                         <input {...register("email")} type="email" className="input input-bordered input-primary w-full max-w-xs" placeholder="Email" />
                     </div>
                     <div className="flex gap-4 mt-4 ">
-                        
+
                         <input {...register("phone")} type="phone" className="input input-bordered input-primary w-full max-w-xs"
                             placeholder="Phone" />
                         <input type="date" {...register("dob")} className="input input-bordered input-primary w-full max-w-xs" />
@@ -36,10 +36,10 @@ const MusclesCustomerInformation = () => {
                         </select>
                     </div>
                     {/* <div className="flex gap-4 mt-4">
-                        
+
                     </div> */}
                     <div className="mt-10">
-                    <button type="submit" className="btn  px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                        <button type="submit" className="btn  px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                     </div>
                     {/* <div className="border-b border-secondary"></div> */}
                 </form>
