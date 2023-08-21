@@ -9,7 +9,7 @@ const Dashboard = () => {
         <div>
             <PageTitle title="Dashboard" />
             <div className='flex justify-start items-center p-6  text-center'>
-                <h3 className='text-lg font-semibold'>Hello Mushfik</h3>
+                <h3 className='text-3xl font-semibold'>Welcome Dashboard</h3>
             </div>
         </div>
     );

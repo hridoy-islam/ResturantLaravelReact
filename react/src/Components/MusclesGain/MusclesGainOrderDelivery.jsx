@@ -20,33 +20,33 @@ const MusclesGainOrderDelivery = () => {
         <div className="container mx-auto bg-white my-12 py-12 rounded-xl">
             <div className="  px-10 rounded-lg">
 
-                <h3 className="text-3xl text-primary font-bold mb-8">Delivery Information</h3>
+                <h3 className="text-3xl text-primary font-bold mb-8">Billing Information</h3>
                 {/* <p className="text-lg text-secondary font-medium mt-3 mb-6">We bring joy at your doorstep!</p> */}
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex gap-4 mt-4">
                         <label className="w-full ">Starting Date
-                            <input {...register("date")} type="date" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
+                            <input {...register("date")} type="date" required className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
                         <label className="w-full">City
-                            <select {...register("city")} className="input input-bordered input-accent w-full max-w-xs mt-1">
+                            <select {...register("city")} required className="input input-bordered input-accent w-full max-w-xs mt-1">
                                 <option>City</option>
                                 <option value={'dhaka'}>Dhaka</option>
                                 <option value={'ctg'}>Ctg</option>
                             </select>
                         </label>
                         <label className="w-full">Address
-                            <input {...register("address")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
+                            <input {...register("address")} type="text" required className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
                     </div>
                     {/* <div className="flex gap-4 mt-4">
 
                     </div> */}
-                    <div className="flex gap-4 mt-4">
+                    <div className="flex gap-4 mt-8">
                         <label className="w-full">Apartment/Villa Number *
-                            <input {...register("apartment")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
+                            <input {...register("apartment")} type="text" required className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
                         <label className="w-full">Google Maps Link *
-                            <input {...register("gmap")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
+                            <input {...register("gmap")} type="text" required className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
 
                         <label className="w-full">Delivery Instruction
-                            <input {...register("deliveryinstruction")} type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
+                            <input {...register("deliveryinstruction")} required type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
 
                     </div>
                     <div className="mt-10">

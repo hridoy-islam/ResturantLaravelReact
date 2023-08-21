@@ -1,10 +1,7 @@
 import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
 import MealPlan from "../Shared/MealPlan";
-import CustomerInformation from "./CustomerInformation";
 import OrderCustomize from "./OrderCustomize";
-import OrderDelivery from "./OrderDelivery";
-import OrderReview from "./OrderReview";
 import OrderFaq from "../OrderFaq";
 import help from "../../assets/help.png";
 import weight_loss from "../../assets/weight_loss.png";
@@ -131,7 +128,6 @@ const OrderForm = () => {
                 {plans.map((plan, index) => <MealPlan plan={plan} key={index} />)}
             </div>
             </div>
-            <OrderFaq></OrderFaq>
         </div>
     }
     if (order.step === 1) {

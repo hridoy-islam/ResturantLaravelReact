@@ -11,7 +11,7 @@ const AllBlog = () => {
     const [id, setId] = useState();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/blog/')
+        axios.get('https://fitnessdineserver-seven.vercel.app/blog/')
             .then(function (response) {
                 // handle success
                 setBlogs(response.data)
@@ -27,7 +27,7 @@ const AllBlog = () => {
                     },
                 };
                 const { data } = await axios.delete(
-                    `http://localhost:5000/blog/${_id}`,
+                    `https://fitnessdineserver-seven.vercel.app/blog/${_id}`,
                     config
                 );
                 // console.log(data);
@@ -47,22 +47,12 @@ const AllBlog = () => {
             </div>
             <div>
                 {/* You can open the modal using ID.showModal() method */}
-                
+               
                 <dialog id="my_modal_3" className="modal">
                     <form method="dialog" className="modal-box">
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         <h3 className="font-bold text-lg">Hello!</h3>
-                        <form action="">
-                        <input type="text"
-                                            name="title"
-                                            id="title"
-                                            placeholder='title'
-                                            required
-                                            defaultChecked
-                                            className="block pl-4 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6" />
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                        </form>
+                        <EditBlog/>
                     </form>
                 </dialog>
             </div>
@@ -85,7 +75,7 @@ const AllBlog = () => {
                     </thead>
                     <tbody>
 
-
+             
 
 
 

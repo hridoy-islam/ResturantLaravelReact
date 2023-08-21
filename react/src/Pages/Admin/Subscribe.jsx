@@ -6,7 +6,7 @@ import axios from 'axios';
 const Subscribe = () => {
     const [peoples, setPeoples] = useState()
     useEffect(() => {
-        axios.get('http://localhost:5000/subscribe/')
+        axios.get('https://fitnessdineserver-seven.vercel.app/subscribe/')
             .then(function (response) {
                 // handle success
                 setPeoples(response.data)

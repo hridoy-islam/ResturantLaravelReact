@@ -15,7 +15,13 @@ const OrderList = () => {
                         <td className="text-sm font-medium text-secondary">Keto</td>
                         <td className="text-sm font-medium text-secondary">20 Days a week</td>
                         <td className="text-sm font-medium text-secondary">Littel, Schaden and Vandervort</td>
-                        <td className="text-sm font-medium text-secondary">92 AED</td>
+                        <td className="text-sm font-medium text-secondary">384 AED</td>
+                    </tr>
+                    <tr>
+                        <td className="text-sm font-medium text-secondary">Weight Loss</td>
+                        <td className="text-sm font-medium text-secondary">6 Days a week</td>
+                        <td className="text-sm font-medium text-secondary">Littel, Schaden and Vandervort</td>
+                        <td className="text-sm font-medium text-secondary">192 AED</td>
                     </tr>
                 </tbody>
                 {/* <tfoot>

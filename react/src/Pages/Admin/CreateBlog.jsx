@@ -17,7 +17,7 @@ const CreateBlog = () => {
     //     console.log(data)
     // }
     const onsubmit = data =>
-        axios.post('http://localhost:5000/blog', data)
+        axios.post('https://fitnessdineserver-seven.vercel.app/blog', data)
             .then(({ data }) => {
                 console.log(data)
                 if (data.success) {

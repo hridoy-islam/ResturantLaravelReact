@@ -11,7 +11,7 @@ const OrderSummary = () => {
     const snacksPrice = order.duration * order.snacks.price;
     const mealPrice = order.duration * order.basePrice * order.meal;
     const checkout = () => {
-        fetch("http://localhost:5000/create-checkout-session", {
+        fetch("https://fitnessdineserver-seven.vercel.app/create-checkout-session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

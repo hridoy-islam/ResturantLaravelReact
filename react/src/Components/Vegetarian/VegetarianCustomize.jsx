@@ -230,7 +230,7 @@ const VegetarianCustomize = () => {
 
 
                 <div className="mt-10">
-                    <button onClick={handleNext} className="btn px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                    <button onClick={handleNext} className="btn px-12 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
                 </div>
             </div>
 

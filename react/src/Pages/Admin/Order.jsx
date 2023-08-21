@@ -19,9 +19,27 @@ const Order = () => {
                     <thead>
                         <tr>
                             <th className='text-lg font-bold'>Name</th>
-                            <th className='text-lg font-bold'>Meal Type</th>
-                            <th className='text-lg font-bold'>Order</th>
-                            <th className='text-lg font-bold'>Actions</th>
+                            <th className='text-lg font-bold'>Email</th>
+                            <th className='text-lg font-bold'>Meal Name</th>
+                            <th className='text-lg font-bold'>Price</th>
+                        </tr>
+                        <tr>
+                            <td className='text-md font-bold'>Shahed Ahmed</td>
+                            <td className='text-md font-bold'>shahed@gmail.com</td>
+                            <td className='text-md font-bold'>Weight Loss</td>
+                            <td className='text-md font-bold'>192 AED</td>
+                        </tr>
+                        <tr>
+                            <td className='text-md font-bold'>Mushfik Ahmed</td>
+                            <td className='text-md font-bold'>mushfik@gmail.com</td>
+                            <td className='text-md font-bold'>MusclesGain</td>
+                            <td className='text-md font-bold'>384 AED</td>
+                        </tr>
+                        <tr>
+                            <td className='text-md font-bold'>Sakib Ahmed</td>
+                            <td className='text-md font-bold'>sakib@gmail.com</td>
+                            <td className='text-md font-bold'>Vegetarian</td>
+                            <td className='text-md font-bold'>576 AED</td>
                         </tr>
                     </thead>
                     <tbody>

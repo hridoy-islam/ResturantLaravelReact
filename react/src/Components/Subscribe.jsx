@@ -12,7 +12,7 @@ const Subscribe = () => {
             body: JSON.stringify(data)
         };
     
-        const response = await fetch("https://fitnessdineserver-delta.vercel.app/subscribe", requestOptions);
+        const response = await fetch("https://fitnessdineserver-seven.vercel.app/subscribe", requestOptions);
         const jsonData = await response.json();
         
         console.log(jsonData);

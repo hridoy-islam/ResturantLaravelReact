@@ -67,26 +67,7 @@ const OrderForm = () => {
     //         </div>
     //     </div>
     // }
-    // if (order.step === 1) {
-    //     content = <div className="container mx-auto py-10">
-    //         <OrderCustomize />
-    //     </div>
-    // }
-    // if (order.step === 2) {
-    //     content = <div className="container mx-auto py-10">
-    //         <CustomerInformation />
-    //     </div>
-    // }
-    // if (order.step === 3) {
-    //     content = <div className="container mx-auto py-10">
-    //         <OrderDelivery />
-    //     </div>
-    // }
-    // if (order.step === 4) {
-    //     content = <div className=" bg-gray-100 mx-auto py-10">
-    //         <OrderReview />
-    //     </div>
-    // }
+   
     return(
         <div className="lg:flex lg:flex-row flex flex-col-reverse container mx-auto">
                 <div className="lg:w-5/12 w-10/12 grid grid-cols-1 mx-auto lg:mr-6 ">

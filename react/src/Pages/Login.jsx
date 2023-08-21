@@ -14,7 +14,7 @@ export default function Login() {
     
     const onSubmit = data =>
 
-        axios.post('http://localhost:5000/auth/login', data)
+        axios.post('https://fitnessdineserver-seven.vercel.app/auth/login', data)
             .then(({ data }) => {
                 localStorage.setItem('fitnesstoken', data.accessToken);
                 localStorage.setItem('details', JSON.stringify(data.user));

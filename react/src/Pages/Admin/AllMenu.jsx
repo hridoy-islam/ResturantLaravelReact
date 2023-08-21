@@ -6,7 +6,7 @@ import axios from 'axios';
 const AllMenu = () => {
     const [menus, setMenus] = useState();
     useEffect(() => {
-        axios.get('http://localhost:5000/menu/')
+        axios.get('https://fitnessdineserver-seven.vercel.app/menu/')
             .then(function (response) {
                 // handle success
                 console.log(menus)

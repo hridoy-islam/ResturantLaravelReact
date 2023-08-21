@@ -12,7 +12,7 @@ export default function Register() {
 
     const { register, handleSubmit, } = useForm();
     const onSubmit = data =>
-        axios.post('http://localhost:5000/auth/signup', data)
+        axios.post('https://fitnessdineserver-seven.vercel.app/auth/signup', data)
             .then(({ data }) => {
                 console.log(data)
                 if (data.success) {
