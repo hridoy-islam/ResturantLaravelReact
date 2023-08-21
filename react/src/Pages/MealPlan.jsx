@@ -1,7 +1,6 @@
 import OrderFaq from '../Components/OrderFaq';
 import OrderForm from '../Components/OrderForm/OrderForm';
 import OrderStep from '../Components/OrderForm/OrderStep';
-import OrderHomeStep from '../Components/OrderHomeStep';
 import BreadCumb from '../Components/Shared/BreadCumb';
 export default function MealPlan() {
 

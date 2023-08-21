@@ -158,7 +158,7 @@ const MusclesGainCustomize = () => {
     }
     return (
         <div className="container mx-auto bg-white rounded-xl">
-            <div className=" p-10 rounded-lg ">
+            <div className=" p-10 rounded-lg mb-12">
                 <div className="flex justify-between items-center ">
                     <h2 className="text-2xl font-bold">Customise your plan - Price {order.price}</h2>
                     <button className="text-secondary btn bg-white border border-primary rounded-lg">

@@ -130,11 +130,11 @@ const OrderForm = () => {
             </div>
         </div>
     }
-    if (order.step === 1) {
-        content = <div className="container mx-auto py-10">
-            <OrderCustomize />
-        </div>
-    }
+    // if (order.step === 1) {
+    //     content = <div className="container mx-auto py-10">
+    //         <OrderCustomize />
+    //     </div>
+    // }
     // if (order.step === 2) {
     //     content = <div className="container mx-auto py-10">
     //         <CustomerInformation />
