@@ -4,6 +4,7 @@ import MealPlan from "../Shared/MealPlan";
 import OrderCustomize from "./OrderCustomize";
 import OrderFaq from "../OrderFaq";
 import help from "../../assets/help.png";
+import book_appointment from "../../assets/book_appointment.png";
 import weight_loss from "../../assets/weight_loss.png";
 import MUSCLES from "../../assets/MUSCLES-gain.png";
 import KETO from "../../assets/KETO.png";
@@ -87,14 +88,14 @@ const OrderForm = () => {
                                     <p className="mt-3 text-md font-medium text-secondary ">
                                     Get in touch with your nutritionist and let the experts decide what is best for you!
                                     </p>
-                                    <Link to='/' className="btn mt-4 text-white btn-primary"
+                                    <Link to='https://wa.me/c/971569142494' className="btn mt-4 text-white btn-primary"
                                     >Book Appointment</Link>
                                 </div>
                             </div>
                             <div className="lg:w-5/12 lg:block hidden">
                             <img
                                 alt="Office"
-                                src={help}
+                                src={book_appointment}
                                 className=" h-full  lg:w-full  object-cover"
                             />
                             </div>
@@ -111,7 +112,7 @@ const OrderForm = () => {
                                     <p className="mt-3 text-md font-medium text-secondary ">
                                     Get in touch with your nutritionist and let the experts decide what is best for you!
                                     </p>
-                                    <Link to='/' className="btn mt-4 text-white btn-primary px-6"
+                                    <Link to='https://wa.me/c/971569142494' className="btn mt-4 text-white btn-primary px-6"
                                     >Help</Link>
                                 </div>
                             </div>

@@ -9,6 +9,7 @@ import VarityMeal from "../Components/VarityMeal";
 import BlogHome from "../Components/BlogHome";
 import OrderHome from "../Components/OrderHome";
 import OrderHomeStep from "../Components/OrderHomeStep";
+import OrderStepResponsive from "../Components/OrderForm/OrderStepResponsive";
 
 
 const Home = () => {
@@ -16,7 +17,9 @@ const Home = () => {
         <div>
             <Banner />
             {/* <VarityMeals /> */}
-            <OrderHomeStep />
+            
+            <div className='lg:block md:block sm:block hidden'><OrderHomeStep /></div>
+            <div className='lg:hidden md:hidden sm:hidden block'><OrderStepResponsive></OrderStepResponsive></div>
             <OrderHome />
             <VarityMeal />
             <Step />

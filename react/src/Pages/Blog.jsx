@@ -6,7 +6,7 @@ const Blog = ({plan}) => {
     return (
         <div>
             <div className="p-8 border-2 rounded-lg">
-                    <img className=" rounded-lg" src={img} alt="img" />
+                    <img className=" h-56 rounded-lg" src={img} alt="img" />
                     <h2 className="text-2xl font-bold text-secondary py-3">{title}</h2>
                     <div className="flex text-md font-medium text-secondary-500">
                         <p className="flex">

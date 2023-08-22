@@ -36,7 +36,7 @@ const OrderSummary = () => {
     }
     return (
         <div className="my-12 bg-white p-8 rounded-xl sticky top-20">
-            <h2 className="text-2xl font-bold px-4">Order Summary</h2>
+            <h2 className="text-3xl text-primary font-bold px-4">Order Summary</h2>
             <p className="text-sm font-medium px-4 py-2 ">We have summarized your subscription preferences here.</p>
             <div>
                 <h3 className="text-xl font-bold bg-gray-200 px-3 mt-6 mb-3">Plan Preferences</h3>
@@ -50,7 +50,7 @@ const OrderSummary = () => {
 
                 <div className="flex justify-between mx-4 my-2">
                     <p className="text-sm font-semibold">Meal Price</p>
-                    <p className="text-sm font-bold">{mealPrice}</p>
+                    <p className="text-sm font-bold">${mealPrice}</p>
                 </div>
                 {
                     order.breakFastLight.added &&
@@ -77,8 +77,8 @@ const OrderSummary = () => {
                     <p className="text-md font-extrabold">Total</p>
                     <p className="text-md font-extrabold">${order.price}</p>
                 </div>
-                <button onClick={checkout} className="bg-primary text-white w-full text-2xl px-6 py-3 my-6 rounded-lg">Pay</button>
-                <p className="text-xs pt-4 font-medium text-center px-4">You can change your menu, skip weeks, or cancel at any time. Your subscription order includes future deliveries billed at $98.93, inclusive of shipping. Your weekly price may change depending on your menu selections.</p>
+                <button onClick={checkout} className="bg-primary text-white w-full text-2xl px-6 py-2 my-6 rounded-lg">Pay</button>
+                <p className="text-xs pt-4 font-medium text-center px-4">You can change your menu, skip weeks, or cancel at any time. Your subscription order includes future deliveries billed at $192 inclusive of shipping. Your weekly price may change depending on your menu selections.</p>
             </div>
         </div>
     );

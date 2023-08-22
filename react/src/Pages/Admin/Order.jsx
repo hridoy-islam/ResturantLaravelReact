@@ -18,10 +18,13 @@ const Order = () => {
                 <table className="table table-xs">
                     <thead>
                         <tr>
-                            <th className='text-lg font-bold'>Name</th>
+                            <th className='text-lg font-bold'>Order Id</th>
                             <th className='text-lg font-bold'>Email</th>
-                            <th className='text-lg font-bold'>Meal Name</th>
+                            <th className='text-lg font-bold'>Meal Plan</th>
+                            <th className='text-lg font-bold'>Payment Status</th>
+                            <th className='text-lg font-bold'>Date</th>
                             <th className='text-lg font-bold'>Price</th>
+                            <th className='text-lg font-bold'>View</th>
                         </tr>
                         <tr>
                             <td className='text-md font-bold'>Shahed Ahmed</td>

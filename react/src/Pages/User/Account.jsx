@@ -17,9 +17,29 @@ const onSubmit = data =>{
                 <div className="space-y-12 mt-6">
                     <div className="border-b border-gray-900/10 pb-8">
                         <h2 className="text-xl font-semibold leading-7 text-gray-900">Personal Information</h2>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex gap-4 mt-4 my-8">
+                        <input {...register("firstName")} type="text" required className="input input-bordered input-primary w-full max-w-xs" placeholder="First Name" />
+                        <input {...register("lastName")} type="text" required className="input input-bordered input-primary w-full max-w-xs"
+                            placeholder="Last Name" />
+                        <input {...register("email")} type="email" required className="input input-bordered input-primary w-full max-w-xs" placeholder="Email" />
+                    </div>
+                    <div className="flex gap-4 mt-4 ">
 
+                        <input {...register("phone")} type="phone" required className="input input-bordered input-primary w-full max-w-xs"
+                            placeholder="Phone" />
+                        <input type="date" {...register("dob")} required className="input input-bordered input-primary w-full max-w-xs" />
+                        <select {...register("nationality")} required className="input input-bordered input-primary w-full max-w-xs">
+                            <option>Select Nationality</option>
+                        </select>
+                    </div>
+                    {/* <div className="flex gap-4 mt-4">
 
-                        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    </div> */}
+                   
+                </form>
+
+                        {/* <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="sm:col-span-3">
                                 <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                                     Name
@@ -53,12 +73,12 @@ const onSubmit = data =>{
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-                <div className="space-y-12 mt-8">
+                {/* <div className="space-y-12 mt-8">
                     <div className="border-b border-gray-900/10 pb-8">
-                        <h2 className="text-xl font-semibold leading-7 text-gray-900">Billing Address</h2>
+                        <h2 className="text-xl font-semibold leading-7 text-gray-900">Personal Address</h2>
 
 
                         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -131,13 +151,34 @@ const onSubmit = data =>{
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="space-y-12 mt-8">
                     <div className="border-b border-gray-900/10 pb-8">
-                        <h2 className="text-xl font-semibold leading-7 text-gray-900">Shipping Address</h2>
+                        <h2 className="text-xl font-semibold leading-7 text-gray-900">Billing Information</h2>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex gap-4 mt-4">
+                            <input {...register("date")} type="date" placeholder='Starting Date' required className="input input-bordered input-accent w-full max-w-xs mt-1" />
+                            <select {...register("city")} required placeholder='City' className="input input-bordered input-accent w-full max-w-xs mt-1">
+                                <option>City</option>
+                                <option value={'dhaka'}>Dhaka</option>
+                                <option value={'ctg'}>Ctg</option>
+                            </select>
+                            <input {...register("address")} type="text" placeholder='Address' required className="input input-bordered input-accent w-full max-w-xs mt-1" />
+                    </div>
+                    {/* <div className="flex gap-4 mt-4">
 
+                    </div> */}
+                    <div className="flex gap-4 mt-8">
+                            <input {...register("apartment")} type="text" placeholder='Apartment/Villa Number' required className="input input-bordered input-accent w-full max-w-xs mt-1" />
+                        <label className="w-full">
+                            <input {...register("gmap")} placeholder='Google Maps Link' type="text" required className="input input-bordered input-accent w-full max-w-xs mt-1" /></label>
 
-                        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <input {...register("deliveryinstruction")} placeholder='Delivery Instruction' required type="text" className="input input-bordered input-accent w-full max-w-xs mt-1" />
+
+                    </div>
+                </form>
+
+                        {/* <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="col-span-3">
                                 <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
                                     Street address
@@ -205,7 +246,7 @@ const onSubmit = data =>{
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

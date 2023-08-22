@@ -25,7 +25,7 @@ const Subscribe = () => {
                 <p className="text- text-white" >Get news on our latest products and ongoing updates.</p>
             </div>
             <form onSubmit={handleSubmit(onsubmit)} className="flex justify-between items-center lg:w-5/12 lg:mt-0 mt-8">
-                <input type="text" className="rounded-full  px-3 py-4 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full sm:text-sm focus:ring-1" {...register("email", {required:"Email is required" })} placeholder="you@example.com"/>
+                <input type="text" className="rounded-full px-3  lg:py-4 py-3 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full sm:text-sm focus:ring-1" {...register("email", {required:"Email is required" })} placeholder="you@example.com"/>
                 <button className="bg-secondary rounded-full ml-[-50px]  py-3.5 text-md font-medium px-8 text-white" type="submit" value="submit">Subscribe</button>
             </form>
         </div>

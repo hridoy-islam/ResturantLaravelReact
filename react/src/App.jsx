@@ -5,6 +5,7 @@ import router from "./Router/Router";
 // import ScrollToTop from "react-scroll-to-top";
 import "./App.css";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+import Loader from './Components/Loader';
 
 function App() {
 

@@ -15,7 +15,7 @@ const CreateMenu = () => {
     //     console.log(data)
     // }
     const onsubmit = data =>
-        axios.post('https://fitnessdineserver-seven.vercel.app/menu', data)
+        axios.post('http://localhost:5000/menu', data)
             .then(({ data }) => {
                 console.log(data)
                 if (data.success) {
@@ -77,7 +77,7 @@ const CreateMenu = () => {
                                 </div>
                             </div>
 
-                            <div className="sm:col-span-3 ">
+                            {/* <div className="sm:col-span-3 ">
                                 <label htmlFor="city" className="block text-md font-medium leading-6 text-gray-900">
                                 Menu Title
                                 </label>
@@ -92,17 +92,17 @@ const CreateMenu = () => {
 
                                     />
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="sm:col-span-3">
                                 <label htmlFor="region" className="block text-md font-medium leading-6 text-gray-900">
                                     Image
                                 </label>
                                 <div className="mt-2">
-                                <input type="file" id="thumbnail" name="thumbnail" className="file-input file-input-bordered file-input-success w-full " />
+                                <input type="text" id="img" name="img" className="file-input file-input-bordered file-input-success w-full " {...register('img')}/>
                                 </div>
                             </div>
-                            <div className="sm:col-span-3">
+                            {/* <div className="sm:col-span-3">
                                 <label htmlFor="region" className="block text-md font-medium leading-6 text-gray-900">
                                     Price
                                 </label>
@@ -118,14 +118,14 @@ const CreateMenu = () => {
 
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
-                <div className="space-y-12 mt-8">
+                <div className="space-y-8 mt-4">
                     <div className="border-b border-gray-900/10 pb-8">
 
-                        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="col-span-3">
                                 <label htmlFor="street-address" className="block text-md font-medium leading-6 text-gray-900">
                                 Calories

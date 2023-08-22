@@ -1,5 +1,6 @@
 import MealPlan from "./Shared/MealPlan";
 import help from "../assets/help.png";
+import book_appointment from "../assets/book_appointment.png";
 import weight_loss from "../assets/weight_loss.png";
 import MUSCLES from "../assets/MUSCLES-gain.png";
 import KETO from "../assets/KETO.png";
@@ -72,7 +73,7 @@ const OrderForm = () => {
         <div className="lg:flex lg:flex-row flex flex-col-reverse container mx-auto">
                 <div className="lg:w-5/12 w-10/12 grid grid-cols-1 mx-auto lg:mr-6 ">
                     <div
-                            className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl mb-6 mt-6 lg:mt-2 shadow-[#2b34407a] flex justify-between"
+                            className="relative overflow-hidden rounded-xl transition shadow-xl mb-6 mt-6 lg:mt-2 shadow-[#2b34407a] flex justify-between"
                             >
                             <div className="lg:w-7/12 lg:mr-0 mr-2">
                                 <div className="pl-6 py-8 ">
@@ -90,7 +91,7 @@ const OrderForm = () => {
                             <div className="lg:w-5/12 lg:block hidden">
                             <img
                                 alt="Office"
-                                src={help}
+                                src={book_appointment}
                                 className=" h-full  lg:w-full  object-cover"
                             />
                             </div>

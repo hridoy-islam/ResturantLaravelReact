@@ -34,14 +34,14 @@ export default function Register() {
 
     return (
         <>
-            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-24 lg:px-8">
+            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <img
                         className="mx-auto h-16 w-auto"
                         src={logo}
                         alt="Your Company"
                     />
-                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                    <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight pt-4 text-gray-900">
                         Register your account
                     </h2>
                     {errors &&
@@ -53,13 +53,13 @@ export default function Register() {
                     }
                 </div>
 
-                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+                <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
+                    <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                                 Your Name
                             </label>
-                            <div className="mt-2">
+                            <div className="mt-1">
                                 <input
                                     id="name"
                                     name="name"
@@ -74,7 +74,7 @@ export default function Register() {
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Email address
                             </label>
-                            <div className="mt-2">
+                            <div className="mt-1">
                                 <input
                                     id="email"
                                     name="email"
@@ -98,7 +98,7 @@ export default function Register() {
                                     </Link>
                                 </div>
                             </div>
-                            <div className="mt-2">
+                            <div className="mt-1">
                                 <input
                                     id="password"
                                     name="password"

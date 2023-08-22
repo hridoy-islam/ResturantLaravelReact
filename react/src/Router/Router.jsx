@@ -39,6 +39,9 @@ import WeightLoss from "../Pages/WeightLoss";
 import WeightGain from "../Pages/WeightGain";
 import Vegetarian from "../Pages/Vegetarian";
 import Orders from "../Pages/User/Orders";
+import AllPlan from "../Pages/Admin/AllPlan";
+import AllBlogFetch from "../Pages/Admin/AllBlogFetch";
+import EditBlog from "../Pages/Admin/EditBlog";
 
 const router = createBrowserRouter([
     {
@@ -184,11 +187,15 @@ const router = createBrowserRouter([
             },
             {
                 path: "/admin/blog",
-                element: <AllBlog />,
+                element: <AllBlogFetch />,
             },
             {
                 path: "/admin/blog/create",
                 element: <CreateBlog />,
+            },
+            {
+                path: "/admin/blog/edit",
+                element: <EditBlog />,
             },
             {
                 path: "/admin/menu",
@@ -197,6 +204,14 @@ const router = createBrowserRouter([
             {
                 path: "/admin/menu/create",
                 element: <CreateMenu />,
+            },
+            {
+                path: "/admin/plan/",
+                element: <AllPlan/>,
+            },
+            {
+                path: "/admin/plan/crete",
+                element: <CreatePlan/>,
             },
         ]
     },

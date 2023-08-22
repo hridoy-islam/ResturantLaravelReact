@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { userContext } from "../../Contexts/MainContext";
 
 const MusclesCustomerInformation = () => {
-    const { setOrder } = useContext(userContext)
+    const { order, setOrder } = useContext(userContext)
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         console.log(data)
@@ -12,34 +12,47 @@ const MusclesCustomerInformation = () => {
             ...order,
             ...updatedValue
         }));
+        console.log(order)
     }
     return (
-        <div className="container mx-auto  bg-white my-12 py-12 rounded-xl">
+        <div className="container mx-auto  bg-white mb-12 py-12 rounded-xl">
             <div className=" px-10  rounded-xl">
 
                 <h3 className="text-3xl text-primary font-bold mb-8">Personal Information</h3>
                 {/* <p className="text-lg text-secondary font-medium mt-3 mb-6">Tell us about yourself...</p> */}
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex gap-4 mt-4 my-8">
-                        <input {...register("firstName")} type="text" required className="input input-bordered input-primary w-full max-w-xs" placeholder="First Name" />
-                        <input {...register("lastName")} type="text" required className="input input-bordered input-primary w-full max-w-xs"
-                            placeholder="Last Name" />
-                        <input {...register("email")} type="email" required className="input input-bordered input-primary w-full max-w-xs" placeholder="Email" />
-                    </div>
-                    <div className="flex gap-4 mt-4 ">
+                    <div className="flex gap-4 mt-4 my-4">
+                    <label className="w-full"><span className="ml-1 font-normal">First Name</span>
+                        <input {...register("firstName")} type="text" required className="input input-bordered input-secondary w-full mt-1 max-w-xs"  /></label>
+                        <label className="w-full"><span className="ml-1 font-normal">Last Name</span>
+                        <input {...register("lastName")} type="text" required className="input input-bordered input-secondary w-full mt-1 max-w-xs"
+                             /></label>
 
-                        <input {...register("phone")} type="phone" required className="input input-bordered input-primary w-full max-w-xs"
-                            placeholder="Phone" />
-                        <input type="date" {...register("dob")} required className="input input-bordered input-primary w-full max-w-xs" />
-                        <select {...register("nationality")} required className="input input-bordered input-primary w-full max-w-xs">
-                            <option>Select Nationality</option>
-                        </select>
+                    </div>
+                    <div className="flex gap-4 mt-4 my-4">
+                    <label className="w-full"><span className="ml-1 font-normal">Email</span>
+                        <input {...register("email")} type="email" required className="input input-bordered input-secondary w-full mt-1 max-w-xs"  /></label>
+                        <label className="w-full"><span className="ml-1 font-normal">Phone Number</span>
+                        <input {...register("phone")} type="phone" required className="input input-bordered input-secondary w-full mt-1 max-w-xs"
+                             /></label>
+                    </div>
+                    <div className="flex gap-4 mt-4 my-4">
+                    <label className="w-full"><span className="ml-1 font-normal">Birth Of Date</span>
+                        <input type="date" {...register("dob")} required className="input input-bordered input-secondary w-full mt-1 max-w-xs" /></label>
+                        <label className="w-full"><span className="ml-1 font-normal">Nationality</span>
+                        <select {...register("nationality")} required className="input input-bordered input-secondary w-full mt-1 max-w-xs">
+                            <option disabled>Select Nationality</option>
+                            <option>Bangladesh</option>
+                            <option>India</option>
+                            <option>Pakistan</option>
+                            <option>Dubai</option>
+                        </select></label>
                     </div>
                     {/* <div className="flex gap-4 mt-4">
-
+                        
                     </div> */}
                     <div className="mt-10">
-                        <button type="submit" className="btn  px-6 rounded-md  bg-white text-primary border-2 border-primary hover:bg-gray-600 hover:border-gray-600 hover:text-white">Next</button>
+                        <button type="submit" className="btn px-16 rounded-md  bg-primary text-white hover:bg-primary">Next</button>
                     </div>
                     {/* <div className="border-b border-secondary"></div> */}
                 </form>

@@ -27,7 +27,7 @@ const SideNav = () => {
                         <Link to="/admin/subscribe">Subscribe</Link>
                     </p>
                     <p className="text-xl font-semibold my-4">
-                        <Link to="/admin/blog">coupon</Link>
+                        <Link to="/admin/plan">Plan</Link>
                     </p>
                 </>
             )

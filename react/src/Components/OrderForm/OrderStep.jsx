@@ -76,7 +76,7 @@ const OrderStep = () => {
                 </svg>
                 </div>
 
-                <button onClick={() => changeStep(1)} className="flex lg:mx-0 mx-auto focus:bg-[#cde4b3] bg-white text-secondary font-semibold px-6 py-4 rounded-full">
+                <button onClick={() => changeStep(1)} className="flex lg:mx-0 mx-auto bg-[#cde4b3]  text-secondary font-semibold px-6 py-4 rounded-full">
                     <img className="w-6 mr-2" src={plan2} alt="arrow" />
                     Customize Plan</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 lg:mx-0 mx-auto">

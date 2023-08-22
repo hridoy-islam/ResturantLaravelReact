@@ -17,7 +17,7 @@ const CreateBlog = () => {
     //     console.log(data)
     // }
     const onsubmit = data =>
-        axios.post('https://fitnessdineserver-seven.vercel.app/blog', data)
+        axios.post('http://localhost:5000/blog', data)
             .then(({ data }) => {
                 console.log(data)
                 if (data.success) {
@@ -69,7 +69,7 @@ const CreateBlog = () => {
                                         Image
                                     </label>
                                     <div className="mt-2">
-                                    <input type="file" id="picture" name="picture" required className="file-input file-input-bordered file-input-success w-full " {...register('picture')}/>
+                                    <input type="text" id="img" name="img" required className="file-input file-input-bordered file-input-success w-full " {...register('img')}/>
                                     </div>
                                 </div>
                             </div>

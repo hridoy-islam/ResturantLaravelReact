@@ -42,7 +42,7 @@ export default class SimpleSlider extends Component {
     };
     return (
       <div className="container mx-auto pt-8 pb-8 mt-12">
-        <h2 className="text-5xl text-center py-12 text-secondary font-bold"> Variety Of Delicious Healthy Meals</h2>
+        <h2 className="lg:text-5xl text-4xl lg:px-0 px-2 text-center py-12 text-secondary font-bold"> Variety Of Delicious Healthy Meals</h2>
         <Slider {...settings}>
         <div>
             <div  className="shadow p-6 hover:bg-[#7ab3354c] hover:text-red w-11/12 mx-auto rounded-3xl my-4">

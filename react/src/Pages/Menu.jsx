@@ -1,57 +1,27 @@
 
+import { useContext, useEffect, useState } from "react";
 import BreadCumb from "../Components/Shared/BreadCumb";
+import { userContext } from "../Contexts/MainContext";
+import axios from "axios";
 
 const Menu = () => {
-    const plans = [
-        {
-            id: '1',
-            name: 'WEIGHT LOSS',
-            image: '',
-            price: '200',
-        },
-        {
-            id: '2',
-            name: 'WEIGHT GAIN',
-            image: '',
-            price: '200',
-        },
-        {
-            id: '3',
-            name: 'MUSCLES GAIN',
-            image: '',
-            price: '200',
-        },
-        {
-            id: '4',
-            name: 'KETO',
-            image: '',
-            price: '200',
-        },
-        {
-            id: '5',
-            name: 'VEGETARIAN',
-            image: '',
-            price: '200',
-        },
-        {
-            id: '6',
-            name: 'DIABETIC',
-            image: '',
-            price: '200',
-        },
-        {
-            id: '7',
-            name: 'WEIGHT GAIN',
-            image: '',
-            price: '200',
-        },
-        {
-            id: '8',
-            name: 'KETO',
-            image: '',
-            price: '200',
-        },
-    ]
+    const [menu, setMenu] = useState();
+    const {setLoading} = useContext(userContext);
+    const loadData = () =>{
+        setLoading(true);
+            axios.get('http://localhost:5000/menu')
+                .then(function (response) {
+                    // handle success
+                    setMenu(response.data)
+                    setLoading(false)
+                })
+        
+    }
+   
+
+    useEffect(()=> {
+        loadData()
+    }, []) 
     return (
         <div>
             <BreadCumb title="Our Menu" image="https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
@@ -59,13 +29,17 @@ const Menu = () => {
                 <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-center">Meals packed with flavor</h2>
                 <p className="mt-6 text-xl leading-8 text-gray-600 text-center">Choose the menu that’s right for you</p>
             </div>
-            <div className="grid lg:grid-cols-3 gap-4 container mx-auto text-center py-10">
-            {plans.map((plan, index) => 
-                <div key={index} className="shadow p-6 hover:bg-gray-50">
-                    <img className="w-70 mx-auto" src="https://fitbar.ae/wp-content/uploads/2022/07/clean-new.png" />
-                    <h2 className="text-3xl font-bold my-2">{plan.name}</h2>
-                    <h3 className="text-2xl my-2">Starting from</h3>
-                    <p className="text-2xl font-bold">{plan.price} AED</p>
+            <div className="grid lg:grid-cols-3 gap-8 container mx-auto text-center pt-6 pb-24">
+            {menu?.map((plan, index) => 
+                <div key={index} className="shadow-xl shadow-gray p-6 rounded-xl  hover:bg-gray-50">
+                        <img className="w-70 mx-auto" src={plan.img} alt="Image"/>
+                        <p className="text-xl font-bold py-12 text-center">{plan.name}</p>
+                        <div className="flex justify-between items-center border-t-2 pt-3">
+                            <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">{plan.calories}  Calories</p>
+                            <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">{plan.protein}   Protein</p>
+                            <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">{plan.carb} Carb</p>
+                            <p className="text-normal font-medium px-2 text-gray-400">{plan.fat}  Fat</p>
+            </div>
                 </div>
                 )}
             </div>
