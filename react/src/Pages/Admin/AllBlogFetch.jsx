@@ -32,12 +32,9 @@ const AllBlogFetch = () => {
 
                          
                          {
-                 blogs?.map((blogs) => <AllBlog blogs={blogs} key={blogs._id}
+                 blogs?.map((item) => <AllBlog blogs={item} key={item._id}
                  ></AllBlog>)
             }
-                           
-                        
-
                     </thead>
                     <tbody>
 

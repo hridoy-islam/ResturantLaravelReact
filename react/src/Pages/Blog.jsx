@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import BlogDetails from "./BlogDetails";
 
 const Blog = ({plan}) => {
-    const { title, description, img, id} = plan;
+    const { title, description, img, } = plan;
     let details = description.slice(0, 170);
     return (
         <div>
@@ -23,7 +24,8 @@ const Blog = ({plan}) => {
                         </p>
                     </div>
                     <p className="font-semibold text-md text-gray-500 pt-3">{details}... </p>
-                    <button className="btn btn-primary text-white w-full mt-4 mx-auto"> <Link to={`/blog/${id}`} href="">Read More</Link></button>
+                    <button className="btn btn-primary text-white w-full mt-4 mx-auto"> <Link  >Read More</Link>
+                    </button>
                 </div>
         </div>
     );

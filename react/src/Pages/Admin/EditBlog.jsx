@@ -3,62 +3,61 @@ import { useEffect, useState } from "react";
 import PageTitle from "../../Components/Shared/PageTitle";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EditBlog = () => {
-  const [edits, setEdits] = useState();
+  const [blog, setBlog] = useState();
+  let { id } = useParams();
 
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
   const [errors, setErrors] = useState(null)
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    try {
-      const config = {
-        headers: {
-          "content-type": "application/json",
-        },
-      };
-      const { data } = await axios.patch(
-        'http://localhost:5000/blog/64e502eff4dc0809c1e4286c',
-        config
-      )
-      .then(({ data }) => {
-        console.log(data)
-        if (data.success) {
-            toast.success("Updated Successful");
-            navigate('/admin/blog');
-        }
-        else {
-            toast.success("Something Went Wrong");
-            navigate('/admin/blog');
-        }
-        reset()
 
-    })
-    } catch (error) {
-      // console.log(error);
-      toast.error("Something Went Worng");
-    }
-  };
+//   const onsubmit = (data) => {
+// console.log(data);
+//   }
+  // const onsubmit = async () => {
+  //   try {
+  //     const config = {
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //     };
+  //     const { data } = await axios.patch(
+  //       `http://localhost:5000/blog/${id}`,
+  //       config
+  //     )
+  //     .then(({ data }) => {
+  //       console.log(data)
+  //       if (data.success) {
+  //           toast.success("Updated Successful");
+  //           navigate('/admin/blog');
+  //       }
+  //       else {
+  //           toast.success("Something Went Wrong");
+  //           navigate('/admin/blog');
+  //       }
+  //       reset()
 
-      // useEffect(() => {
-      //   fetch(`http://localhost:5000/blog/${_id}`)
-      //     .then((res) => res.json())
-      //     .then((data) => setEdits(data));
-      // }, []);
-//   useEffect(() => {
-//     axios.get(`https://fitnessdineserver-seven.vercel.app//blog/${id}`)
-//         .then(function (response) {
-//             // handle success
-//             console.log(response.data)
-//         })
-// }, [edits])
+  //   })
+  //   } catch (error) {
+  //     // console.log(error);
+  //     toast.error("Something Went Worng");
+  //   }
+  // };
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/blog/${id}`)
+        .then(function (response) {
+            // handle success
+            setBlog(response.data);
+        })
+}, [blog])
   return (
     <div>
             <PageTitle title="Edit Blog" />
             <div className='container mx-auto py-6'>
-                <form onSubmit={handleSubmit(submitHandler)}> 
+                <form onSubmit={handleSubmit(onsubmit)}> 
                     <div className="space-y-12 mt-8">
                         <div className=" pb-4">
                             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -76,6 +75,7 @@ const EditBlog = () => {
                                             required
                                             className="block pl-4 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                                             {...register('title')}
+                                            defaultValue={blog?.title}
 
                                         />
                                     </div>
@@ -86,7 +86,9 @@ const EditBlog = () => {
                                         Image
                                     </label>
                                     <div className="mt-2">
-                                    <input type="text" id="img" name="img" required className="file-input file-input-bordered file-input-success w-full " {...register('img')}/>
+                                    <input type="text" id="img" name="img" required className="file-input file-input-bordered file-input-success w-full " {...register('img')}
+                                    defaultValue={blog?.img}
+                                    />
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +98,8 @@ const EditBlog = () => {
                     Description
                     </label>   
                     <textarea
-                    type="text" id="description" name="description" required className="file-input file-input-bordered file-input-success w-full max-w-xs" {...register('description')}
+                    type="text" id="description" name="description" required className="file-input file-input-bordered w-full" {...register('description')}
+                    defaultValue={blog?.description}
                     ></textarea>
                     {/* <ReactQuill theme="snow"
                         value={editorContent}

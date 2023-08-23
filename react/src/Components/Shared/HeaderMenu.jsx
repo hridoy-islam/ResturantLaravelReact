@@ -1,106 +1,172 @@
-import { Disclosure } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useContext } from 'react';
-import { Link } from "react-router-dom";
-import axiosClient from '../../AxiosClient';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import './HeaderMenu.css'
+import { FaBars } from 'react-icons/fa';
+import { GrClose } from "react-icons/gr";
+import logo from '../../assets/logo.png';
 import { userContext } from '../../Contexts/MainContext';
-
 const navigation = [
-    { name: 'Blog', href: '/admin/blog' },
-    { name: 'Plan', href: '/admin/all-plans' },
-    { name: 'Category', href: '/admin/category' },
-]
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'View Menu', href: '/menu' },
+    { name: 'Meal Plan', href: '/meal-plan' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'Blog', href: '/blog' },
+    // { name: 'Dashboard', href: '/user/dashboard' },
 
+]
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
+const HeaderMenu = () => {
+    const { user, setUser, setToken } = useContext(userContext);
 
-export default function HeaderMenu() {
-    const { setUser, createToken } = useContext(userContext);
-
-    const onLogout = ev => {
-        ev.preventDefault()
-
-        axiosClient.post('/logout')
-            .then(() => {
-                setUser({})
-                createToken(null)
-            })
+    const logOut = () => {
+        localStorage.removeItem('details');
+        localStorage.removeItem('fitnesstoken');
+        setUser('');
+        setToken('');
+        window.location.href = "/";
     }
+    const [click, setClick] = React.useState(false);
 
-
+    const handleClick = () => setClick(!click);
+    const Close = () => setClick(false);
     return (
-        <Disclosure as="nav" className="bg-gray-500">
-            {({ open }) => (
-                <>
-                    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                        <div className="relative flex h-16 items-center justify-between">
-                            <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                                {/* Mobile menu button*/}
-                                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                                    <span className="sr-only">Open main menu</span>
-                                    {open ? (
-                                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                                    ) : (
-                                        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                                    )}
-                                </Disclosure.Button>
-                            </div>
-                            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                                <div className="flex flex-shrink-0 items-center">
-                                    <h2 className="text-lg font-bold text-white">Dashboard</h2>
-                                </div>
-                                <div className="hidden sm:ml-6 sm:block">
-                                    <div className="flex space-x-4">
-                                        {navigation.map((item) => (
-                                            <Link
-                                                key={item.name}
-                                                to={item.href}
-                                                className={classNames(
-                                                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                    'rounded-md px-3 py-2 text-sm font-medium'
-                                                )}
-                                            >
-                                                {item.name}
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
-                                    type="button"
-                                    className="btn btn-info"
-                                    onClick={onLogout}
-                                >
-                                    Logout
-                                </button>
-
-
-                            </div>
-                        </div>
+        <div>
+            <div className={click ? "main-container" : ""} onClick={() => Close()} />
+            <nav className="navbar" onClick={e => e.stopPropagation()}>
+                <div className="container mx-auto flex items-center justify-between">
+                    <div>
+                        <Link to='/'>
+                            <img
+                                className="h-12 w-auto"
+                                src={logo}
+                                alt="Your Company"
+                            />
+                        </Link>
                     </div>
+                    <ul className={click ? "nav-menu active" : "nav-menu"}>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/"
+                                activeClassName="active"
+                                className="nav-links"
+                                onClick={click ? handleClick : null}
+                            >
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/about"
+                                activeClassName="active"
+                                className="nav-links"
+                                onClick={click ? handleClick : null}
+                            >
+                                About Us
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/menu"
+                                activeClassName="active"
+                                className="nav-links"
+                                onClick={click ? handleClick : null}
+                            >
+                                View Menu
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/meal-plan"
+                                activeClassName="active"
+                                className="nav-links"
+                                onClick={click ? handleClick : null}
+                            >
+                                Meal Plan
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/faq"
+                                activeClassName="active"
+                                className="nav-links"
+                                onClick={click ? handleClick : null}
+                            >
+                                FAQ
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                exact
+                                to="/blog"
+                                activeClassName="active "
+                                className="nav-links mr-16"
+                                onClick={click ? handleClick : null}
+                            >
+                                Blog
+                            </NavLink>
+                        </li>
+                        {
 
-                    <Disclosure.Panel className="sm:hidden">
-                        <div className="space-y-1 px-2 pb-3 pt-2">
-                            {navigation.map((item) => (
-                                <Disclosure.Button
-                                    key={item.name}
-                                    as="a"
-                                    href={item.href}
-                                    className={classNames(
-                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'block rounded-md px-3 py-2 text-base font-medium'
-                                    )}
-                                    aria-current={item.current ? 'page' : undefined}
-                                >
-                                    {item.name}
-                                </Disclosure.Button>
-                            ))}
-                        </div>
-                    </Disclosure.Panel>
-                </>
-            )}
-        </Disclosure>
-    )
-}
+                            user?.role ?
+                                <>
+                                        <li className="nav-item">
+                                            <NavLink
+                                                exact
+                                                to={'/user/dashboard'}
+                                                activeClassName="active"
+                                                className="nav-links lg:pr-24 "
+                                                onClick={click ? handleClick : null}
+                                            >
+                                                Dashboard
+                                            </NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                    <NavLink className='rounded-3xl lg:w-full w-full mx-auto lg:my-0 my-2 lg:mb-0 mb-8 flex items-center justify-center bg-white text-gray-900 px-8 py-2  lg:text-base text-sm font-medium hover:bg-gray-600 hover:text-white'> <span>
+                                    </span><button className='log-out ' onClick={logOut}>Log Out</button>
+                                    </NavLink>
+                                    </li>
+                                        {/* <li className="nav-item">
+                                        <p className='rounded-3xl lg:w-full w-5/12 flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'><button className='log-out ' onClick={logOut}>Log Out</button></p>
+                                        </li> */}
+                                </>
+                                :
+                                <> 
+                                    <li className="nav-item">
+                                    <NavLink to='/login' className='rounded-3xl lg:w-full w-5/12 mx-auto lg:my-0 my-2 flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    /<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                    /</svg>
+                                    </span> <span className='pl-2'>Login</span>
+                                    </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                    <NavLink to="/register" className='rounded-3xl lg:w-full w-5/12 mx-auto lg:my-0 my-2 lg:mb-0 mb-6 flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white' href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                        </svg>
+                                        </span><span className='pl-2'>Register</span> </NavLink>
+                                    </li>
+                                    
+                                </>
+
+
+                        }
+                    </ul>
+                   
+                               
+                    <div className="nav-icon" onClick={handleClick}>
+                        {click ? <GrClose /> : <FaBars />}
+                    </div>
+                </div>
+            </nav>
+        </ div>
+    );
+};
+
+export default HeaderMenu;

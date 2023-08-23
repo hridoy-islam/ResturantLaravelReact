@@ -64,7 +64,7 @@ const AllMenu = () => {
                             <td>{item.protein}</td>
                             <td>{item.carb}</td>
                             <td>{item.fat}</td>
-                            <td><button onClick={() => handleEdit(item._id)} className=' btn-primary p-2 text-white rounded-sm mx-1 my-1'>Edit</button>
+                            <td><Link className="btn-primary p-2 text-white rounded-sm mx-1 my-1" to={`/admin/menu/edit/${item._id}`}> Edit</Link>
                             <button onClick={() => handleDelete(item._id)} className=' btn-sm bg-red-500 p-2 text-white rounded-sm mx-1 my-1'>Delete</button>
                             </td>
                         </tr>)}

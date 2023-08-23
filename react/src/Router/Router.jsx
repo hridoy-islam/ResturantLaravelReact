@@ -42,6 +42,8 @@ import Orders from "../Pages/User/Orders";
 import AllPlan from "../Pages/Admin/AllPlan";
 import AllBlogFetch from "../Pages/Admin/AllBlogFetch";
 import EditBlog from "../Pages/Admin/EditBlog";
+import HeaderMenu from "../Components/Shared/HeaderMenu";
+import EditMenu from "../Pages/Admin/EditMenu";
 
 const router = createBrowserRouter([
     {
@@ -105,8 +107,8 @@ const router = createBrowserRouter([
                 element: <Blog />,
             },
             {
-                path: "/blog/:id",
-                element: <BlogDetails />,
+                path: "/blog/blogdetails",
+                element: <BlogDetails />
             },
             {
                 path: "/faq",
@@ -194,7 +196,7 @@ const router = createBrowserRouter([
                 element: <CreateBlog />,
             },
             {
-                path: "/admin/blog/edit",
+                path: "/admin/blog/edit/:id",
                 element: <EditBlog />,
             },
             {
@@ -204,6 +206,10 @@ const router = createBrowserRouter([
             {
                 path: "/admin/menu/create",
                 element: <CreateMenu />,
+            },
+            {
+                path: "/admin/menu/edit/:id",
+                element: <EditMenu />,
             },
             {
                 path: "/admin/plan/",
@@ -219,7 +225,7 @@ const router = createBrowserRouter([
         path: "*",
         element: (
             <div>
-                <Header></Header>
+                <HeaderMenu></HeaderMenu>
                 <NotFound></NotFound>
             </div>
         ),

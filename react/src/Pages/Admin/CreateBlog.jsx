@@ -13,7 +13,7 @@ const CreateBlog = () => {
     const { register, handleSubmit, reset } = useForm();
     const [errors, setErrors] = useState(null)
     // const [category, setCategory] = useState();
-    // const onSubmit = data =>{
+    // const onsubmit = data =>{
     //     console.log(data)
     // }
     const onsubmit = data =>
@@ -69,7 +69,7 @@ const CreateBlog = () => {
                                         Image
                                     </label>
                                     <div className="mt-2">
-                                    <input type="text" id="img" name="img" required className="file-input file-input-bordered file-input-success w-full " {...register('img')}/>
+                                    <input type="text" id="image" name="image" required className="file-input file-input-bordered file-input-success w-full " {...register('image')}/>
                                     </div>
                                 </div>
                             </div>

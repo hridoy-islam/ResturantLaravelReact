@@ -33,7 +33,7 @@ const AdminLayout = () => {
             <Outlet></Outlet>
             <Footer /> */}
             <div>
-            <Header />
+            <HeaderMenu />
             <div className='container mx-auto lg:mt-36 mb-24 lg:p-12 lg:text-left text-center lg:border-2 lg:flex justify-between'>
             <div className="lg:w-3/12">
                 <SideNav></SideNav>
