@@ -1,20 +1,20 @@
 import { useContext } from 'react'
 import { userContext } from '../../Contexts/MainContext'
 import delivery from '../../assets/delivery.png'
+import orderImg from '../../assets/order.png'
 import plan2 from '../../assets/plan2.png'
 import plan from '../../assets/select_plan.png'
 import user from '../../assets/user.png'
-import orderImg from '../../assets/order.png'
 
 const OrderStep = () => {
     const { order, setOrder } = useContext(userContext);
     const changeStep = (step) => {
-        // const firstname = order.firstName.length;
-        // const lastName = order.lastName.length;
-        // const email = order.email.length;
-        // const phone = order.phone.length;
-        // const dob = order.dob.length;
-        // const nationality = order.nationality.length;
+        //const firstName = order.firstName;
+        // const lastName = order.lastName;
+        // const email = order.email;
+        // const phone = order.phone;
+        // const dob = order.dob;
+        // const nationality = order.nationality;
 
         // const date = order.date.length;
         // const city = order.city.length;
@@ -22,45 +22,29 @@ const OrderStep = () => {
         // const apartment = order.apartment.length;
         // const gmap = order.gmap.length;
 
-        // let defaultStep = 1;
+        //const address = order.address;
 
-        // if (step > 2 && step == 2) {
-        //     if (firstname && lastName && email && phone && dob && nationality) {
-        //         defaultStep = 2;
-        //     }
-        //     let updatedValue = { step: defaultStep };
-        //     setOrder(order => ({
-        //         ...order,
-        //         ...updatedValue
-        //     }));
+        // let updateStep;
+
+        // if (step == 2) {
+        //     updateStep = 2;
         // }
-
-        // if (step === 3) {
-        //     if (date && city && address && apartment && gmap) {
-        //         defaultStep = 3;
-        //     }
-        //     let updatedValue = { step: defaultStep };
-        //     setOrder(order => ({
-        //         ...order,
-        //         ...updatedValue
-        //     }));
+        // if (step == 3) {
+        //     updateStep = 3;
         // }
-
+        // if (step == 4) {
+        //     updateStep = 4;
+        // }
         // else {
-        //     let updatedValue = { step: 1 };
-        //     setOrder(order => ({
-        //         ...order,
-        //         ...updatedValue
-        //     }));
+        //     updateStep = order.step;
         // }
+
 
         let updatedValue = { step };
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
-
-
 
 
     }
@@ -76,32 +60,32 @@ const OrderStep = () => {
                 </svg>
                 </div>
 
-                <button onClick={() => changeStep(1)} className="flex lg:mx-0 mx-auto bg-[#cde4b3]  text-secondary font-semibold px-6 py-4 rounded-full">
+                <button onClick={() => changeStep(1)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 1 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2" src={plan2} alt="arrow" />
                     Customize Plan</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(2)} className="flex lg:mx-0 mx-auto bg-white focus:bg-[#cde4b3] text-secondary font-semibold px-6 py-4 rounded-full">
+                <button onClick={() => changeStep(2)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 2 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2" src={user} alt="arrow" />
                     Personal Information</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(3)} className="flex lg:mx-0 mx-auto bg-white focus:bg-[#cde4b3] text-secondary font-semibold px-6 py-4 rounded-full">
+                <button onClick={() => changeStep(3)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 3 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2" src={delivery} alt="arrow" />
                     Delivery Information</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h- lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(4)} className="flex lg:mx-0 mx-auto bg-white focus:bg-[#cde4b3] text-secondary font-semibold px-6 py-4 rounded-full">
+                <button onClick={() => changeStep(4)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 4 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2 " src={orderImg} alt="arrow" />
                     Review Order</button>
             </div>
-        </div>
+        </div >
     );
 };
 
