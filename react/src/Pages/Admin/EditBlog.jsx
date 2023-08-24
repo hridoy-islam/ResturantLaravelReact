@@ -10,42 +10,66 @@ const EditBlog = () => {
   let { id } = useParams();
 
   const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+        title: blog?.title
+    }
+  });
   const [errors, setErrors] = useState(null)
 
 //   const onsubmit = (data) => {
 // console.log(data);
 //   }
-  // const onsubmit = async () => {
-  //   try {
-  //     const config = {
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //     };
-  //     const { data } = await axios.patch(
-  //       `http://localhost:5000/blog/${id}`,
-  //       config
-  //     )
-  //     .then(({ data }) => {
-  //       console.log(data)
-  //       if (data.success) {
-  //           toast.success("Updated Successful");
-  //           navigate('/admin/blog');
-  //       }
-  //       else {
-  //           toast.success("Something Went Wrong");
-  //           navigate('/admin/blog');
-  //       }
-  //       reset()
+//   const onsubmit = async (e) => {
+//     try {
+//       const config = {
+//         headers: {
+//           "content-type": "application/json",
+//         },
+//       };
+//       const { data } = await axios.patch(
+//         `http://localhost:5000/blog/${id}`,{e},
+//         config
+//       )
+//       .then(({ data }) => {
+//         console.log(data)
+//         if (data.success) {
+//             toast.success("Updated Successful");
+//             navigate('/admin/blog');
+//         }
+//         else {
+//             toast.success("Something Went Wrong");
+//             navigate('/admin/blog');
+//         }
+//         reset()
 
-  //   })
-  //   } catch (error) {
-  //     // console.log(error);
-  //     toast.error("Something Went Worng");
-  //   }
-  // };
+//     })
+//     } catch (error) {
+//       console.log(error);
+//       toast.error("Something Went Worng");
+//     }
+//   };
+  const onsubmit = data =>
+  axios.patch(`http://localhost:5000/blog/${id}`, data)
+      .then(({ data }) => {
+          console.log(data)
+          if (data.success) {
+              toast.success("Updated Successful");
+              navigate('/admin/blog');
+          }
+          else {
+              toast.success("Something Went Wrong");
+              navigate('/admin/blog');
+          }
+          reset()
 
+      })
+      .catch(error => {
+          const res = error.response;
+          if (res && res.status === 422) {
+              setErrors(res.data.errors);
+          }
+      });
   useEffect(() => {
     axios.get(`http://localhost:5000/blog/${id}`)
         .then(function (response) {
@@ -75,8 +99,6 @@ const EditBlog = () => {
                                             required
                                             className="block pl-4 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
                                             {...register('title')}
-                                            defaultValue={blog?.title}
-
                                         />
                                     </div>
                                 </div>
@@ -86,7 +108,7 @@ const EditBlog = () => {
                                         Image
                                     </label>
                                     <div className="mt-2">
-                                    <input type="text" id="img" name="img" required className="file-input file-input-bordered file-input-success w-full " {...register('img')}
+                                    <input type="text" id="img" name="img" required className="file-input file-input-bordered pl-4 file-input-success w-full " {...register('img')}
                                     defaultValue={blog?.img}
                                     />
                                     </div>
@@ -98,7 +120,7 @@ const EditBlog = () => {
                     Description
                     </label>   
                     <textarea
-                    type="text" id="description" name="description" required className="file-input file-input-bordered w-full" {...register('description')}
+                    type="text" id="description" name="description" required className="file-input file-input-bordered w-full p-4" {...register('description')}
                     defaultValue={blog?.description}
                     ></textarea>
                     {/* <ReactQuill theme="snow"

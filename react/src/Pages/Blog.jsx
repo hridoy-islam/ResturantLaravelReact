@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import BlogDetails from "./BlogDetails";
 
 const Blog = ({plan}) => {
-    const { title, description, img, } = plan;
+    const { title, description, img, slug } = plan;
     let details = description.slice(0, 170);
     return (
         <div>
@@ -24,8 +24,7 @@ const Blog = ({plan}) => {
                         </p>
                     </div>
                     <p className="font-semibold text-md text-gray-500 pt-3">{details}... </p>
-                    <button className="btn btn-primary text-white w-full mt-4 mx-auto"> <Link  >Read More</Link>
-                    </button>
+                    <Link className="btn btn-primary text-white w-full mt-4 mx-auto" to={`/blog/${slug}`} >Read More</Link>
                 </div>
         </div>
     );

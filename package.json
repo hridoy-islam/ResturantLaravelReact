@@ -22,6 +22,7 @@
         "@paypal/react-paypal-js": "^8.0.0",
         "react-hook-form": "^7.45.4",
         "react-loader-spinner": "^5.3.4",
-        "react-router-dom": "^6.14.1"
+        "react-router-dom": "^6.14.1",
+        "react-slugify": "^3.0.2"
     }
 }

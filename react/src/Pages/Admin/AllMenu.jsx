@@ -14,9 +14,6 @@ const AllMenu = () => {
                 setMenus(response.data)
             })
     }, [menus])
-    const handleEdit = (_id) => {
-
-    }
     const handleDelete = async (_id) => {
         const proceed = window.confirm("Are you sure to delete this?");
         try {

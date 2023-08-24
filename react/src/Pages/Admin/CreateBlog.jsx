@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import axiosClient from '../../AxiosClient';
+import slugify from 'react-slugify';
 import PageTitle from '../../Components/Shared/PageTitle';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
@@ -12,31 +12,53 @@ const CreateBlog = () => {
     const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const [errors, setErrors] = useState(null)
-    // const [category, setCategory] = useState();
-    // const onsubmit = data =>{
-    //     console.log(data)
-    // }
-    const onsubmit = data =>
+    const onsubmit = data =>{
+        const slug = slugify(data.title)
+        data.slug =slug
+        console.log(data)
         axios.post('http://localhost:5000/blog', data)
-            .then(({ data }) => {
-                console.log(data)
-                if (data.success) {
-                    toast.success("Create Blog");
-                    navigate('/admin/blog');
-                }
-                else {
-                    toast.success("Create Blog");
-                    navigate('/admin/blog');
-                }
-                reset()
+        .then(({ data }) => {
+            console.log(data)
+            if (data.success) {
+                toast.success("Create Blog");
+                navigate('/admin/blog');
+            }
+            else {
+                toast.success("Create Blog");
+                navigate('/admin/blog');
+            }
+            reset()
 
-            })
-            .catch(error => {
-                const res = error.response;
-                if (res && res.status === 422) {
-                    setErrors(res.data.errors);
-                }
-            });
+        })
+        .catch(error => {
+            const res = error.response;
+            if (res && res.status === 422) {
+                setErrors(res.data.errors);
+            }
+        });
+    }
+    // const onsubmit = data =>
+
+    //     axios.post('http://localhost:5000/blog', data)
+    //         .then(({ data }) => {
+    //             console.log(data)
+    //             if (data.success) {
+    //                 toast.success("Create Blog");
+    //                 navigate('/admin/blog');
+    //             }
+    //             else {
+    //                 toast.success("Create Blog");
+    //                 navigate('/admin/blog');
+    //             }
+    //             reset()
+
+    //         })
+    //         .catch(error => {
+    //             const res = error.response;
+    //             if (res && res.status === 422) {
+    //                 setErrors(res.data.errors);
+    //             }
+    //         });
     return (
         <div>
             <PageTitle title="Create Blog" />
@@ -69,7 +91,7 @@ const CreateBlog = () => {
                                         Image
                                     </label>
                                     <div className="mt-2">
-                                    <input type="text" id="image" name="image" required className="file-input file-input-bordered file-input-success w-full " {...register('image')}/>
+                                    <input type="text" id="image" name="image"  className="file-input file-input-bordered file-input-success w-full " {...register('image')}/>
                                     </div>
                                 </div>
                             </div>

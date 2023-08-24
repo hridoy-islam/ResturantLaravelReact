@@ -6,13 +6,11 @@ const WeightLossCustomerInformation = () => {
     const { order, setOrder } = useContext(userContext)
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
-        console.log(data)
         let updatedValue = { step: 3, ...data };
         setOrder(order => ({
             ...order,
             ...updatedValue
         }));
-        console.log(order)
     }
     return (
         <div className="container mx-auto  bg-white mb-12 py-12 rounded-xl">

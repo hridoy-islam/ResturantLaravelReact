@@ -4,7 +4,6 @@ import AdminLayout from "../Components/Layouts/AdminLayout";
 import Main from "../Components/Layouts/Main";
 import UserLayout from "../Components/Layouts/UserLayout";
 import OrderSummary from "../Components/OrderSummary";
-import Header from "../Components/Shared/Header";
 import Success from "../Components/Success";
 import About from "../Pages/About";
 import AllBlog from "../Pages/Admin/AllBlog";
@@ -40,7 +39,6 @@ import WeightGain from "../Pages/WeightGain";
 import Vegetarian from "../Pages/Vegetarian";
 import Orders from "../Pages/User/Orders";
 import AllPlan from "../Pages/Admin/AllPlan";
-import AllBlogFetch from "../Pages/Admin/AllBlogFetch";
 import EditBlog from "../Pages/Admin/EditBlog";
 import HeaderMenu from "../Components/Shared/HeaderMenu";
 import EditMenu from "../Pages/Admin/EditMenu";
@@ -107,7 +105,7 @@ const router = createBrowserRouter([
                 element: <Blog />,
             },
             {
-                path: "/blog/blogdetails",
+                path: "/blog/:slug",
                 element: <BlogDetails />
             },
             {
@@ -189,7 +187,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/admin/blog",
-                element: <AllBlogFetch />,
+                element: <AllBlog />,
             },
             {
                 path: "/admin/blog/create",
