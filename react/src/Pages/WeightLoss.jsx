@@ -2,11 +2,11 @@ import { useContext, useEffect } from 'react';
 import OrderStep from '../Components/OrderForm/OrderStep';
 import OrderSummary from '../Components/OrderSummary';
 import BreadCumb from '../Components/Shared/BreadCumb';
-import WeightLossCustomerInformation from '../Components/WeightLoss/WeightLossCustomerInformation';
-import WeightLossCustomize from '../Components/WeightLoss/WeightLossCustomize';
-import WeightLossOrderDelivery from '../Components/WeightLoss/WeightLossOrderDelivery';
-import WeightLossOrderReview from '../Components/WeightLoss/WeightLossOrderReview';
 import { userContext } from '../Contexts/MainContext';
+import OrderReview from '../Components/common/OrderReview';
+import OrderDelivery from '../Components/common/OrderDelivery';
+import OrderInfo from '../Components/common/OrderInfo';
+import OrderCustomize from '../Components/common/OrderCustomize';
 const WeightLoss = () => {
     const { order, setOrder } = useContext(userContext)
     useEffect(() => {
@@ -38,10 +38,10 @@ const WeightLoss = () => {
             <div className='  bg-gray-100'>
                 <div className='lg:flex container mx-auto'>
                     <div className='lg:w-7/12 lg:mr-12 mt-12'>
-                        {(order?.step === 1) && < WeightLossCustomize />}
-                        {(order?.step === 2) && <WeightLossCustomerInformation />}
-                        {(order?.step === 3) && <WeightLossOrderDelivery />}
-                        {(order?.step === 4) && <WeightLossOrderReview />}
+                        {(order?.step === 1) && <OrderCustomize />}
+                        {(order?.step === 2) && <OrderInfo />}
+                        {(order?.step === 3) && <OrderDelivery />}
+                        {(order?.step === 4) && <OrderReview />}
 
                     </div>
                     <div className='lg:w-4/12'>

@@ -17,7 +17,6 @@ import Subscribe from "../Pages/Admin/Subscribe";
 import UserList from "../Pages/Admin/UserList";
 import BlogDetails from "../Pages/BlogDetails";
 import Blog from "../Pages/Blogs";
-import Diabetic from "../Pages/Diabetic";
 import Faq from "../Pages/Faq";
 import Forgot from "../Pages/Forgot";
 import Home from "../Pages/Home";
@@ -35,7 +34,6 @@ import MyProfile from "../Pages/User/MyProfile";
 import CreateMenu from "../Pages/Admin/CreateMenu";
 import AllMenu from "../Pages/Admin/AllMenu";
 import WeightLoss from "../Pages/WeightLoss";
-import WeightGain from "../Pages/WeightGain";
 import Vegetarian from "../Pages/Vegetarian";
 import Orders from "../Pages/User/Orders";
 import AllPlan from "../Pages/Admin/AllPlan";
@@ -65,10 +63,6 @@ const router = createBrowserRouter([
                 element: <WeightLoss />,
             },
             {
-                path: "/weight-gain-plan",
-                element: <WeightGain />,
-            },
-            {
                 path: "/keto-plan",
                 element: <Keto />,
             },
@@ -79,10 +73,6 @@ const router = createBrowserRouter([
             {
                 path: "/vegetarian-plan",
                 element: <Vegetarian />,
-            },
-            {
-                path: "/diabetic-plan",
-                element: <Diabetic />,
             },
             {
                 path: "/login",

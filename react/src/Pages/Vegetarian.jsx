@@ -2,11 +2,11 @@ import { useContext, useEffect } from "react";
 import OrderStep from "../Components/OrderForm/OrderStep";
 import OrderSummary from "../Components/OrderSummary";
 import BreadCumb from "../Components/Shared/BreadCumb";
-import VegatarianOrderReview from '../Components/Vegetarian/VegatarianOrderReview';
-import VegetarianCustomerInformation from "../Components/Vegetarian/VegetarianCustomerInformation";
-import VegetarianCustomize from "../Components/Vegetarian/VegetarianCustomize";
-import VegetarianOrderDelivery from "../Components/Vegetarian/VegetarianOrderDelivery";
 import { userContext } from "../Contexts/MainContext";
+import OrderCustomize from "../Components/common/OrderCustomize";
+import OrderInfo from "../Components/common/OrderInfo";
+import OrderDelivery from "../Components/common/OrderDelivery";
+import OrderReview from "../Components/common/OrderReview";
 
 const Vegetarian = () => {
     const { order, setOrder } = useContext(userContext)
@@ -40,10 +40,10 @@ const Vegetarian = () => {
                 <div className='lg:flex container mx-auto'>
                     <div className='lg:w-7/12 lg:mr-12 mt-12'>
 
-                        {(order?.step === 1) && < VegetarianCustomize />}
-                        {(order?.step === 2) && <VegetarianCustomerInformation />}
-                        {(order?.step === 3) && <VegetarianOrderDelivery />}
-                        {(order?.step === 4) && <VegatarianOrderReview />}
+                    {(order?.step === 1) && <OrderCustomize />}
+                        {(order?.step === 2) && <OrderInfo />}
+                        {(order?.step === 3) && <OrderDelivery />}
+                        {(order?.step === 4) && <OrderReview />}
                     </div>
                     <div className='lg:w-4/12'>
                         <OrderSummary />
