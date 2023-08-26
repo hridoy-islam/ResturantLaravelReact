@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { userContext } from "../../Contexts/MainContext";
 
 const OrderCustomize = () => {
-    const { order, setOrder } = useContext(userContext)
+    const { setOrder } = useContext(userContext)
     const [duration, setDuration] = useState('')
     const [meal, setMeal] = useState([]);
     const durationPlan = [

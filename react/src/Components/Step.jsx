@@ -47,8 +47,3 @@ export default function Step() {
         </div>
     )
 }
-
-
-
-
-

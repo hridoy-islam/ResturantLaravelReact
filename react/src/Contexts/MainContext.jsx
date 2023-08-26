@@ -9,6 +9,41 @@ const MainContext = ({ children }) => {
     const [token, setToken] = useState(localStorage.getItem('fitnesstoken'));
     const [loading, setLoading] = useState(true);
 
+    const [durationPlan, setDurationPlan] = useState([
+        {
+            day: 6,
+            title: '6 Days',
+        },
+        {
+            day: 5,
+            title: '5 Days',
+        },
+        {
+            day: 20,
+            title: '20 Days',
+        },
+        {
+            day: 24,
+            title: '24 Days',
+        }
+
+    ])
+
+    const [mealsTime, setMealsTime] = useState([
+        {
+            meal: 1,
+            name: '1 Meal'
+        },
+        {
+            meal: 2,
+            name: '2 Meal'
+        },
+        {
+            meal: 3,
+            name: '3 Meal'
+        },
+    ])
+
     const [order, setOrder] = useState({
         plan: '',
         step: 0,
@@ -51,7 +86,9 @@ const MainContext = ({ children }) => {
         setError,
         setLoading,
         setUser,
-        setToken
+        setToken,
+        durationPlan,
+        mealsTime
 
     }
     return (

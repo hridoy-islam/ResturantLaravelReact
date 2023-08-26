@@ -7,7 +7,7 @@ import user from '../../assets/user.png'
 import orderImg from '../../assets/order.png'
 
 const OrderStepResponsive = () => {
-    const { order, setOrder } = useContext(userContext);
+    const { setOrder } = useContext(userContext);
     const changeStep = (step) => {
 
         let updatedValue = { step };

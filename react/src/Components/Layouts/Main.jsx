@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import HeaderMenu from "../Shared/HeaderMenu";
-// import ScrollToTop from "../ScrollToTop";
 
 const Main = () => {
     return (
