@@ -10,9 +10,18 @@ import BlogHome from "../Components/BlogHome";
 import OrderHome from "../Components/OrderHome";
 import OrderHomeStep from "../Components/OrderHomeStep";
 import OrderStepResponsive from "../Components/OrderForm/OrderStepResponsive";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const Home = () => {
+    const [homeMenu, setHomeMenu] = useState();
+    useEffect(() => {
+        axios.get('https://fitnessdineserver-seven.vercel.app/menu/')
+            .then(function (response) {
+                setHomeMenu(response.data)
+            })
+    }, [homeMenu]);
     return (
         <div>
             <Banner />
@@ -21,7 +30,8 @@ const Home = () => {
             <div className='lg:block md:block sm:block hidden'><OrderHomeStep /></div>
             <div className='lg:hidden md:hidden sm:hidden block'><OrderStepResponsive></OrderStepResponsive></div>
             <OrderHome />
-            <VarityMeal />
+            <VarityMeal/>
+            
             <Step />
             <Clean />
             <OrderSlider />
