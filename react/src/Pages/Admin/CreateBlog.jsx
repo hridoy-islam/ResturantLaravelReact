@@ -91,7 +91,7 @@ const CreateBlog = () => {
                                         Image
                                     </label>
                                     <div className="mt-2">
-                                    <input type="text" id="image" name="image"  className="file-input file-input-bordered file-input-success w-full " {...register('image')}/>
+                                    <input placeholder='get link' type="text" id="image" name="image"  className="file-input pl-4 file-input-bordered file-input-success w-full " {...register('image')}/>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ const CreateBlog = () => {
                     Description
                     </label>   
                     <textarea
-                    type="text" id="description" name="description" required className="file-input file-input-bordered file-input-success w-full max-w-xs" {...register('description')}
+                    type="text" id="description" name="description" required className="file-input p-3 file-input-bordered file-input-success w-full h-48" placeholder='description' {...register('description')}
                     ></textarea>
                     {/* <ReactQuill theme="snow"
                         value={editorContent}

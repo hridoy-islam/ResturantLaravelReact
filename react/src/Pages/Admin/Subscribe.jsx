@@ -20,9 +20,9 @@ const Subscribe = () => {
             <div className="py-4 container mx-auto">
 
             </div>
-            <div>
+            {/* <div>
                 <button className='btn-sm btn-primary'>Export</button>
-            </div>
+            </div> */}
 
 
 

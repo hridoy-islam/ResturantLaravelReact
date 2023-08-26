@@ -50,32 +50,32 @@ const OrderSummary = () => {
 
                 <div className="flex justify-between mx-4 my-2">
                     <p className="text-sm font-semibold">Meal Price</p>
-                    <p className="text-sm font-bold">${mealPrice}</p>
+                    <p className="text-sm font-bold">{mealPrice} AED</p>
                 </div>
                 {
                     order.breakFastLight.added &&
                     <div className="flex justify-between mx-4 my-2">
                         <p className="text-sm font-semibold">Breakfast Light</p>
-                        <p className="text-sm font-bold">{breakFastLight}</p>
+                        <p className="text-sm font-bold">{breakFastLight} AED</p>
                     </div>
                 }
                 {
                     order.breakFastFull.added &&
                     <div className="flex justify-between mx-4 my-2">
                         <p className="text-sm font-semibold">Breakfast Full</p>
-                        <p className="text-sm font-bold">{breakFastFull}</p>
+                        <p className="text-sm font-bold">{breakFastFull} AED</p>
                     </div>
                 }
                 {
                     order.snacks.added &&
                     <div className="flex justify-between mx-4 my-2">
                         <p className="text-sm font-semibold">Snakcs Price</p>
-                        <p className="text-sm font-bold">{snacksPrice}</p>
+                        <p className="text-sm font-bold">{snacksPrice} AED</p>
                     </div>
                 }
                 <div className="flex justify-between mx-4 my-4 pt-2 border-t-2">
                     <p className="text-md font-extrabold">Total</p>
-                    <p className="text-md font-extrabold">${order.price}</p>
+                    <p className="text-md font-extrabold">{order.price} AED</p>
                 </div>
                 <button onClick={checkout} className="bg-primary text-white w-full text-2xl px-6 py-2 my-6 rounded-lg">Pay</button>
                 <p className="text-xs pt-4 font-medium text-center px-4">You can change your menu, skip weeks, or cancel at any time. Your subscription order includes future deliveries billed at $192 inclusive of shipping. Your weekly price may change depending on your menu selections.</p>

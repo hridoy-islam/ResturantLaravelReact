@@ -24,25 +24,31 @@ const Order = () => {
                             <th className='text-lg font-bold'>Payment Status</th>
                             <th className='text-lg font-bold'>Date</th>
                             <th className='text-lg font-bold'>Price</th>
-                            <th className='text-lg font-bold'>View</th>
+                            {/* <th className='text-lg font-bold'>View</th> */}
                         </tr>
                         <tr>
-                            <td className='text-md font-bold'>Shahed Ahmed</td>
+                            <td className='text-md font-bold'>002342441007</td>
                             <td className='text-md font-bold'>shahed@gmail.com</td>
                             <td className='text-md font-bold'>Weight Loss</td>
+                            <td className='text-md font-bold'>Success</td>
+                            <td className='text-md font-bold'>8/26/2023</td>
                             <td className='text-md font-bold'>192 AED</td>
                         </tr>
                         <tr>
-                            <td className='text-md font-bold'>Mushfik Ahmed</td>
+                            <td className='text-md font-bold'>002342441008</td>
                             <td className='text-md font-bold'>mushfik@gmail.com</td>
                             <td className='text-md font-bold'>MusclesGain</td>
-                            <td className='text-md font-bold'>384 AED</td>
+                            <td className='text-md font-bold'>Success</td>
+                            <td className='text-md font-bold'>8/19/2023</td>
+                            <td className='text-md font-bold'>396 AED</td>
                         </tr>
                         <tr>
-                            <td className='text-md font-bold'>Sakib Ahmed</td>
+                            <td className='text-md font-bold'>002342441003</td>
                             <td className='text-md font-bold'>sakib@gmail.com</td>
                             <td className='text-md font-bold'>Vegetarian</td>
-                            <td className='text-md font-bold'>576 AED</td>
+                            <td className='text-md font-bold'>Success</td>
+                            <td className='text-md font-bold'>7/29/2023</td>
+                            <td className='text-md font-bold'>284 AED</td>
                         </tr>
                     </thead>
                     <tbody>

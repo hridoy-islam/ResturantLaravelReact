@@ -95,11 +95,11 @@ const CreateMenu = () => {
                             </div> */}
 
                             <div className="sm:col-span-3">
-                                <label htmlFor="region" className="block text-md font-medium leading-6 text-gray-900">
+                                <label htmlFor="region" className="block pl-3 text-md font-medium leading-6 text-gray-900">
                                     Image
                                 </label>
                                 <div className="mt-2">
-                                <input type="text" id="img" name="img" className="file-input file-input-bordered file-input-success w-full " {...register('img')}/>
+                                <input type="text" id="img" name="img" className="file-input pl-3 file-input-bordered file-input-success w-full " placeholder='get link' {...register('img')}/>
                                 </div>
                             </div>
                             {/* <div className="sm:col-span-3">

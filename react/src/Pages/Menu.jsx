@@ -31,14 +31,14 @@ const Menu = () => {
             </div>
             <div className="grid lg:grid-cols-3 gap-8 container mx-auto text-center pt-6 pb-24">
             {menu?.map((plan, index) => 
-                <div key={index} className="shadow-xl shadow-gray p-6 rounded-xl  hover:bg-gray-50">
+                <div key={index} className="shadow-xl shadow-gray p-6 rounded-xl  ">
                         <img className="w-70 mx-auto" src={plan.img} alt="Image"/>
                         <p className="text-xl font-bold py-12 text-center">{plan.name}</p>
                         <div className="flex justify-between items-center border-t-2 pt-3">
-                            <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">{plan.calories}  Calories</p>
-                            <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">{plan.protein}   Protein</p>
-                            <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">{plan.carb} Carb</p>
-                            <p className="text-normal font-medium px-2 text-gray-400">{plan.fat}  Fat</p>
+                            <p className="text-normal font-medium border-r-2 border-gray-400 px-3 text-gray-400">{plan.calories}  Kcal</p>
+                            <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">Protein {plan.protein}g</p>
+                            <p className="text-normal font-medium border-r-2 border-gray-400 px-3 text-gray-400">Carbs {plan.carb}g</p>
+                            <p className="text-normal font-medium px-3 text-gray-400"> Fat {plan.fat}g</p>
             </div>
                 </div>
                 )}
