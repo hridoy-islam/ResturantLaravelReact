@@ -9,7 +9,7 @@ const Menu = () => {
     const {setLoading} = useContext(userContext);
     const loadData = () =>{
         setLoading(true);
-            axios.get('http://localhost:5000/menu')
+            axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/menu`)
                 .then(function (response) {
                     // handle success
                     setMenu(response.data)
