@@ -1,11 +1,9 @@
 import { Outlet } from "react-router-dom";
 import SideNav from "../../Pages/SideNav/SideNav";
 import Footer from "../Shared/Footer";
-import Header from "../Shared/Header";
 import HeaderMenu from "../Shared/HeaderMenu";
 
 const UserLayout = () => {
-    //const { token } = useContext(userContext);
 
     return (
         <div>

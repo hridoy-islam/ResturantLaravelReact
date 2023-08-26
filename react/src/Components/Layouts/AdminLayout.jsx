@@ -5,7 +5,6 @@ import { userContext } from "../../Contexts/MainContext";
 import Footer from "../Shared/Footer";
 import HeaderMenu from '../Shared/HeaderMenu';
 import SideNav from "../../Pages/SideNav/SideNav";
-import Header from "../Shared/Header";
 
 const AdminLayout = () => {
     // const { token, setUser } = useContext(userContext)
