@@ -79,7 +79,8 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      border-top: 1pxsolid #fff;
+      border-top: 1px solid #fff;
+      padding-top: 12px;
       position: absolute;
       top: 80px;
       left: -110%;
@@ -116,4 +117,8 @@
       cursor: pointer;
       color: #fff;
     }
+    .close{
+      color: white !important;
+    }
   }
+

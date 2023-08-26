@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './HeaderMenu.css'
 import { FaBars } from 'react-icons/fa';
-import { GrClose } from "react-icons/gr";
+import { AiOutlineClose } from "react-icons/ai";
 import logo from '../../assets/logo.png';
 import { userContext } from '../../Contexts/MainContext';
 const navigation = [
@@ -37,6 +37,7 @@ const HeaderMenu = () => {
             <div className={click ? "main-container" : ""} onClick={() => Close()} />
             <nav className="navbar" onClick={e => e.stopPropagation()}>
                 <div className="container mx-auto flex items-center justify-between">
+                
                     <div>
                         <Link to='/'>
                             <img
@@ -136,14 +137,17 @@ const HeaderMenu = () => {
                                 :
                                 <> 
                                     <li className="nav-item">
-                                    <NavLink to='/login' className='rounded-3xl lg:w-full w-5/12 mx-auto lg:my-0 my-2 flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <NavLink to='/login' className='rounded-3xl lg:w-full w-full mx-auto lg:my-0 my-2 flex items-center justify-center bg-white text-gray-900 px-8 py-2  lg:text-base text-sm font-medium hover:bg-gray-600 hover:text-white'
+                                    onClick={click ? handleClick : null}> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"
+                                    >
                                     /<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                                     /</svg>
                                     </span> <span className='pl-2'>Login</span>
                                     </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                    <NavLink to="/register" className='rounded-3xl lg:w-full w-5/12 mx-auto lg:my-0 my-2 lg:mb-0 mb-6 flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white' href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                    <NavLink to="/register" className='rounded-3xl lg:w-full w-full mx-auto lg:my-0 my-2 lg:mb-0 mb-8 flex items-center justify-center bg-white text-gray-900 px-8 py-2  lg:text-base text-sm font-medium hover:bg-gray-600 hover:text-white'
+                                    onClick={click ? handleClick : null} href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                                         </svg>
                                         </span><span className='pl-2'>Register</span> </NavLink>
@@ -155,10 +159,10 @@ const HeaderMenu = () => {
                         }
                     </ul>
                    
-                               
                     <div className="nav-icon" onClick={handleClick}>
-                        {click ? <GrClose /> : <FaBars />}
-                    </div>
+                        {click ? <AiOutlineClose className='close' /> : <FaBars />}
+                    </div>          
+                    
                 </div>
             </nav>
         </ div>

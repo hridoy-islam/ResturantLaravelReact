@@ -10,7 +10,7 @@ const Blogs = () => {
     console.log(blog)
     const loadData = () =>{
         setLoading(true);
-            axios.get('http://localhost:5000/blog')
+            axios.get()
                 .then(function (response) {
                     // handle success
                     setBlog(response.data)
