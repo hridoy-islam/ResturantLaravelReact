@@ -17,7 +17,7 @@ const CreatePlan = () => {
     //     console.log(data)
     // }
     const onSubmit = data =>
-        axios.post('http://localhost:5000/plan', data)
+        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/plan`, data)
             .then(({ data }) => {
                 console.log(data)
                 if (data.success) {

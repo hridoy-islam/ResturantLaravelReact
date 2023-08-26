@@ -9,11 +9,7 @@ const Blogs = () => {
     console.log(blog)
     const loadData = () =>{
         setLoading(true);
-<<<<<<< HEAD
-            axios.get()
-=======
             axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog`)
->>>>>>> 31e70f1e1cf021569947a5ee8cfea8f7d822926e
                 .then(function (response) {
                     // handle success
                     setBlog(response.data)

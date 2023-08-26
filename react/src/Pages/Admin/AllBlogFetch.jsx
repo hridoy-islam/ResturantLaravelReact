@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const AllBlogFetch = () => {
     const [blogs, setBlogs] = useState();
     useEffect(() => {
-        fetch('http://localhost:5000/blog')
+        fetch(`${import.meta.env.VITE_BACKEND_API_URL}/blog`)
       .then((res) => res.json())
       .then((data) => setBlogs(data));
     }, [blogs])

@@ -14,20 +14,20 @@ const Footer = () => {
                         </div>
                         <div>
                             <h3 className="lg:text-2xl text-lg font-bold pb-2">Links</h3>
-                            <p className="lg:py-2"><a className="lg:text-md text-sm font-medium" href="">Home</a></p>
-                            <p className="lg:py-2"><a className="lg:text-md text-sm font-medium" href="">About Us</a></p>
-                            <p className="lg:py-2"><a className="lg:text-md text-sm font-medium" href="">Contact Us</a></p>
-                            <p className="lg:py-2"><a className="lg:text-md text-sm font-medium" href="">Getting Started</a></p>
+                            <p className="lg:py-2"><Link className="lg:text-md text-sm font-medium" to={'/'}>Home</Link></p>
+                            <p className="lg:py-2"><Link className="lg:text-md text-sm font-medium" to={'/about'}>About Us</Link></p>
+                            {/* <p className="lg:py-2"><Link className="lg:text-md text-sm font-medium" to={}>Contact Us</Link></p> */}
+                            <p className="lg:py-2"><Link className="lg:text-md text-sm font-medium" to={'/meal-plan'}>Getting Started</Link></p>
                         </div>
                     </div>
                     <div className='flex justify-between lg:justify-around'>
                         <div>
                             <h3 className="lg:text-2xl text-lg font-bold pb-2">Learn More</h3>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Delivery Locations</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Faq</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Terms and conditions</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Privacy Policy</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Blog</a></p>
+                            <p className="lg:py-2"><Link className="text-md font-medium" to={''}>Delivery Locations</Link></p>
+                            <p className="lg:py-2"><Link className="text-md font-medium" to={'/faq'}>Faq</Link></p>
+                            <p className="lg:py-2"><Link className="text-md font-medium" to={''}>Terms and conditions</Link></p>
+                            <p className="lg:py-2"><Link className="text-md font-medium" to={'/'}>Privacy Policy</Link></p>
+                            <p className="lg:py-2"><Link className="text-md font-medium" to={'/blog'}>Blog</Link></p>
                         </div>
                         <div>
                             <h3 className="lg:text-2xl mr-12 text-lg font-bold pb-2">Plans</h3>

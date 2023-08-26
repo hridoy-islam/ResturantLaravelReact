@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -11,11 +11,8 @@ const CreateMenu = () => {
     const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const [errors, setErrors] = useState(null)
-    // const onsubmit = data =>{
-    //     console.log(data)
-    // }
     const onsubmit = data =>
-        axios.post('http://localhost:5000/menu', data)
+        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/menu`, data)
             .then(({ data }) => {
                 console.log(data)
                 if (data.success) {
@@ -35,30 +32,13 @@ const CreateMenu = () => {
                     setErrors(res.data.errors);
                 }
             });
-
-//    .catch(error => {
-//        const res = error.response;
-//        if (res && res.status === 422) {
-//            setErrors(res.data.errors);
-//        }
-//    });
-    // useEffect(() => {
-    //     axiosClient.get('category')
-    //         .then(res => {
-    //             setCategory(res.data);
-    //             console.log(res.data);
-    //         })
-    // }, [])
     return (
         <div>
             <PageTitle title="Create Menu" />
             <div className='container mx-auto py-6'>
             <form onSubmit={handleSubmit(onsubmit)} className='container mx-auto py-4'>
-
                 <div className="space-y-12 mt-8">
                     <div className=" pb-4">
-
-
                         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="col-span-3">
                                 <label htmlFor="street-address" className="block text-md font-medium leading-6 text-gray-900">
@@ -76,24 +56,6 @@ const CreateMenu = () => {
                                     />
                                 </div>
                             </div>
-
-                            {/* <div className="sm:col-span-3 ">
-                                <label htmlFor="city" className="block text-md font-medium leading-6 text-gray-900">
-                                Menu Title
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        type="text"
-                                        name="title"
-                                        id="title"
-                                        placeholder='title'
-                                        className="block pl-4 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
-                                        {...register('title')}
-
-                                    />
-                                </div>
-                            </div> */}
-
                             <div className="sm:col-span-3">
                                 <label htmlFor="region" className="block pl-3 text-md font-medium leading-6 text-gray-900">
                                     Image
@@ -102,29 +64,11 @@ const CreateMenu = () => {
                                 <input type="text" id="img" name="img" className="file-input pl-3 file-input-bordered file-input-success w-full " placeholder='get link' {...register('img')}/>
                                 </div>
                             </div>
-                            {/* <div className="sm:col-span-3">
-                                <label htmlFor="region" className="block text-md font-medium leading-6 text-gray-900">
-                                    Price
-                                </label>
-                                <div className="mt-2">
-                                    <input
-                                        type="number"
-                                        name="price"
-                                        id="price"
-                                        placeholder='price'
-                                        autoComplete="address-level1"
-                                        className="block pl-4 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
-                                        {...register('price')}
-
-                                    />
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>
                 <div className="space-y-8 mt-4">
                     <div className="border-b border-gray-900/10 pb-8">
-
                         <div className=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div className="col-span-3">
                                 <label htmlFor="street-address" className="block text-md font-medium leading-6 text-gray-900">
@@ -142,7 +86,6 @@ const CreateMenu = () => {
                                     />
                                 </div>
                             </div>
-
                             <div className="sm:col-span-3">
                                 <label htmlFor="city" className="block text-md font-medium leading-6 text-gray-900">
                                 Protein
@@ -159,7 +102,6 @@ const CreateMenu = () => {
                                     />
                                 </div>
                             </div>
-
                             <div className="sm:col-span-3">
                                 <label htmlFor="region" className="block text-md font-medium leading-6 text-gray-900">
                                 Carb
@@ -192,13 +134,10 @@ const CreateMenu = () => {
                                     />
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
                 <div className="mt-6 flex items-center justify-center gap-x-6">
-
                     <button
                         type="submit"
                         className="rounded-md bg-primary px-16 py-3 text-md font-semibold text-white shadow-sm hover:bg-secondary indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -207,7 +146,6 @@ const CreateMenu = () => {
                     </button>
                 </div>
             </form>
-               
             </div>
         </div>
     );

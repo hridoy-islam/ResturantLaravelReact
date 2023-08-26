@@ -24,7 +24,7 @@ const AllMenu = () => {
                     },
                 };
                 const { data } = await axios.delete(
-                    `http://localhost:5000/menu/${_id}`,
+                    `${import.meta.env.VITE_BACKEND_API_URL}/menu/${_id}`,
                     config
                 );
                 // console.log(data);

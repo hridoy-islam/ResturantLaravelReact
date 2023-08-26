@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import BlogDetails from "./BlogDetails";
 
 const Blog = ({plan}) => {
-    const { title, description, img, slug } = plan;
+    const { title, description, image, slug } = plan;
     let details = description.slice(0, 170);
     return (
         <div>
             <div className="p-8 border-2 rounded-lg">
-                    <img className=" h-56 rounded-lg" src={img} alt="img" />
-                    <h2 className="text-2xl font-bold text-secondary py-3">{title}</h2>
+                    <img className=" h-56 w-full rounded-lg" src={image} alt="img" />
+                    <h2 className="text-2xl font-bold text-secondary py-6">{title}</h2>
                     <div className="flex text-md font-medium text-secondary-500">
                         <p className="flex">
                             <span className="text-primary"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

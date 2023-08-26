@@ -75,7 +75,7 @@ const OrderForm = () => {
                     <div
                             className="relative overflow-hidden rounded-xl transition shadow-xl mb-6 mt-6 lg:mt-2 shadow-[#2b34407a] flex justify-between"
                             >
-                            <div className="lg:w-7/12 lg:mr-0 mr-2">
+                            <div className="lg:w-7/12 sm:w-7/12 lg:mr-0 mr-2">
                                 <div className="pl-6 py-8 ">
 
                                     <h3 className="mt-0.5 text-2xl font-bold text-primary">
@@ -88,18 +88,18 @@ const OrderForm = () => {
                                     >Book Appointment</Link>
                                 </div>
                             </div>
-                            <div className="lg:w-5/12 lg:block hidden">
+                            <div className="lg:w-5/12 sm:w-5/12 lg:block md:block sm:block hidden">
                             <img
                                 alt="Office"
                                 src={book_appointment}
-                                className=" h-full  lg:w-full  object-cover"
+                                className=" h-full lg:w-full  object-cover"
                             />
                             </div>
                     </div >
                     <div
                             className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl mb-6  lg:mt-6 shadow-[#2b34407a] flex justify-between"
                             >
-                            <div className="lg:w-7/12 lg:mr-0 mr-2">
+                            <div className="lg:w-7/12 sm:w-7/12 lg:mr-0 mr-2">
                                 <div className="pl-6 py-9 ">
 
                                     <h3 className="mt-0.5 text-2xl font-bold text-primary">
@@ -112,7 +112,7 @@ const OrderForm = () => {
                                     >Help</Link>
                                 </div>
                             </div>
-                            <div className="lg:w-5/12 lg:block hidden">
+                            <div className="lg:w-5/12 sm:w-5/12 sm:block lg:block hidden">
                             <img
                                 alt="Office"
                                 src={help}

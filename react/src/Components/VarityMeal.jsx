@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Component, } from "react";
 import "./OrderSlider.css"
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class SimpleSlider extends Component {
   constructor(props) {
@@ -43,8 +44,8 @@ export default class SimpleSlider extends Component {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
+            slidesToShow: 1,
+            slidesToScroll: 1,
             initialSlide: 2
           }
         },
@@ -63,9 +64,9 @@ export default class SimpleSlider extends Component {
         <h2 className="lg:text-5xl text-4xl lg:px-0 px-2 text-center py-12 text-secondary font-bold"> Variety Of Delicious Healthy Meals</h2>
         <Slider {...settings}>
         {this.state.menu.length > 0 && this.state.menu?.map((plan, index) =>
-            <div key={index} className="py-5">
+            <div key={index} className="md:py-5 sm:py-1  mx-5">
               <div className="shadow-xl shadow-gray p-6 rounded-xl">
-                <img className="w-70 mx-auto" src={plan.img} alt="Image" />
+                <img className="w-50  mx-auto" src={plan.img} alt="Image" />
                 <p className="text-xl font-bold py-12 text-center">{plan.name}</p>
                 <div className="flex justify-between items-center border-t-2 pt-3">
                   <p className="text-normal font-medium border-r-2 border-gray-400 px-3 text-gray-400">{plan.calories}  Kcal</p>
@@ -80,7 +81,7 @@ export default class SimpleSlider extends Component {
 
         </Slider>
 
-        <button className="px-8 py-3 rounded-3xl bg-primary text-lg hover:bg-secondary text-white flex justify-center mx-auto mt-12">View Menu</button>
+        <Link to={'/meal-plan'} className="px-8 w-48 py-3 rounded-3xl bg-primary text-lg hover:bg-secondary text-white flex justify-center mx-auto lg:mt-12 ">View Menu</Link>
       </div>
     );
   }

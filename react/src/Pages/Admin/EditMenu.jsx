@@ -1,53 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import PageTitle from "../../Components/Shared/PageTitle";
-import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const EditMenu = () => {
   const [menu, setMenu] = useState();
   let { id } = useParams();
 
-  const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm();
-  const [errors, setErrors] = useState(null)
-
-  //   const onsubmit = (data) => {
-  // console.log(data);
-  //   }
-  // const onsubmit = async () => {
-  //   try {
-  //     const config = {
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //     };
-  //     const { data } = await axios.patch(
-  //       `http://localhost:5000/blog/${id}`,
-  //       config
-  //     )
-  //       .then(({ data }) => {
-  //         console.log(data)
-  //         if (data.success) {
-  //           toast.success("Updated Successful");
-  //           navigate('/admin/blog');
-  //         }
-  //         else {
-  //           toast.success("Something Went Wrong");
-  //           navigate('/admin/blog');
-  //         }
-  //         reset()
-
-  //       })
-  //   } catch (error) {
-  //     // console.log(error);
-  //     toast.error("Something Went Worng");
-  //   }
-  // };
+  const { register, handleSubmit,  } = useForm();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/menu/${id}`)
+    axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/menu/${id}`)
       .then(function (response) {
         // handle success
         setMenu(response.data);

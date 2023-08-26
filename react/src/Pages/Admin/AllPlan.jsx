@@ -9,7 +9,7 @@ const AllPlan = () => {
     const [plans, setPlans] = useState();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/plan')
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/plan`)
             .then(function (response) {
                 // handle success
                 setPlans(response.data)

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import clean_img from '../../src/assets/clean.png'
 
 export default function Clean() {
@@ -18,18 +19,18 @@ export default function Clean() {
                                 You’re looking to maintain your body
                             </h1>
                             <p className="mt-6 lg:w-10/12 text-lg leading-8 text-gray-600">
-                                Fitbar provides Tasty, Affordable, and Healthy meal plans in Dubai. The 3 pillars that makes Fitbar stand out from everyone else.
+                            Fitnessdine will  provides Tasty, Affordable, and Healthy meal plans in Dubai. All Our Meals are 100% Healthy, Fresh, Organic with No Added Sugar or Preservatives
                             </p>
                             <div className="mt-10 flex items-center lg:justify-start justify-center gap-x-6">
-                                <a
-                                    href="#"
+                                <Link
+                                    to={'/meal-plan'}
                                     className="rounded-full flex items-center justify-around bg-primary lg:px-6 lg:py-3 px-4 py-2 text-md lg:text-md text-md font-semibold text-white shadow-sm hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     <span className='p-2 mr-2 rounded-full bg-white text-gray-900'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="lg:w-6 lg:h-6 w-4 h-4">
                                         <path fillRule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clipRule="evenodd" />
                                     </svg>
                                     </span>  Get started
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

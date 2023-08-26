@@ -16,41 +16,8 @@ const EditBlog = () => {
     }
   });
   const [errors, setErrors] = useState(null)
-
-//   const onsubmit = (data) => {
-// console.log(data);
-//   }
-//   const onsubmit = async (e) => {
-//     try {
-//       const config = {
-//         headers: {
-//           "content-type": "application/json",
-//         },
-//       };
-//       const { data } = await axios.patch(
-//         `http://localhost:5000/blog/${id}`,{e},
-//         config
-//       )
-//       .then(({ data }) => {
-//         console.log(data)
-//         if (data.success) {
-//             toast.success("Updated Successful");
-//             navigate('/admin/blog');
-//         }
-//         else {
-//             toast.success("Something Went Wrong");
-//             navigate('/admin/blog');
-//         }
-//         reset()
-
-//     })
-//     } catch (error) {
-//       console.log(error);
-//       toast.error("Something Went Worng");
-//     }
-//   };
   const onsubmit = data =>
-  axios.patch(`http://localhost:5000/blog/${id}`, data)
+  axios.patch(`${import.meta.env.VITE_BACKEND_API_URL}/blog/${id}`, data)
       .then(({ data }) => {
           console.log(data)
           if (data.success) {
@@ -71,7 +38,7 @@ const EditBlog = () => {
           }
       });
   useEffect(() => {
-    axios.get(`http://localhost:5000/blog/${id}`)
+    axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog/${id}`)
         .then(function (response) {
             // handle success
             setBlog(response.data);

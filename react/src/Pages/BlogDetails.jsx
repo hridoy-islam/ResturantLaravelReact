@@ -6,7 +6,7 @@ const BlogDetails = () => {
     const [blogDetail, setBlogDetail] = useState();
     let { slug } = useParams();
     useEffect(() => {
-        axios.get(`http://localhost:5000/blog/blog/${slug}`)
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog/blog/${slug}`)
             .then(function (response) {
                 // handle success
                 setBlogDetail(response.data);
@@ -19,7 +19,7 @@ const BlogDetails = () => {
             <div className="hero min-h-screen ">
             <div className=" w-full mb-12">
                 <div className=" mx-auto lg:px-0 px-3 mt-6 ">
-                <img src='https://api.vmeals.ae/media/Vegan%20food%20and%20meat.jpg' alt="img" className="w-full h-[500px] block" />
+                <img src={blogDetail?.image} alt="img" className="w-full h-[500px] block" />
                 </div>
                 <div className="  shadow-xl  w-10/12 mx-auto lg:px-12 lg:py-12 px-3 pt-6 lg:pt-12">
                 <h1 className="text-3xl font-bold">{blogDetail?.title}</h1>

@@ -5,13 +5,6 @@ import { userContext } from "../../Contexts/MainContext";
 import Footer from "../Shared/Footer";
 import HeaderMenu from '../Shared/HeaderMenu';
 import SideNav from "../../Pages/SideNav/SideNav";
-<<<<<<< HEAD
-
-const AdminLayout = () => {
-    return (
-        <div>
-            <div>
-=======
 import NotFound from "../../Pages/NotFound";
 
 const AdminLayout = () => {
@@ -21,7 +14,6 @@ const AdminLayout = () => {
     if(user?.email){
         content = <div>
         <div>
->>>>>>> 31e70f1e1cf021569947a5ee8cfea8f7d822926e
             <HeaderMenu />
             <div className='container mx-auto lg:mt-36 mb-24 lg:p-12 lg:text-left text-center lg:border-2 lg:flex justify-between'>
                 <div className="lg:w-3/12">

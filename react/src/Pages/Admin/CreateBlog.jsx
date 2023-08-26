@@ -16,9 +16,8 @@ const CreateBlog = () => {
         const slug = slugify(data.title)
         data.slug =slug
         console.log(data)
-        axios.post('http://localhost:5000/blog', data)
+        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/blog`, data)
         .then(({ data }) => {
-            console.log(data)
             if (data.success) {
                 toast.success("Create Blog");
                 navigate('/admin/blog');
@@ -37,28 +36,6 @@ const CreateBlog = () => {
             }
         });
     }
-    // const onsubmit = data =>
-
-    //     axios.post('http://localhost:5000/blog', data)
-    //         .then(({ data }) => {
-    //             console.log(data)
-    //             if (data.success) {
-    //                 toast.success("Create Blog");
-    //                 navigate('/admin/blog');
-    //             }
-    //             else {
-    //                 toast.success("Create Blog");
-    //                 navigate('/admin/blog');
-    //             }
-    //             reset()
-
-    //         })
-    //         .catch(error => {
-    //             const res = error.response;
-    //             if (res && res.status === 422) {
-    //                 setErrors(res.data.errors);
-    //             }
-    //         });
     return (
         <div>
             <PageTitle title="Create Blog" />

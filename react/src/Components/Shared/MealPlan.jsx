@@ -6,19 +6,6 @@ const MealPlan = ({ plan }) => {
     const { name, url,description, btn , img} = plan
     
     return (
-        // <div>
-        //     <div className="card card-compact w-96 bg-base-100 shadow-xl">
-        //         <figure><img src={img} alt="Shoes" /></figure>
-        //         <div className="card-body">
-        //             <h2 className="card-title">{name}</h2>
-        //             <p>{description}</p>
-        //             <div className="card-actions justify-end">
-        //             <Link to={url} className="btn text-white btn-primary"
-        //              >{btn}</Link>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
         <article
             className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl shadow-[#2b34407a] h-72"
         >

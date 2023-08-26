@@ -4,10 +4,6 @@ import Footer from "../Shared/Footer";
 import HeaderMenu from "../Shared/HeaderMenu";
 
 const UserLayout = () => {
-<<<<<<< HEAD
-=======
-
->>>>>>> 31e70f1e1cf021569947a5ee8cfea8f7d822926e
     return (
         <div>
             <HeaderMenu />

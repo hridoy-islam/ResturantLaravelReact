@@ -17,8 +17,8 @@ const Home = () => {
         <div>
             <Banner />
             
-            <div className='lg:block md:block sm:block hidden'><OrderHomeStep /></div>
-            <div className='lg:hidden md:hidden sm:hidden block'><OrderStepResponsive></OrderStepResponsive></div>
+            <div className='lg:block md:hidden sm:block hidden'><OrderHomeStep /></div>
+            <div className='lg:hidden md:block sm:hidden block'><OrderStepResponsive></OrderStepResponsive></div>
             <OrderHome />
             <VarityMeal/>
             

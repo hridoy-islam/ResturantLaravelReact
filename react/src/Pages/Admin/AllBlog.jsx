@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 const AllBlog = () => {
     const [blogs, setBlogs] = useState();
     useEffect(() => {
-        axios.get('http://localhost:5000/blog/')
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog/`)
             .then(function (response) {
                 // handle success
                 setBlogs(response.data)
@@ -23,7 +23,7 @@ const AllBlog = () => {
                     },
                 };
                 const { data } = await axios.delete(
-                    `http://localhost:5000/blog/${_id}`,
+                    `${import.meta.env.VITE_BACKEND_API_URL}/blog/${_id}`,
                     config
                 );
                 // console.log(data);
