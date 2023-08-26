@@ -1,5 +1,4 @@
 import axios from "axios";
-import img1 from "../../src/assets/Healthy.png";
 import BreadCumb from "../Components/Shared/BreadCumb";
 import Blog from "./Blog";
 import { useContext, useEffect, useState } from "react";
@@ -10,7 +9,7 @@ const Blogs = () => {
     console.log(blog)
     const loadData = () =>{
         setLoading(true);
-            axios.get('http://localhost:5000/blog')
+            axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog`)
                 .then(function (response) {
                     // handle success
                     setBlog(response.data)

@@ -40,6 +40,7 @@ import AllPlan from "../Pages/Admin/AllPlan";
 import EditBlog from "../Pages/Admin/EditBlog";
 import HeaderMenu from "../Components/Shared/HeaderMenu";
 import EditMenu from "../Pages/Admin/EditMenu";
+import Footer from "../Components/Shared/Footer";
 
 const router = createBrowserRouter([
     {
@@ -122,7 +123,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/user',
-        element: <UserLayout />,
+        element: <AdminLayout />,
         children: [
             {
                 path: "/user/dashboard",
@@ -215,6 +216,7 @@ const router = createBrowserRouter([
             <div>
                 <HeaderMenu></HeaderMenu>
                 <NotFound></NotFound>
+                <Footer></Footer>
             </div>
         ),
     },

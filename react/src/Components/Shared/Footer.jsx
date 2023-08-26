@@ -1,4 +1,5 @@
 import logo from '../../assets/logo.png';
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -30,11 +31,10 @@ const Footer = () => {
                         </div>
                         <div>
                             <h3 className="lg:text-2xl mr-12 text-lg font-bold pb-2">Plans</h3>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Vegan</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Keto</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Mean</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Clean</a></p>
-                            <p className="lg:py-2"><a className="text-md font-medium" href="">Lean</a></p>
+                            <p className="lg:py-2"><Link to="/weight-loss-plan" className="text-md font-medium" href="">Weight Loss</Link></p>
+                            <p className="lg:py-2"><Link to="/muscles-Gain-plan" className="text-md font-medium" href="">Muscles Gain</Link></p>
+                            <p className="lg:py-2"><Link to="/keto-plan" className="text-md font-medium" href="">Keto</Link></p>
+                            <p className="lg:py-2"><Link to="/vegetarian-plan" className="text-md font-medium" href="">Vegetarian</Link></p>
                         </div>
                     </div>
                 </div>

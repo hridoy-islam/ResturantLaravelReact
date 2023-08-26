@@ -2,40 +2,7 @@ import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
 
 const OrderCustomize = () => {
-    const { order, setOrder } = useContext(userContext)
-    const durationPlan = [
-        {
-            day: 6,
-            title: '6 Days',
-        },
-        {
-            day: 5,
-            title: '5 Days',
-        },
-        {
-            day: 20,
-            title: '20 Days',
-        },
-        {
-            day: 24,
-            title: '24 Days',
-        }
-
-    ]
-    const mealsTime = [
-        {
-            meal: 1,
-            name: '1 Meal'
-        },
-        {
-            meal: 2,
-            name: '2 Meal'
-        },
-        {
-            meal: 3,
-            name: '3 Meal'
-        },
-    ]
+    const { order, setOrder, durationPlan, mealsTime } = useContext(userContext)
 
     const selectDuration = (item) => {
         const meal = order.meal;
@@ -47,7 +14,6 @@ const OrderCustomize = () => {
             ...updatedValue
         }));
 
-        // console.log(order.price)
     }
     const selectMealTime = (item) => {
         const duration = order.duration;
@@ -58,8 +24,6 @@ const OrderCustomize = () => {
             ...order,
             ...updatedValue
         }));
-
-        // console.log(order.price)
     }
 
     const addBreakfast = (bftype) => {
