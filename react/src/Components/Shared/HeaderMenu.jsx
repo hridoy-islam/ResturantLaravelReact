@@ -114,7 +114,6 @@ const HeaderMenu = () => {
                             </NavLink>
                         </li>
                         {
-
                             user?.role ?
                                 <>
                                         <li className="nav-item">
@@ -122,7 +121,7 @@ const HeaderMenu = () => {
                                                 exact
                                                 to={'/user/dashboard'}
                                                 activeClassName="active"
-                                                className="nav-links lg:pr-24 "
+                                                className="nav-links rounded-3xl lg:w-full w-full mx-auto lg:my-0 my-2  flex items-center justify-center bg-white text-gray-900 px-8 py-2  lg:text-base text-sm font-medium hover:bg-gray-600 hover:text-white"
                                                 onClick={click ? handleClick : null}
                                             >
                                                 Dashboard
@@ -133,9 +132,6 @@ const HeaderMenu = () => {
                                     </span><button className='log-out ' onClick={logOut}>Log Out</button>
                                     </NavLink>
                                     </li>
-                                        {/* <li className="nav-item">
-                                        <p className='rounded-3xl lg:w-full w-5/12 flex items-center justify-center bg-white text-gray-900 px-8 py-2 text-sm font-medium hover:bg-gray-600 hover:text-white'><button className='log-out ' onClick={logOut}>Log Out</button></p>
-                                        </li> */}
                                 </>
                                 :
                                 <> 
