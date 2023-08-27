@@ -9,36 +9,22 @@ import user from '../../assets/user.png'
 const OrderStep = () => {
     const { order, setOrder } = useContext(userContext);
     const changeStep = (step) => {
-        //const firstName = order.firstName;
-        // const lastName = order.lastName;
-        // const email = order.email;
-        // const phone = order.phone;
-        // const dob = order.dob;
-        // const nationality = order.nationality;
 
-        // const date = order.date.length;
-        // const city = order.city.length;
-        // const address = order.address.length;
-        // const apartment = order.apartment.length;
-        // const gmap = order.gmap.length;
+        // let data
 
-        //const address = order.address;
-
-        // let updateStep;
-
-        // if (step == 2) {
-        //     updateStep = 2;
+        // if (step == 1) {
+        //     data = 1;
         // }
-        // if (step == 3) {
-        //     updateStep = 3;
-        // }
-        // if (step == 4) {
-        //     updateStep = 4;
-        // }
-        // else {
-        //     updateStep = order.step;
-        // }
+        // if (order.firstName && step == 2) {
+        //     data = 2;
 
+        // }
+        // if (order.address && step == 3) {
+        //     data = 3;
+        // }
+        // if (order.firstName && order.address && step == 4) {
+        //     data = 4
+        // }
 
         let updatedValue = { step };
         setOrder(order => ({
@@ -67,21 +53,21 @@ const OrderStep = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(2)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 2 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={order.firstName ? changeStep(2) : order.step} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 2 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2" src={user} alt="arrow" />
                     Personal Information</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(3)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 3 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={order.address ? changeStep(3) : order.step} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 3 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2" src={delivery} alt="arrow" />
                     Delivery Information</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h- lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(4)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 4 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={order.address && order.firstName ? changeStep(4) : order.step} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 4 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2 " src={orderImg} alt="arrow" />
                     Review Order</button>
             </div>
