@@ -8,6 +8,18 @@ const MainContext = ({ children }) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('details')));
     const [token, setToken] = useState(localStorage.getItem('fitnesstoken'));
     const [loading, setLoading] = useState(true);
+    const [firstName, setFirstName] = useState(null);
+    const [lastName, setLastName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [dob, setDob] = useState(null);
+    const [country, setCountry] = useState(null);
+    const [address, setAddress] = useState(null);
+    const [apartment, setApartment] = useState(null);
+    const [gmap, setGmap] = useState(null);
+    const [deliveryinstruction, setDeliveryinstruction] = useState(null);
+    const [date, setDate] = useState(null);
+    const [city, setCity] = useState(null);
 
     const [durationPlan, setDurationPlan] = useState([
         {
@@ -88,7 +100,31 @@ const MainContext = ({ children }) => {
         setUser,
         setToken,
         durationPlan,
-        mealsTime
+        mealsTime,
+        firstName,
+        setFirstName,
+        lastName,
+        setLastName,
+        email,
+        setEmail,
+        phone,
+        setPhone,
+        dob,
+        setDob,
+        country,
+        setCountry,
+        address,
+        setAddress,
+        apartment,
+        setApartment,
+        gmap,
+        setGmap,
+        city,
+        setCity,
+        date,
+        setDate,
+        deliveryinstruction,
+        setDeliveryinstruction
 
     }
     return (

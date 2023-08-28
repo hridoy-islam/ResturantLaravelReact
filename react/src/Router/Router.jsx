@@ -41,6 +41,7 @@ import EditBlog from "../Pages/Admin/EditBlog";
 import HeaderMenu from "../Components/Shared/HeaderMenu";
 import EditMenu from "../Pages/Admin/EditMenu";
 import Footer from "../Components/Shared/Footer";
+import CashOnDelivery from "../Components/CashOnDelivery";
 
 const router = createBrowserRouter([
     {
@@ -110,6 +111,10 @@ const router = createBrowserRouter([
             {
                 path: "/payment",
                 element: <OrderSummary />,
+            },
+            {
+                path: "/cash-on-delivery",
+                element: <CashOnDelivery />,
             },
             {
                 path: "/success",

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
 const OrderReview = () => {
-    const { order } = useContext(userContext)
+    const { order, firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date } = useContext(userContext)
     return (
         <>
 
@@ -9,43 +9,52 @@ const OrderReview = () => {
                 <div className=" bg-white shadow  rounded-2xl p-6">
                     <h2 className="text-3xl text-primary font-bold pb-6">Plan Information</h2>
                     <div className="grid lg:grid-cols-2 gap-4">
-                        <p className="py-2  text-md font-medium">Plan Name: </p>
-
-                        <p className="py-2  text-md font-medium"> Deliveries per week: {order.days}</p>
-
+                        <p className="py-2  text-md font-medium">Plan Name: {order.plan}</p>
 
                         <p className="py-2  text-md font-medium">Plan Duration:{order.duration} </p>
 
-                        <p className="py-2  text-md font-medium">Meal Type:  </p>
+                        <p className="py-2  text-md font-medium">Meal Type: {order.meal}  </p>
+                        {
+                            order?.snacks.added && <p className="py-2  text-md font-medium">Snacks: Yes  </p>
+                        }
+
+                        {
+                            order?.breakFastLight.added && <p className="py-2  text-md font-medium">Breakfast Light: Yes  </p>
+                            
+                        }
+                        {
+                            order?.breakFastFull.added && <p className="py-2  text-md font-medium">Breakfast Full: Yes  </p>
+                            
+                        }
                     </div>
-                    {/* <p className="py-2  text-md font-medium">Meal Type: {order.meal[0]} + {order.meal[1]} </p> */}
                 </div>
                 <div className="bg-white rounded-2xl p-6">
                     <h2 className="text-3xl text-primary font-bold pb-6">Personal Information</h2>
                     <div className="grid lg:grid-cols-2 gap-4">
-                        <p className="py-2  text-md font-medium"> Name: {order.firstName} {order.lastName}</p>
+                        <p className="py-2  text-md font-medium"> Name: {firstName} {lastName}</p>
 
-                        <p className="py-2  text-md font-medium"> Email:{order.email} </p>
+                        <p className="py-2  text-md font-medium"> Email:{email} </p>
 
-                        <p className="py-2  text-md font-medium">Mobile:{order.phone} </p>
+                        <p className="py-2  text-md font-medium">Mobile:{phone} </p>
 
-                        <p className="py-2  text-md font-medium">Date of Birth: {order.dob} </p>
+                        <p className="py-2  text-md font-medium">Date of Birth: {dob} </p>
+                        <p className="py-2  text-md font-medium">Nationality: {country} </p>
                     </div>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6">
                     <h2 className="text-3xl text-primary font-bold pb-6">Billing Information</h2>
                     <div className="grid lg:grid-cols-2 gap-4">
-                        <p className="py-2  text-md font-medium">Starting Date: {order.date}</p>
+                        <p className="py-2  text-md font-medium">Starting Date: {date}</p>
 
-                        <p className="py-2  text-md font-medium"> City: {order.city}</p>
+                        <p className="py-2  text-md font-medium"> City: {city}</p>
 
-                        <p className="py-2  text-md font-medium"> Address:{order.address} </p>
+                        <p className="py-2  text-md font-medium"> Address:{address} </p>
 
-                        <p className="py-2  text-md font-medium">Apartment/Villa Number:{order.apartment} </p>
+                        <p className="py-2  text-md font-medium">Apartment/Villa Number:{apartment} </p>
 
-                        <p className="py-2  text-md font-medium">Google Maps Link: {order.gmap} lorem30</p>
-                        <p className="py-2  text-md font-medium">Delivery Instructions : {order.deliveryinstruction}</p>
+                        <p className="py-2  text-md font-medium">Google Maps Link: {gmap} lorem30</p>
+                        <p className="py-2  text-md font-medium">Delivery Instructions : {deliveryinstruction}</p>
                     </div>
                 </div>
             </div >

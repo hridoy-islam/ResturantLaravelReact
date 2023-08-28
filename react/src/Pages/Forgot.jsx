@@ -1,5 +1,37 @@
+import { useForm } from 'react-hook-form';
 import logo from '../assets/blacklogo.png';
+import axios from 'axios';
+import { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 const Forgot = () => {
+    const [errors, setErrors] = useState(null)
+    const navigate = useNavigate()
+
+    const { register, handleSubmit, } = useForm();
+    // const onSubmit = data =>{
+    //     console.log(data)
+    // }
+    const onSubmit = data =>
+        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/auth/forgot`, data)
+            .then(({ data }) => {
+                console.log(data)
+                if (data.success) {
+                    toast.success(data.message);
+                    navigate('/forgot');
+                }
+                else {
+                    toast.error(data.message);
+                    navigate('/forgot');
+                }
+
+            })
+            .catch(error => {
+                const res = error.response;
+                if (res && res.status === 422) {
+                    setErrors(res.data.errors);
+                }
+            });
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-24 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -14,7 +46,7 @@ const Forgot = () => {
             </div>
 
             <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form className="space-y-6" action="#" method="POST">
+                <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                             Your Email
@@ -27,6 +59,7 @@ const Forgot = () => {
                                 autoComplete="email"
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                                {...register('email')}
                             />
                         </div>
                     </div>

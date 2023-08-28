@@ -145,7 +145,7 @@ const OrderCustomize = () => {
                         {
                             durationPlan.map((item, index) =>
                                 <button key={index} onClick={() => selectDuration(item.day)}
-                                    className={`border py-2 px-5 rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
+                                    className={`border py-2 px-5 w-full rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
                                 > {item.title}</button>
                             )
                         }
@@ -156,7 +156,7 @@ const OrderCustomize = () => {
                     <div className="flex gap-3 mt-3">
                         {
                             mealsTime.map((item, idx) =>
-                                <button key={idx} onClick={() => selectMealTime(item.meal)} className={`border  py-2 px-5 rounded-md text-md ${order.meal === item.meal ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}> {item.name}</button>
+                                <button key={idx} onClick={() => selectMealTime(item.meal)} className={`border w-full py-2 px-5 rounded-md text-md ${order.meal === item.meal ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}> {item.name}</button>
                             )
                         }
                     </div>
@@ -165,16 +165,16 @@ const OrderCustomize = () => {
                 <div className="my-4">
                     <h2 className="text-xl font-bold">Add Breakfast to your meal plan :</h2>
                     <div className="flex gap-3 mt-3">
-                        <button onClick={() => addBreakfast('light')} className={`border  py-2 px-4 rounded-md text-md ${order.breakFastLight.added === true ? ' border-primary  bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Light </button>
+                        <button onClick={() => addBreakfast('light')} className={`border w-full py-2 px-4 rounded-md text-md ${order.breakFastLight.added === true ? ' border-primary  bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Light </button>
 
-                        <button onClick={() => addBreakfast('full')} className={`border  py-2 px-5 rounded-md text-md ${order.breakFastFull.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Full </button>
+                        <button onClick={() => addBreakfast('full')} className={`border w-full py-2 px-5 rounded-md text-md ${order.breakFastFull.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Breakfast Full </button>
                     </div>
                 </div>
 
                 <div className="mt-3">
                     <h2 className="text-xl font-bold">Add Snacks to your meal plan :</h2>
 
-                    <button onClick={addSnacks} className={`border mt-2 py-2 px-5 rounded-md text-md ${order.snacks.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Snacks </button>
+                    <button onClick={addSnacks} className={`border w-2/4 mt-2 py-2 px-5 rounded-md text-md ${order.snacks.added === true ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`} > Snacks </button>
                 </div>
 
                 <div className="mt-10">

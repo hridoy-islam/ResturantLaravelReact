@@ -10,6 +10,7 @@ import BlogHome from "../Components/BlogHome";
 import OrderHome from "../Components/OrderHome";
 import OrderHomeStep from "../Components/OrderHomeStep";
 import OrderStepResponsive from "../Components/OrderForm/OrderStepResponsive";
+import OrderStepHomeResponsive from "../Components/OrderForm/OrderStepHomeResponsive";
 
 const Home = () => {
     
@@ -18,7 +19,7 @@ const Home = () => {
             <Banner />
             
             <div className='lg:block md:hidden sm:block hidden'><OrderHomeStep /></div>
-            <div className='lg:hidden md:block sm:hidden block'><OrderStepResponsive></OrderStepResponsive></div>
+            <div className='lg:hidden md:block sm:hidden block'><OrderStepHomeResponsive/></div>
             <OrderHome />
             <VarityMeal/>
             

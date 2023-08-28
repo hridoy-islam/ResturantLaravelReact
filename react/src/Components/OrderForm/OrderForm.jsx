@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
 import MealPlan from "../Shared/MealPlan";
-import OrderCustomize from "./OrderCustomize";
-import OrderFaq from "../OrderFaq";
 import help from "../../assets/help.png";
 import book_appointment from "../../assets/book_appointment.png";
 import weight_loss from "../../assets/weight_loss.png";
@@ -12,15 +10,6 @@ import VEGETARIAN from "../../assets/VEGETARIAN.png";
 import { Link } from "react-router-dom";
 const OrderForm = () => {
     const plans = [
-        // {
-        //     id: '1',
-        //     name: 'Need Free Nutrition expert Consultant?',
-        //     description:'Get in touch with your nutritionist and let the experts decide what is best for you!',
-        //     image: '',
-        //     btn: 'Book Appointment',
-        //     url:'/',
-        //     img: help,
-        // },
         {
             id: '2',
             name: 'WEIGHT LOSS',
@@ -40,15 +29,6 @@ const OrderForm = () => {
             url:'/muscles-Gain-plan',
             img: MUSCLES,
         },
-        // {
-        //     id: '4',
-        //     name: 'Need help in choosing a plan?',
-        //     description: 'Get in touch with your nutritionist and let the experts decide what is best for you!',
-        //     image: '',
-        //     btn: 'Help',
-        //     url:'/',
-        //     img: help,
-        // },
         {
             id: '5',
             name: 'KETO',
@@ -75,11 +55,11 @@ const OrderForm = () => {
     if (order?.step === 0) {
         content = <div className=" mx-auto py-10">
             <div className="lg:flex lg:flex-row flex flex-col-reverse container mx-auto">
-                <div className="lg:w-5/12 w-10/12 grid grid-cols-1 mx-auto lg:mr-6 ">
+                <div className="lg:w-5/12 w-10/12 grid grid-cols-1 md:grid-cols-1 md:gap-6 mx-auto lg:mr-6 ">
                     <div
                             className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl mb-6 mt-6 lg:mt-2 shadow-[#2b34407a] flex justify-between"
                             >
-                            <div className="lg:w-7/12 lg:mr-0 mr-2">
+                            <div className="lg:w-7/12 md:w-7/12 sm:w-7/12 lg:mr-0 mr-2 ">
                                 <div className="pl-6 py-8 ">
 
                                     <h3 className="mt-0.5 text-2xl font-bold text-primary">
@@ -92,18 +72,18 @@ const OrderForm = () => {
                                     >Book Appointment</Link>
                                 </div>
                             </div>
-                            <div className="lg:w-5/12 lg:block hidden">
+                            <div className="lg:w-5/12 md:w-5/12 sm:w-5/12 lg:block md:block sm:block hidden">
                             <img
                                 alt="Office"
                                 src={book_appointment}
-                                className=" h-full  lg:w-full  object-cover"
+                                className=" h-full  lg:w-full object-cover"
                             />
                             </div>
                     </div >
                     <div
                             className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl mb-6  lg:mt-6 shadow-[#2b34407a] flex justify-between"
                             >
-                            <div className="lg:w-7/12 lg:mr-0 mr-2">
+                            <div className="lg:w-7/12 md:w-7/12 sm:w-7/12 lg:mr-0 mr-2">
                                 <div className="pl-6 py-9 ">
 
                                     <h3 className="mt-0.5 text-2xl font-bold text-primary">
@@ -116,7 +96,7 @@ const OrderForm = () => {
                                     >Help</Link>
                                 </div>
                             </div>
-                            <div className="lg:w-5/12 lg:block hidden">
+                            <div className="lg:w-5/12 md:w-5/12 sm:w-5/12 lg:block md:block sm:block hidden">
                             <img
                                 alt="Office"
                                 src={help}
@@ -131,26 +111,6 @@ const OrderForm = () => {
             </div>
         </div>
     }
-    // if (order.step === 1) {
-    //     content = <div className="container mx-auto py-10">
-    //         <OrderCustomize />
-    //     </div>
-    // }
-    // if (order.step === 2) {
-    //     content = <div className="container mx-auto py-10">
-    //         <CustomerInformation />
-    //     </div>
-    // }
-    // if (order.step === 3) {
-    //     content = <div className="container mx-auto py-10">
-    //         <OrderDelivery />
-    //     </div>
-    // }
-    // if (order.step === 4) {
-    //     content = <div className=" bg-gray-100 mx-auto py-10">
-    //         <OrderReview />
-    //     </div>
-    // }
     return content;
 };
 

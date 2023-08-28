@@ -7,26 +7,27 @@ import plan from '../../assets/select_plan.png'
 import user from '../../assets/user.png'
 
 const OrderStep = () => {
-    const { order, setOrder } = useContext(userContext);
+    const { order, setOrder, firstName, lastName, email, phone, dob, country, address, apartment, gmap, deliveryinstruction, date, city } = useContext(userContext);
     const changeStep = (step) => {
 
-        // let data
+        let data = order.step;
 
-        // if (step == 1) {
-        //     data = 1;
-        // }
-        // if (order.firstName && step == 2) {
-        //     data = 2;
+        if(step == 1){
+            data = 1
+        }
 
-        // }
-        // if (order.address && step == 3) {
-        //     data = 3;
-        // }
-        // if (order.firstName && order.address && step == 4) {
-        //     data = 4
-        // }
+        if(step == 2 && firstName != null && lastName != null && email != null && phone != null && dob != null && country != null){
+            data = 2
+        }
 
-        let updatedValue = { step };
+        if(step == 3 && address != null && apartment != null && gmap != null && deliveryinstruction != null && date != null && city != null){
+            data = 3
+        }
+        if(step == 4 && date != null && city != null && country != null){
+            data = 4
+        }
+
+        let updatedValue = { step: data };
         setOrder(order => ({
             ...order,
             ...updatedValue
@@ -53,21 +54,21 @@ const OrderStep = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={order.firstName ? changeStep(2) : order.step} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 2 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={() => changeStep(2)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 2 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2" src={user} alt="arrow" />
                     Personal Information</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={order.address ? changeStep(3) : order.step} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 3 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={() => changeStep(3)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 3 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2" src={delivery} alt="arrow" />
                     Delivery Information</button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h- lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={order.address && order.firstName ? changeStep(4) : order.step} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 4 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={() => changeStep(4)}className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 4 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-6 mr-2 " src={orderImg} alt="arrow" />
                     Review Order</button>
             </div>
