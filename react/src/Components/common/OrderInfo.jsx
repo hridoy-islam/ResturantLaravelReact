@@ -53,12 +53,12 @@ const OrderInfo = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-4 mt-4 my-4">
                         <label className=" w-full"><span className="ml-1 font-normal">First Name</span>
                             <input
-                            onBlur={handleFirstName}
+                            onChange={handleFirstName}
                             defaultValue={firstName}
                             type="text" required className="input input-bordered input-secondary w-full mt-1 " /></label>
                         <label className="w-full"><span className="ml-1 font-normal">Last Name</span>
                             <input 
-                            onBlur={handleLastName}
+                            onChange={handleLastName}
                             defaultValue={lastName}
                             type="text" required className="input input-bordered input-secondary w-full mt-1 "
                             /></label>
@@ -67,20 +67,20 @@ const OrderInfo = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-4 mt-4 my-4">
                         <label className="w-full"><span className="ml-1 font-normal">Email</span>
                             <input
-                            onBlur={handleEmail}
+                            onChange={handleEmail}
                             defaultValue={email}
                             type="email" required className="input input-bordered input-secondary w-full mt-1 " /></label>
                         <label className="w-full"><span className="ml-1 font-normal">Phone Number</span>
                             <input
-                            onBlur={handlePhone}
+                            onChange={handlePhone}
                             defaultValue={phone}
-                            type="phone" required className="input input-bordered input-secondary w-full mt-1 "
+                            type="number" required className="input input-bordered input-secondary w-full mt-1 "
                             /></label>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-4 mt-4 my-4">
                         <label className="w-full"><span className="ml-1 font-normal">Birth Of Date</span>
                             <input type="date"
-                            onBlur={handleDob}
+                            onChange={handleDob}
                             defaultValue={dob}
                             required className="input input-bordered input-secondary w-full mt-1 " /></label>
                         <label className="w-full"><span className="ml-1 font-normal">Nationality</span>

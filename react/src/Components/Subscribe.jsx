@@ -10,8 +10,9 @@ const Subscribe = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
+            
         };
-    
+        console.log(data)
         await fetch("https://fitnessdineserver-seven.vercel.app/subscribe", requestOptions);
         reset()
     }

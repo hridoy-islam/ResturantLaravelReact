@@ -9,7 +9,6 @@ import user from '../../assets/user.png'
 const OrderStep = () => {
     const { order, setOrder, firstName, lastName, email, phone, dob, country, address, apartment, gmap, deliveryinstruction, date, city } = useContext(userContext);
     const changeStep = (step) => {
-
         let data = order.step;
 
         if(step == 1){

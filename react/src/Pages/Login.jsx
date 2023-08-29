@@ -16,15 +16,12 @@ export default function Login() {
 
         axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/auth/login`, data)
             .then(({ data }) => {
-                localStorage.setItem('fitnesstoken', data.accessToken);
-                localStorage.setItem('details', JSON.stringify(data.user));
-                
-                setUser(data.user);
-                
-                setToken(data.accessToken);
-                
                 if (data.success) {
                     toast.success(data.message);
+                    localStorage.setItem('fitnesstoken', data.accessToken);
+                localStorage.setItem('details', JSON.stringify(data.user));
+                setUser(data.user);
+                setToken(data.accessToken);
                     navigate('/user/dashboard');
                     if(loading){
                         return <Loader></Loader>
@@ -32,7 +29,6 @@ export default function Login() {
                 }
                 else {
                     toast.error(data.message);
-                    navigate('/login');
                 }
                 
             })

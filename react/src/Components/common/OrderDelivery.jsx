@@ -19,6 +19,7 @@ const OrderDelivery = () => {
 
 
 
+
     const handleAddress = (e) => {
         setAddress(e.target.value)
     }
@@ -58,32 +59,32 @@ const OrderDelivery = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-4 justify-between mt-4 my-4">
                     <label className="w-full"><span className="ml-1 font-normal">Address</span>
                         <input
-                            onBlur={handleAddress}
+                            onChange={handleAddress}
                             defaultValue={address}
                             required type="text" className="input input-bordered input-secondary w-full  mt-1" /></label>
                     <label className="w-full"><span className="ml-1 font-normal">Apartment Number</span>
                         <input
-                            onBlur={handleApartment}
+                            onChange={handleApartment}
                             defaultValue={apartment}
                             required type="text" className="input input-bordered input-secondary w-full  mt-1" /></label>
 
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 justify-between gap-4 mt-4 my-4">
                     <label className="w-full"><span className="ml-1 font-normal">Google Maps Link</span>
-                        <input onBlur={handleGmap}
+                        <input onChange={handleGmap}
                             defaultValue={gmap} required type="text" className="input input-bordered input-secondary w-full  mt-1" /></label>
 
                     <label className="w-full"><span className="ml-1 font-normal">Delivery Instructions</span>
-                        <input onBlur={handleDeliveryinstruction}
+                        <input onChange={handleDeliveryinstruction}
                             defaultValue={deliveryinstruction} required type="text" className="input input-bordered input-secondary w-full  mt-1" /></label>
 
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-4 mt-4 my-4">
                     <label className="w-full "><span className="ml-1 font-normal">Starting Date</span>
-                        <input onBlur={handleDate}
+                        <input onChange={handleDate}
                             defaultValue={date} type="date" required className="input input-bordered input-secondary w-full  mt-1" /></label>
                     <label className="w-full"><span className="ml-1 font-normal">City</span>
-                        <select onBlur={handleCity}
+                        <select onChange={handleCity}
                             defaultValue={city} required className="input input-bordered input-secondary w-full  mt-1">
                             <option disabled>City</option>
                             <option value={'dhaka'}>Dhaka</option>

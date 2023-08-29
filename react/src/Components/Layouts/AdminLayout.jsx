@@ -1,6 +1,5 @@
-import { useContext, useEffect } from "react";
-import { Navigate, Outlet } from "react-router-dom";
-import axiosClient from "../../AxiosClient";
+import { useContext } from "react";
+import { Outlet } from "react-router-dom";
 import { userContext } from "../../Contexts/MainContext";
 import Footer from "../Shared/Footer";
 import HeaderMenu from '../Shared/HeaderMenu';
