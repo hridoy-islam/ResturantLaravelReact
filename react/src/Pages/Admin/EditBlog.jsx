@@ -19,7 +19,6 @@ const EditBlog = () => {
   const onsubmit = data =>
   axios.patch(`${import.meta.env.VITE_BACKEND_API_URL}/blog/${id}`, data)
       .then(({ data }) => {
-          console.log(data)
           if (data.success) {
               toast.success("Updated Successful");
               navigate('/admin/blog');

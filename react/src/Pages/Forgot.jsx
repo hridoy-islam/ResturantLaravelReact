@@ -9,13 +9,9 @@ const Forgot = () => {
     const navigate = useNavigate()
 
     const { register, handleSubmit, } = useForm();
-    // const onSubmit = data =>{
-    //     console.log(data)
-    // }
     const onSubmit = data =>
         axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/auth/forgot`, data)
             .then(({ data }) => {
-                console.log(data)
                 if (data.success) {
                     toast.success(data.message);
                     navigate('/forgot');

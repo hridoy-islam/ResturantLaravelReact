@@ -9,8 +9,6 @@ const AllMenu = () => {
     useEffect(() => {
         axios.get('https://fitnessdineserver-seven.vercel.app/menu/')
             .then(function (response) {
-                // handle success
-                console.log(menus)
                 setMenus(response.data)
             })
     }, [menus])
@@ -27,11 +25,9 @@ const AllMenu = () => {
                     `${import.meta.env.VITE_BACKEND_API_URL}/menu/${_id}`,
                     config
                 );
-                // console.log(data);
                 toast.success("Successfully Deleted!");
             }
         } catch (error) {
-            console.log(error);
             alert(error.response.data.msg);
             toast.error("Something Went Worng");
         }

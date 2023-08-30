@@ -12,14 +12,10 @@ const CreatePlan = () => {
     const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const [errors, setErrors] = useState(null)
-    // const [category, setCategory] = useState();
-    // const onSubmit = data =>{
-    //     console.log(data)
-    // }
+
     const onSubmit = data =>
         axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/plan`, data)
             .then(({ data }) => {
-                console.log(data)
                 if (data.success) {
                     toast.success("Create Plan");
                     navigate('/admin/plan');

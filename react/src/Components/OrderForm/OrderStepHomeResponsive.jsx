@@ -20,7 +20,7 @@ const OrderStepHomeResponsive = () => {
     // }
     return (
         <div className="text-center bg-gray-100 container mx-auto my-12 lg:rounded-3xl px-2 py-2">
-            <div className="flex justify-between items-center">
+            <div className="flex lg:justify-between align-middle items-center">
                 <button className={` mx-auto text-secondary font-semibold px-4 py-3 rounded-3xl bg-[#cde4b3]`}>
                 <img className=" w-full" src={plan} alt="arrow" />
                 </button>

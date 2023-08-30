@@ -15,7 +15,6 @@ const CreateBlog = () => {
     const onsubmit = data =>{
         const slug = slugify(data.title)
         data.slug =slug
-        console.log(data)
         axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/blog`, data)
         .then(({ data }) => {
             if (data.success) {

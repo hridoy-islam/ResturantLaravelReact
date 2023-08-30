@@ -7,7 +7,7 @@ const SideNav = () => {
     const { user } = useContext(userContext);
 
     return (
-        <div className=" border-r-2 lg:pr-24 lg:bg-white lg:pb-0 lg:pt-0 pt-24 py-12 bg-gray-100">
+        <div className=" border-r-2 lg:pr-24 lg:bg-white md:flex sm:flex lg:block md:justify-between sm:justify-between lg:pb-0 lg:pt-0 pt-24 py-12 sm:p-2 sm:mt-24 sm:mb-4 bg-gray-100">
 
 
 
@@ -35,13 +35,13 @@ const SideNav = () => {
                 (
                     <>
 
-                        <p className="text-xl font-semibold my-4">
+                        <p className="text-lg font-semibold my-4">
                             <Link to="/user/dashboard">Dashboard</Link>
                         </p >
-                        <p className="text-xl font-semibold my-4">
-                            <Link to="/user/orders">My Orders</Link>
+                        <p className="text-lg font-semibold my-4">
+                            <Link to={`/user/order/`}>My Orders</Link>
                         </p >
-                        <p className="text-xl font-semibold my-4">
+                        <p className="text-lg font-semibold my-4">
                             <Link to="/user/account">Account Details</Link>
                         </p>
                     </>

@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { userContext } from "../../Contexts/MainContext";
 
 const OrderCustomize = () => {
-    const { user, order, setOrder, durationPlan, mealsTime } = useContext(userContext)
+    const { user, order, setOrder, durationPlan, mealsTime } = useContext(userContext);
 
     if (!user) {
         return <Navigate to="/login" />

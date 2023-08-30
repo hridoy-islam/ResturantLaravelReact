@@ -7,6 +7,7 @@ import OrderReview from '../Components/common/OrderReview';
 import OrderDelivery from '../Components/common/OrderDelivery';
 import OrderInfo from '../Components/common/OrderInfo';
 import OrderCustomize from '../Components/common/OrderCustomize';
+import OrderStepResponsive from '../Components/OrderForm/OrderStepResponsive';
 const WeightLoss = () => {
     const { order, setOrder } = useContext(userContext)
     useEffect(() => {
@@ -34,8 +35,9 @@ const WeightLoss = () => {
         <div>
             <BreadCumb title="Weight Loss" image="https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
 
-            <OrderStep></OrderStep>
-            <div className='  bg-gray-100'>
+            <div className='lg:block md:hidden sm:hidden hidden'><OrderStep/></div>
+            <div className='lg:hidden md:block sm:block block'><OrderStepResponsive></OrderStepResponsive></div>
+            <div className='  bg-gray-100 lg:pt-0 pt-2'>
                 <div className='lg:flex container mx-auto'>
                     <div className='lg:w-7/12 lg:mr-12 mt-12'>
                         {(order?.step === 1) && <OrderCustomize />}

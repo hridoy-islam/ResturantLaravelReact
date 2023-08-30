@@ -42,6 +42,7 @@ import HeaderMenu from "../Components/Shared/HeaderMenu";
 import EditMenu from "../Pages/Admin/EditMenu";
 import Footer from "../Components/Shared/Footer";
 import CashOnDelivery from "../Components/CashOnDelivery";
+import OrderView from "../Pages/Admin/OrderView";
 
 const router = createBrowserRouter([
     {
@@ -143,7 +144,7 @@ const router = createBrowserRouter([
                 element: <Profile />,
             },
             {
-                path: "/user/orders",
+                path: "/user/order/",
                 element: <Orders />,
             }
 
@@ -212,6 +213,10 @@ const router = createBrowserRouter([
             {
                 path: "/admin/plan/crete",
                 element: <CreatePlan/>,
+            },
+            {
+                path: "/admin/order/:id",
+                element: <OrderView/>,
             },
         ]
     },

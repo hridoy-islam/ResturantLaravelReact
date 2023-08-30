@@ -20,7 +20,6 @@ const OrderCustomize = () => {
         setDuration(item)
     }
     const selectMealType = (item) => {
-        console.log(item)
         if (meal.length > 1) {
             return 'Something Went Wrong';
         }

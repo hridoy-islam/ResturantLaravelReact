@@ -18,8 +18,8 @@ const Home = () => {
         <div>
             <Banner />
             
-            <div className='lg:block md:hidden sm:block hidden'><OrderHomeStep /></div>
-            <div className='lg:hidden md:block sm:hidden block'><OrderStepHomeResponsive/></div>
+            <div className='lg:block md:hidden sm:hidden hidden'><OrderHomeStep /></div>
+            <div className='lg:hidden md:block sm:block block'><OrderStepHomeResponsive/></div>
             <OrderHome />
             <VarityMeal/>
             

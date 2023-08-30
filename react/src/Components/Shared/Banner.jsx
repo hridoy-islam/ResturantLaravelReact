@@ -51,17 +51,17 @@ export default class SimpleSlider extends Component {
                 <div className='w-full'>
                     <div className="relative  px-6 pt-6 lg:px-8">
 
-                        <div className="lg:ml-12 max-w-2xl sm:py-48 lg:py-20">
+                        <div className="lg:ml-12 max-w-2xl sm:py-12 lg:py-20">
 
                             <div className="lg:text-left text-center">
                                 <h2 className='text-2xl font-bold text-primary tracking-widest'>Classic</h2>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className="text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl md:text-4xl sm:text-3xl">
                                     Eat Good
                                 </h1>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className="text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl md:text-4xl sm:text-3xl">
                                     Feel Good
                                 </h1>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className="text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl md:text-4xl sm:text-3xl">
                                     Look Good
                                 </h1>
                                 <p className="mt-6 text-xl leading-8 text-gray-600">
@@ -83,7 +83,7 @@ export default class SimpleSlider extends Component {
                     </div>
                 </div>
                 <div className='lg:mr-12'>
-                    <img className='pt-12 xs:w-1/4' src={banner_img} alt="" />
+                    <img className='pt-12 xs:w-1/4 lg:w-full md:w-8/12 sm:w-6/12 lg:ml-auto mx-auto' src={banner_img} alt="" />
                 </div>
 
             </div>
@@ -93,17 +93,17 @@ export default class SimpleSlider extends Component {
                 <div className='w-full'>
                     <div className="relative px-6 pt-6 lg:px-8">
 
-                        <div className="lg:ml-12 max-w-2xl  sm:py-48 lg:py-20">
+                        <div className="lg:ml-12 max-w-2xl  lg:py-20">
 
                             <div className="lg:text-left text-center">
                                 <h2 className='text-2xl font-bold text-primary tracking-widest'>Classic</h2>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className="lg:text-6xl md:text-4xl text-2xl sm:text-2xl font-bold tracking-tight text-gray-900">
                                     Choose your
                                 </h1>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className="lg:text-6xl md:text-4xl text-2xl sm:text-2xl font-bold tracking-tight text-gray-900">
                                     Daily Meal 
                                 </h1>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className="lg:text-6xl md:text-4xl text-2xl sm:text-2xl font-bold tracking-tight text-gray-900">
                                     Plan Now
                                 </h1>
                                 <p className="mt-6 text-xl leading-8 text-gray-600">
@@ -125,7 +125,7 @@ export default class SimpleSlider extends Component {
                     </div>
                 </div>
                 <div className='lg:mr-12'>
-                    <img className='pt-12 lg:w-10/12 lg:ml-auto' src={banner_2} alt="" />
+                    <img className='pt-12 lg:w-10/12 md:w-8/12 sm:w-6/12 lg:ml-auto mx-auto' src={banner_2} alt="" />
                 </div>
 
             </div>
@@ -135,14 +135,14 @@ export default class SimpleSlider extends Component {
                 <div className='w-full'>
                     <div className="relative px-6 pt-6 lg:px-8">
 
-                        <div className="lg:ml-12 sm:py-48 lg:py-20">
+                        <div className="lg:ml-12  lg:py-20">
 
                             <div className="lg:text-left text-center">
                                 <h2 className='text-2xl font-bold text-primary tracking-widest'>Classic</h2>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className=" text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl md:text-4xl sm:text-3xl">
                                     Balanced Dite
                                 </h1>
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h1 className="text-2xl font-bold tracking-tight text-gray-900 lg:text-6xl md:text-4xl sm:text-3xl">
                                 Balanced Life
                                 </h1>
                                 {/* <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
@@ -168,7 +168,7 @@ export default class SimpleSlider extends Component {
                     </div>
                 </div>
                 <div className='lg:mr-12'>
-                    <img className='pt-12 lg:w-10/12 lg:ml-auto w-full mx-auto' src={banner_3} alt="" />
+                    <img className='pt-12  lg:w-10/12 md:w-8/12 sm:w-6/12 lg:ml-auto mx-auto' src={banner_3} alt="" />
                 </div>
 
             </div>

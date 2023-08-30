@@ -28,11 +28,9 @@ const AllPlan = () => {
                     `https://fitnessdineserver-seven.vercel.app/blog/${_id}`,
                     config
                 );
-                // console.log(data);
                 toast.success("Successfully Deleted!");
             }
         } catch (error) {
-            console.log(error);
             alert(error.response.data.msg);
             toast.error("Something Went Worng");
         }

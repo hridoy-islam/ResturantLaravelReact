@@ -18,7 +18,8 @@ const OrderSummary = () => {
     const navigate = useNavigate()
 
     const [disabled, setDisable] = useState(true);
-
+    const {user} = useContext(userContext);
+    user.email =email
     const data = {
         firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date
     }
@@ -112,7 +113,6 @@ const OrderSummary = () => {
 
 
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/order`, orderData);
-        console.log(response)
         if (response.data.success) {
             navigate(`/success/${response.data.id}`);
             // resetData();

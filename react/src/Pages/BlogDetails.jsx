@@ -12,7 +12,6 @@ const BlogDetails = () => {
                 setBlogDetail(response.data);
             })
     }, [])
-    console.log(blogDetail)
 
     return (
         <div>

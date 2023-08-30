@@ -12,7 +12,6 @@ const Subscribe = () => {
             body: JSON.stringify(data)
             
         };
-        console.log(data)
         await fetch("https://fitnessdineserver-seven.vercel.app/subscribe", requestOptions);
         reset()
     }

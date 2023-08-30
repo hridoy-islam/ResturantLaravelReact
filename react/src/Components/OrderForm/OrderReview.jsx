@@ -8,7 +8,6 @@ const OrderReview = () => {
     const { order } = useContext(userContext)
     const amount = 200;
     const createOrder = (data, actions) => {
-        console.log("Creating order for amount", amount);
         return actions.order
             .create({
                 purchase_units: [
@@ -20,7 +19,6 @@ const OrderReview = () => {
                 ]
             })
             .then((order) => {
-                console.log(order)
                 return order;
                 // post data to laravel api
             });
@@ -56,7 +54,6 @@ const OrderReview = () => {
 
     const onError = (err) => {
         setError(err);
-        console.log(err);
     }
 
     if (error) {

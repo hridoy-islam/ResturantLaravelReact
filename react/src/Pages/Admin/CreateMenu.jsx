@@ -14,7 +14,6 @@ const CreateMenu = () => {
     const onsubmit = data =>
         axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/menu`, data)
             .then(({ data }) => {
-                console.log(data)
                 if (data.success) {
                     toast.success("Create Menu");
                     navigate('/admin/menu/create');
