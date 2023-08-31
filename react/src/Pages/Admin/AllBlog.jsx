@@ -6,13 +6,16 @@ import { toast } from 'react-hot-toast';
 
 const AllBlog = () => {
     const [blogs, setBlogs] = useState();
-    useEffect(() => {
+    const fetchData = () => {
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog/`)
             .then(function (response) {
                 // handle success
                 setBlogs(response.data)
             })
-    }, [blogs])
+    }
+    useEffect(() => {
+        fetchData()
+    }, [])
     const handleDelete = async (_id) => {
         const proceed = window.confirm("Are you sure to delete this?");
         try {

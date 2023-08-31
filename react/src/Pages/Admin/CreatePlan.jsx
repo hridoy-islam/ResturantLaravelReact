@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import ReactQuill from 'react-quill';
+// import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import axiosClient from '../../AxiosClient';
 import PageTitle from '../../Components/Shared/PageTitle';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';

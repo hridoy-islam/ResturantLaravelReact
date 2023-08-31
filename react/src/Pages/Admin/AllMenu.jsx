@@ -6,12 +6,16 @@ import { toast } from 'react-hot-toast';
 
 const AllMenu = () => {
     const [menus, setMenus] = useState();
-    useEffect(() => {
-        axios.get('https://fitnessdineserver-seven.vercel.app/menu/')
+    const fetchData = () => {
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/menu/`)
             .then(function (response) {
                 setMenus(response.data)
             })
-    }, [menus])
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
     const handleDelete = async (_id) => {
         const proceed = window.confirm("Are you sure to delete this?");
         try {

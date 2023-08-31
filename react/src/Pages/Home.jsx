@@ -4,12 +4,11 @@ import Location from "../Components/Location";
 import Banner from "../Components/Shared/Banner";
 import Step from "../Components/Step";
 import Subscribe from "../Components/Subscribe";
-import OrderSlider from "../Components/OrderSlider";
+import CustomerReview from "../Components/CustomerReview";
 import VarityMeal from "../Components/VarityMeal";
 import BlogHome from "../Components/BlogHome";
 import OrderHome from "../Components/OrderHome";
 import OrderHomeStep from "../Components/OrderHomeStep";
-import OrderStepResponsive from "../Components/OrderForm/OrderStepResponsive";
 import OrderStepHomeResponsive from "../Components/OrderForm/OrderStepHomeResponsive";
 
 const Home = () => {
@@ -25,7 +24,7 @@ const Home = () => {
             
             <Step />
             <Clean />
-            <OrderSlider />
+            <CustomerReview />
             <BlogHome />
             
             <Location />

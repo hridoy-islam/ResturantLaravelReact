@@ -7,7 +7,7 @@ const BlogHome = () => {
     const { setLoading } = useContext(userContext);
     const loadData = () => {
         setLoading(true);
-        axios.get(`${import.meta.env.VITE_API_BASE_URL}/blog`)
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog`)
             .then(function (response) {
                 // handle success
                 setBlog(response.data)

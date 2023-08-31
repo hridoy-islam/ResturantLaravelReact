@@ -5,12 +5,15 @@ import axios from 'axios';
 
 const Subscribe = () => {
     const [peoples, setPeoples] = useState()
-    useEffect(() => {
-        axios.get('https://fitnessdineserver-seven.vercel.app/subscribe/')
+    const fetchData = () => {
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/subscribe/`)
             .then(function (response) {
                 // handle success
                 setPeoples(response.data)
             })
+    }
+    useEffect(() => {
+        fetchData()
     }, [])
 
 
@@ -32,8 +35,6 @@ const Subscribe = () => {
                         <tr>
                             <th className='text-lg font-bold'>Email</th>
                         </tr>
-                       
-                        
                         {peoples?.length > 0 && peoples?.map((item, index) => <tr key={index}>
                             <td>{item.email}</td>
                         </tr>)}

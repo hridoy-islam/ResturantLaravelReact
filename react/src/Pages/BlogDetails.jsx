@@ -5,12 +5,15 @@ import axios from "axios";
 const BlogDetails = () => {
     const [blogDetail, setBlogDetail] = useState();
     let { slug } = useParams();
-    useEffect(() => {
+    const fetchData = () =>{
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog/blog/${slug}`)
-            .then(function (response) {
-                // handle success
-                setBlogDetail(response.data);
-            })
+        .then(function (response) {
+            // handle success
+            setBlogDetail(response.data);
+        })
+    }
+    useEffect(() => {
+        fetchData()
     }, [])
 
     return (

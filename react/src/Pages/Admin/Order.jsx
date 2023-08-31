@@ -6,14 +6,16 @@ import { Link } from 'react-router-dom';
 
 const Order = () => {
     const [orders, setOrders] = useState();
-    useEffect(() => {
+    const fetchData = () => {
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/order/`)
             .then(function (response) {
                 // handle success
                 setOrders(response.data);
             })
+    }
+    useEffect(() => {
+        fetchData()
     }, [])
-
 
 
     return (

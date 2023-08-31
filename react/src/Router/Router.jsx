@@ -146,6 +146,10 @@ const router = createBrowserRouter([
             {
                 path: "/user/order/",
                 element: <Orders />,
+            },
+            {
+                path: "/user/order/:id/",
+                element: <OrderView />,
             }
 
         ]

@@ -77,16 +77,7 @@ const MainContext = ({ children }) => {
         },
     })
 
-
-    // const createToken = (token) => {
-    //     setToken(token);
-    //     if (token) {
-    //         localStorage.setItem('fitnesstoken', token);
-    //     }
-    //     else {
-    //         localStorage.removeItem('fitnesstoken');
-    //     }
-    // }
+ 
 
     const info = {
         user,

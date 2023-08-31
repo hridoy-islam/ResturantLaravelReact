@@ -7,14 +7,16 @@ import EditBlog from './EditBlog';
 
 const AllPlan = () => {
     const [plans, setPlans] = useState();
-
-    useEffect(() => {
+    const fetchData = () =>{
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/plan`)
             .then(function (response) {
                 // handle success
                 setPlans(response.data)
             })
-    }, [plans])
+    }
+    useEffect(() => {
+        fetchData()
+    }, [])
     const handleDelete = async (_id) => {
         const proceed = window.confirm("Are you sure to delete this?");
         try {
@@ -63,7 +65,6 @@ const AllPlan = () => {
                             <th className='text-lg font-bold'>Snacks</th>
                             <th className='text-lg font-bold'>Action</th>
                         </tr>
-
                         {plans?.length > 0 && plans?.map((item, index) => <tr key={index}>
                             <td>{item.name}</td>
                             <td>{item.baseprice}</td>

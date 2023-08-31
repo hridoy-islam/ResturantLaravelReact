@@ -2,14 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { userContext } from "../Contexts/MainContext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 
 
 
 
 const OrderSummary = () => {
-    const { order, firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date, setOrder, setFirstName, setLastName, setEmail, setDob, setPhone, setCountry, setDeliveryinstruction, setGmap, setAddress, setApartment, setCity, setDate } = useContext(userContext)
+    
+    const { order, firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date, setOrder, setFirstName, setLastName, setEmail, setDob, setPhone, setCountry, setDeliveryinstruction, setGmap, setAddress, setApartment, setCity, setDate, user } = useContext(userContext)
     const [payType, setPayType] = useState('')
     const breakFastLight = order.duration * order.breakFastLight.price;
     const breakFastFull = order.duration * order.breakFastFull.price;
@@ -18,10 +19,12 @@ const OrderSummary = () => {
     const navigate = useNavigate()
 
     const [disabled, setDisable] = useState(true);
-    const {user} = useContext(userContext);
-    user.email =email
+    
+    if (!user) {
+        return <Navigate to="/login" />
+    }
     const data = {
-        firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date
+        firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date, payType
     }
     const orderData = { ...order, ...data }
 
@@ -51,58 +54,36 @@ const OrderSummary = () => {
         checkInputs()
     }, [order])
 
-    const checkout = async () => {
-        // fetch(`${import.meta.env.VITE_BACKEND_API_URL}/create-checkout-session`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     mode: "cors",
-        //     body: JSON.stringify(orderData),
-        //     // body: JSON.stringify({
-        //     //     items: [
-        //     //         { id: 1, quantity: 1, price: order.price, name: order.plan }
-        //     //     ]
-        //     // })
-        // })
-        //     .then(res => {
-        //         if (res.ok) return res.json()
-        //         return res.json().then(json => Promise.reject(json))
-        //     })
-        //     .then(({ url }) => {
-        //         window.location = url
-        //     })
-        //     .catch(e => {
-        //         console.log(e.error)
-        //     })
+    // const checkout = async () => {
+         
 
-        const stripe = await loadStripe("pk_test_51NcNz2IAO3eCB4qJOsMuDggP29ab9oDnshYEg6QGQHKNYQLTjkmIULq5bGPRqq1tOVyaWdoY3M4Oi6smb3unkjt200VtB3O92q");
+    //     const stripe = await loadStripe("pk_test_51NcNz2IAO3eCB4qJOsMuDggP29ab9oDnshYEg6QGQHKNYQLTjkmIULq5bGPRqq1tOVyaWdoY3M4Oi6smb3unkjt200VtB3O92q");
 
-        const headers = {
-            "Content-Type": "application/json",
-        };
+    //     const headers = {
+    //         "Content-Type": "application/json",
+    //     };
 
-        const response = await fetch(
-            `${import.meta.env.VITE_BACKEND_API_URL}/create-checkout-session`,
-            {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify(orderData),
-            }
-        );
+    //     const response = await fetch(
+    //         `${import.meta.env.VITE_BACKEND_API_URL}/create-checkout-session`,
+    //         {
+    //             method: "POST",
+    //             headers: headers,
+    //             body: JSON.stringify(orderData),
+    //         }
+    //     );
 
-        const session = await response.json();
+    //     const session = await response.json();
 
-        const result = stripe.redirectToCheckout({
-            sessionId: session.id,
-        });
+    //     const result = stripe.redirectToCheckout({
+    //         sessionId: session.id,
+    //     });
 
-        if (result.error) {
-            console.log(result.error);
-        }
+    //     if (result.error) {
+    //         console.log(result.error);
+    //     }
 
 
-    }
+    // }
 
     const checkPayType = (data) => {
         setPayType(data)
@@ -110,35 +91,14 @@ const OrderSummary = () => {
 
     const codCheckout = async () => {
 
-
-
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/order`, orderData);
         if (response.data.success) {
-            navigate(`/success/${response.data.id}`);
-            // resetData();
+            navigate(`/success`);
+            resetData();
         }
         else {
             toast.error('error')
-        }
-        // .then(({ result }) => {
-        //     if (result.success) {
-        //         console.log(result)
-        //         navigate('/success');
-        //     }
-        //     else {
-        //         toast.error(result.message);
-        //     }
-
-        // })
-        // .catch(error => {
-        //     const res = error.response;
-        //     if (res && res.status === 422) {
-        //         // setErrors(res.data.errors);
-        //     }
-        // });
-
-
-
+        } 
     }
 
     return (
@@ -195,7 +155,12 @@ const OrderSummary = () => {
                     <p className="text-md font-extrabold">{order.price} AED</p>
                 </div>
 
-                <div className="flex flex-col">
+                <label className="block text-sm font-medium leading-6 text-gray-900">
+                        <input className="mr-2" defaultChecked onChange={() => checkPayType('cod')} type="radio" name="paymentType" />
+                        Cash On Delivery
+                    </label>
+
+                {/* <div className="flex flex-col">
                     <label className="block text-sm font-medium leading-6 text-gray-900">
                         <input className="mr-2" defaultChecked onChange={() => checkPayType('cod')} type="radio" name="paymentType" />
                         Cash On Delivery
@@ -205,16 +170,17 @@ const OrderSummary = () => {
                         <input className="mr-2" onChange={() => checkPayType('stripe')} type="radio" name="paymentType" />
                         Credit/Debit card
                     </label>
-                </div>
+                </div> */}
 
-                {
+                <button disabled={disabled} onClick={codCheckout} className="btn px-16 rounded-md w-full bg-primary text-white hover:bg-primary">Confirm Order</button>
+
+                {/* {
                     payType === 'stripe' ?
                         <button disabled={disabled} onClick={checkout} className="btn px-16 rounded-md w-full bg-primary text-white hover:bg-primary">Checkout</button>
                         :
                         <button disabled={disabled} onClick={codCheckout} className="btn px-16 rounded-md w-full bg-primary text-white hover:bg-primary">Confirm Order</button>
-                }
+                } */}
 
-                <button onClick={checkout} className="btn px-16 rounded-md w-full bg-primary text-white hover:bg-primary">Checkout</button>
                 <p className="text-xs pt-4 font-medium text-center px-4">You can change your menu, skip weeks, or cancel at any time. Your subscription order includes future deliveries billed at $192 inclusive of shipping. Your weekly price may change depending on your menu selections.</p>
             </div>
         </div>

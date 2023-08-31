@@ -9,14 +9,16 @@ const EditMenu = () => {
   let { id } = useParams();
 
   const { register, handleSubmit,  } = useForm();
-
-  useEffect(() => {
+   const fetchData = () =>{
     axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/menu/${id}`)
-      .then(function (response) {
-        // handle success
-        setMenu(response.data);
-      })
-  }, [menu])
+    .then(function (response) {
+      // handle success
+      setMenu(response.data);
+    })
+   }
+  useEffect(() => {
+    fetchData()
+  }, [])
   return (
     <div>
       <PageTitle title="Edit Menu" />
@@ -47,10 +49,10 @@ const EditMenu = () => {
                 </div>
                 <div className="sm:col-span-3">
                   <label htmlFor="region" className="block text-md font-medium leading-6 text-gray-900">
-                    Image
+                    Image Link
                   </label>
                   <div className="mt-2">
-                    <input type="text" id="img" name="img" className="file-input file-input-bordered file-input-success w-full " {...register('img')} defaultValue={menu?.img} />
+                    <input type="text" id="img" name="img" className="file-input pl-2 file-input-bordered file-input-success w-full " {...register('img')} defaultValue={menu?.img} />
                   </div>
                 </div>
               </div>

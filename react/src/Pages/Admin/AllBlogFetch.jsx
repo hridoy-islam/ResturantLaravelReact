@@ -7,11 +7,14 @@ import { Link } from "react-router-dom";
 
 const AllBlogFetch = () => {
     const [blogs, setBlogs] = useState();
-    useEffect(() => {
+    const fetchData = () =>{
         fetch(`${import.meta.env.VITE_BACKEND_API_URL}/blog`)
       .then((res) => res.json())
       .then((data) => setBlogs(data));
-    }, [blogs])
+    }
+    useEffect(() => {
+        fetchData()
+    }, [])
     return (
         <div className=" editmodalfetch">
             

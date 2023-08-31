@@ -1,44 +1,34 @@
-import React, { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './HeaderMenu.css'
 import { FaBars } from 'react-icons/fa';
 import { AiOutlineClose } from "react-icons/ai";
 import logo from '../../assets/logo.png';
 import { userContext } from '../../Contexts/MainContext';
-const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'View Menu', href: '/menu' },
-    { name: 'Meal Plan', href: '/meal-plan' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Blog', href: '/blog' },
-    // { name: 'Dashboard', href: '/user/dashboard' },
 
-]
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes) {
+//     return classes.filter(Boolean).join(' ')
+// }
 const HeaderMenu = () => {
     const { user, setUser, setToken } = useContext(userContext);
 
     const logOut = () => {
+        
         localStorage.removeItem('details');
         localStorage.removeItem('fitnesstoken');
         setUser('');
         setToken('');
-        window.location.href = "/";
+        
     }
-    const [click, setClick] = React.useState(false);
+    const [click, setClick] = useState(false);
 
     const handleClick = () => setClick(!click);
     const Close = () => setClick(false);
     return (
         <div>
-            <div className={click ? "main-container" : ""} onClick={() => Close()} />
+            <div className={click == true  ? "main-container" : ""} onClick={() => Close()} />
             <nav className="navbar" onClick={e => e.stopPropagation()}>
                 <div className="container mx-auto flex items-center justify-between">
-                
-                    <div>
                         <Link to='/'>
                             <img
                                 className="h-12 w-auto"
@@ -46,15 +36,14 @@ const HeaderMenu = () => {
                                 alt="Your Company"
                             />
                         </Link>
-                    </div>
-                    <ul className={click ? "nav-menu active" : "nav-menu"}>
+                    <ul className={click == true  ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
                             <NavLink
                                 exact
                                 to="/"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
-                                onClick={click ? handleClick : null}
+                                onClick={click == true ? handleClick : null}
                             >
                                 Home
                             </NavLink>
@@ -63,9 +52,9 @@ const HeaderMenu = () => {
                             <NavLink
                                 exact
                                 to="/about"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
-                                onClick={click ? handleClick : null}
+                                onClick={click == true  ? handleClick : null}
                             >
                                 About Us
                             </NavLink>
@@ -74,9 +63,9 @@ const HeaderMenu = () => {
                             <NavLink
                                 exact
                                 to="/menu"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
-                                onClick={click ? handleClick : null}
+                                onClick={click == true  ? handleClick : null}
                             >
                                 View Menu
                             </NavLink>
@@ -85,9 +74,9 @@ const HeaderMenu = () => {
                             <NavLink
                                 exact
                                 to="/meal-plan"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
-                                onClick={click ? handleClick : null}
+                                onClick={click == true  ? handleClick : null}
                             >
                                 Meal Plan
                             </NavLink>
@@ -96,9 +85,9 @@ const HeaderMenu = () => {
                             <NavLink
                                 exact
                                 to="/faq"
-                                activeClassName="active"
+                                activeclassname="active"
                                 className="nav-links"
-                                onClick={click ? handleClick : null}
+                                onClick={click == true  ? handleClick : null}
                             >
                                 FAQ
                             </NavLink>
@@ -107,9 +96,9 @@ const HeaderMenu = () => {
                             <NavLink
                                 exact
                                 to="/blog"
-                                activeClassName="active "
+                                activeclassname="active "
                                 className="nav-links mr-16"
-                                onClick={click ? handleClick : null}
+                                onClick={click == true  ? handleClick : null}
                             >
                                 Blog
                             </NavLink>
@@ -121,9 +110,9 @@ const HeaderMenu = () => {
                                             <NavLink
                                                 exact
                                                 to={'/user/dashboard'}
-                                                activeClassName="active"
+                                                activeclassname="active"
                                                 className="nav-links rounded-3xl lg:w-full w-full mx-auto lg:my-0 my-2  flex items-center justify-center bg-white text-gray-900 px-8 py-2  lg:text-base text-sm font-medium hover:bg-gray-600 hover:text-white"
-                                                onClick={click ? handleClick : null}
+                                                onClick={click == true  ? handleClick : null}
                                             >
                                                 Dashboard
                                             </NavLink>
@@ -138,7 +127,7 @@ const HeaderMenu = () => {
                                 <> 
                                     <li className="nav-item">
                                     <NavLink to='/login' className='rounded-3xl lg:w-full w-full mx-auto lg:my-0 my-2 flex items-center justify-center bg-white text-gray-900 px-8 py-2  lg:text-base text-sm font-medium hover:bg-gray-600 hover:text-white'
-                                    onClick={click ? handleClick : null}> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"
+                                    onClick={click == true  ? handleClick : null}> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"
                                     >
                                     /<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                                     /</svg>
@@ -147,7 +136,7 @@ const HeaderMenu = () => {
                                     </li>
                                     <li className="nav-item">
                                     <NavLink to="/register" className='rounded-3xl lg:w-full w-full mx-auto lg:my-0 my-2 lg:mb-0 mb-8 flex items-center justify-center bg-white text-gray-900 px-8 py-2  lg:text-base text-sm font-medium hover:bg-gray-600 hover:text-white'
-                                    onClick={click ? handleClick : null} href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                    onClick={click == true  ? handleClick : null} href=""><span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                                         </svg>
                                         </span><span className='pl-2'>Register</span> </NavLink>

@@ -36,13 +36,16 @@ const EditBlog = () => {
               setErrors(res.data.errors);
           }
       });
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog/${id}`)
+      const fetchData = () =>{
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blog/${id}`)
         .then(function (response) {
             // handle success
             setBlog(response.data);
         })
-}, [blog])
+      }
+  useEffect(() => {
+    fetchData()
+}, [])
   return (
     <div>
             <PageTitle title="Edit Blog" />
@@ -64,6 +67,7 @@ const EditBlog = () => {
                                             placeholder='title'
                                             required
                                             className="block pl-4 w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6"
+                                            defaultValue={blog?.title}
                                             {...register('title')}
                                         />
                                     </div>
@@ -71,11 +75,11 @@ const EditBlog = () => {
 
                                 <div className="sm:col-span-3">
                                     <label htmlFor="region" className="block text-md font-medium leading-6 text-gray-900">
-                                        Image
+                                        Image Link
                                     </label>
                                     <div className="mt-2">
                                     <input type="text" id="img" name="img" required className="file-input file-input-bordered pl-4 file-input-success w-full " {...register('img')}
-                                    defaultValue={blog?.img}
+                                    defaultValue={blog?.image}
                                     />
                                     </div>
                                 </div>

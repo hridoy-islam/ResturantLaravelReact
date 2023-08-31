@@ -2,28 +2,27 @@ import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Contexts/MainContext";
 
 const OrderInfo = () => {
-    const { setOrder, setFirstName, firstName, lastName, setLastName, email, setEmail, phone, setPhone, dob, setDob, country, setCountry } = useContext(userContext)
+    const { setOrder, setFirstName, firstName, lastName, setLastName, email, setEmail, phone, setPhone, dob, setDob, country, setCountry, user } = useContext(userContext)
 
     const [disabled, setDisable] = useState(true);
 
     const checkInputs = () => {
-        if(firstName != null && lastName != null && email != null && phone != null && dob != null && country != null){
+        if(firstName != null && lastName != null && phone != null && dob != null && country != null){
+            setEmail(user?.email)
             setDisable(false)
         }
     }
 
     useEffect(()=>{
         checkInputs()
-    } , [firstName, lastName, email, dob, phone, country])
+    } , [firstName, lastName, dob, phone, country])
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value)
+        
     }
     const handleLastName = (e) => {
         setLastName(e.target.value)
-    }
-    const handleEmail = (e)=> {
-        setEmail(e.target.value)
     }
 
     const handlePhone =(e) => {
@@ -67,8 +66,8 @@ const OrderInfo = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-4 mt-4 my-4">
                         <label className="w-full"><span className="ml-1 font-normal">Email</span>
                             <input
-                            onChange={handleEmail}
-                            defaultValue={email}
+                            defaultValue={user?.email}
+                            disabled="true"
                             type="email" required className="input input-bordered input-secondary w-full mt-1 " /></label>
                         <label className="w-full"><span className="ml-1 font-normal">Phone Number</span>
                             <input
