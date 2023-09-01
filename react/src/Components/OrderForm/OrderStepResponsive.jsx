@@ -37,7 +37,7 @@ const OrderStepResponsive = () => {
     return (
         <div className="text-center bg-gray-100 w-full lg:container mx-auto my-4 lg:rounded-full px-5 py-5">
             <div className="flex lg:justify-between align-middle items-center">
-                <button className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full bg-white`}>
+                <button className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-4 py-3 rounded-full bg-white`}>
                     <img className="w-full" src={plan} alt="arrow" />
                 </button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-4 lg:mx-0 mx-auto">
@@ -45,28 +45,28 @@ const OrderStepResponsive = () => {
                 </svg>
                 </div>
 
-                <button onClick={() => changeStep(1)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 1 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={() => changeStep(1)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-4 py-3 rounded-full ${order.step == 1 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-full" src={plan2} alt="arrow" />
                     </button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-4 lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(2)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 2 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={() => changeStep(2)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-4 py-3 rounded-full ${order.step == 2 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-full" src={user} alt="arrow" />
                    </button> 
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-4 lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(3)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 3 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={() => changeStep(3)} className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-4 py-3 rounded-full ${order.step == 3 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-full" src={delivery} alt="arrow" />
                     </button>
                 <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-4 lg:mx-0 mx-auto">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                 </svg>
                 </div>
-                <button onClick={() => changeStep(4)}className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-6 py-4 rounded-full ${order.step == 4 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
+                <button onClick={() => changeStep(4)}className={`flex lg:mx-0 mx-auto text-secondary font-semibold px-4 py-3 rounded-full ${order.step == 4 ? 'bg-[#cde4b3] focus:bg-[#cde4b3]' : 'bg-white'} `}>
                     <img className="w-full" src={orderImg} alt="arrow" />
                    </button>
             </div>

@@ -1,5 +1,3 @@
-import { useContext } from 'react'
-import { userContext } from '../../Contexts/MainContext'
 import delivery from '../../assets/delivery.png'
 import plan2 from '../../assets/plan2.png'
 import plan from '../../assets/select_plan.png'
@@ -7,17 +5,6 @@ import user from '../../assets/user.png'
 import orderImg from '../../assets/order.png'
 
 const OrderStepHomeResponsive = () => {
-    // const { setOrder } = useContext(userContext);
-    // const changeStep = (step) => {
-
-    //     let updatedValue = { step };
-    //     setOrder(order => ({
-    //         ...order,
-    //         ...updatedValue
-    //     }));
-
-
-    // }
     return (
         <div className="text-center bg-gray-100 container mx-auto my-12 lg:rounded-3xl px-2 py-2">
             <div className="flex lg:justify-between align-middle items-center">
