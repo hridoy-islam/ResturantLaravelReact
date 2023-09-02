@@ -12,7 +12,7 @@ export default function Register() {
 
     const { register, handleSubmit, } = useForm();
     const onSubmit = data =>
-        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/auth/forgot`, data)
+        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/auth/signup`, data)
             .then(({ data }) => {
                 if (data.success) {
                     toast.success(data.message);

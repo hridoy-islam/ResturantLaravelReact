@@ -65,14 +65,14 @@ export default class SimpleSlider extends Component {
                 <Slider {...settings}>
                     {this.state.menu.length > 0 && this.state.menu?.map((plan, index) =>
                         <div key={index} className="md:py-5 sm:py-1 ">
-                            <div className="shadow-xl shadow-gray h-[590px] mx-2 p-6 rounded-xl">
-                                <img className="w-70 h-[360px] rounded-full mx-auto" src={plan.img} alt="Image" />
+                            <div className="shadow-xl shadow-gray lg:h-[590px] md:h-[720px] sm:h-[550px] h-[510px] lg:mx-2 md:mx-2 sm:mx-2 mx-3 my-12 p-6 rounded-xl">
+                                <img className="lg:w-[360px] lg:h-[360px] md:w-[260px] md:h-[260] w-[280px] h-[280px] rounded-full mx-auto" src={plan.img} alt="Image" />
                                 <p className="text-xl font-bold py-12 text-center">{plan.name}</p>
-                                <div className="flex justify-between items-end border-t-2 pt-3">
-                                    <p className="text-normal font-medium border-r-2 border-gray-400 px-3 text-gray-400">{plan.calories}  Kcal</p>
-                                    <p className="text-normal font-medium border-r-2 border-gray-400 px-2 text-gray-400">Protein {plan.protein}g</p>
-                                    <p className="text-normal font-medium border-r-2 border-gray-400 px-3 text-gray-400">Carbs {plan.carb}g</p>
-                                    <p className="text-normal font-medium px-3 text-gray-400"> Fat {plan.fat}g</p>
+                                <div className="flex justify-between items-end border-t-2 pt-3 ">
+                                    <p className="text-normal font-medium border-r-2 border-gray-400 pr-1 lg:px-3 text-gray-400">{plan.calories}  Kcal</p>
+                                    <p className="text-normal font-medium border-r-2 border-gray-400 pr-1 lg:px-2 text-gray-400">Protein {plan.protein}g</p>
+                                    <p className="text-normal font-medium border-r-2 border-gray-400 pr-1 lg:px-3 text-gray-400">Carbs {plan.carb}g</p>
+                                    <p className="text-normal font-medium pr-1 lg:px-3 text-gray-400"> Fat {plan.fat}g</p>
                                 </div>
                             </div>
                         </div>

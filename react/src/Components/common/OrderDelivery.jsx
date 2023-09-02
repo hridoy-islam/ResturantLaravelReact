@@ -84,12 +84,17 @@ const OrderDelivery = () => {
                         <input onChange={handleDate}
                             defaultValue={date} type="date" required className="input input-bordered input-secondary w-full  mt-1" /></label>
                     <label className="w-full"><span className="ml-1 font-normal">City</span>
-                        <select onChange={handleCity}
+                        <input
+                            onChange={handleCity}
+                            defaultValue={city}
+                            type="text" required className="input input-bordered input-secondary w-full mt-1 "
+                            />
+                        {/* <select onChange={handleCity}
                             defaultValue={city} required className="input input-bordered input-secondary w-full  mt-1">
                             <option disabled>City</option>
                             <option value={'dhaka'}>Dhaka</option>
                             <option value={'ctg'}>Ctg</option>
-                        </select>
+                        </select> */}
                     </label>
 
                 </div>

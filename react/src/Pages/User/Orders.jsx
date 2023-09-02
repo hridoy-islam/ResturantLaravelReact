@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 
 const Orders = () => {
     const [orders, setOrders] = useState();
+    console.log(orders)
     const { user } = useContext(userContext)
+    
     const fetchData = () => {
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/order/order/${user.email}`)
             .then(function (response) {
@@ -24,6 +26,8 @@ const Orders = () => {
         <div>
             <PageTitle title="My Orders" />
             <div className="overflow-x-auto container mx-auto py-4">
+
+                {orders?.length == 0 ? <p className="text-2xl font-medium"> No Orders Yet </p> :
                 <table className="table table-xs">
                     <thead>
                         <tr>
@@ -38,6 +42,8 @@ const Orders = () => {
 
                     </thead>
                     <tbody>
+                        
+
                         {orders?.length > 0 && orders?.map((item, index) => <tr className='my-2' key={index}>
                             <td className='text-lg font-normal'>{item.plan}</td>
                             <td className='text-lg font-normal'>{item.duration} Days</td>
@@ -49,7 +55,8 @@ const Orders = () => {
 
                         </tr>)}
                     </tbody>
-                </table>
+                </table> 
+                }
             </div>
         </div>
     );

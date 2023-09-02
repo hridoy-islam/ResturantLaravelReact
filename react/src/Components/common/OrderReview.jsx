@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
+import { Navigate, useLocation } from "react-router-dom";
 const OrderReview = () => {
-    const { order, firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date } = useContext(userContext)
+    const location = useLocation()
+    const { order, firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date, user } = useContext(userContext)
+    if(!user){
+        return <Navigate to="/login" state={{ from: location }} replace />
+    }
     return (
         <>
-
             <div className="container mx-auto grid lg:grid-cols-1 gap-8 lg:pb-12">
                 <div className=" bg-white shadow  rounded-2xl p-6">
                     <h2 className="text-3xl text-primary font-bold pb-6">Plan Information</h2>

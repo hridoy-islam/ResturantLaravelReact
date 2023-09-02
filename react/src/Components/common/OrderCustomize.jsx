@@ -1,14 +1,8 @@
 import { useContext } from "react";
-import { Navigate } from 'react-router-dom';
 import { userContext } from "../../Contexts/MainContext";
 
 const OrderCustomize = () => {
-    const { user, order, setOrder, durationPlan, mealsTime } = useContext(userContext);
-
-    if (!user) {
-        return <Navigate to="/login" />
-    }
-
+    const { order, setOrder, durationPlan, mealsTime } = useContext(userContext);
     const selectDuration = (item) => {
         const meal = order.meal;
         const basePrice = order.basePrice
@@ -18,7 +12,6 @@ const OrderCustomize = () => {
             ...order,
             ...updatedValue
         }));
-
     }
     const selectMealTime = (item) => {
         const duration = order.duration;
@@ -117,8 +110,6 @@ const OrderCustomize = () => {
 
     }
 
-
-
     const handleNext = () => {
         let updatedValue = { step: 2 };
         setOrder(order => ({
@@ -145,7 +136,7 @@ const OrderCustomize = () => {
                         {
                             durationPlan.map((item, index) =>
                                 <button key={index} onClick={() => selectDuration(item.day)}
-                                    className={`border py-2 px-5 w-full rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
+                                    className={`border py-2 px-2 w-full rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
                                 > {item.title}</button>
                             )
                         }

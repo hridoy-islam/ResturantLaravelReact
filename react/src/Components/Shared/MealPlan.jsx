@@ -1,13 +1,11 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { userContext } from "../../Contexts/MainContext";
 
 const MealPlan = ({ plan }) => {
     const { name, url,description, btn , img} = plan
     
     return (
         <article
-            className="relative overflow-hidden rounded-xl transition hover:bg-[#699a2d5b] shadow-xl shadow-[#2b34407a] h-72"
+            className="relative overflow-hidden rounded-xl transition  lg:shadow-xl md:shadow-xl sm:shadow-lg shadow-lg shadow-[#2b34407a] h-72"
         >
             <img
                 alt="Office"

@@ -7,7 +7,7 @@ import Subscribe from "../Components/Subscribe";
 import CustomerReview from "../Components/CustomerReview";
 import VarityMeal from "../Components/VarityMeal";
 import BlogHome from "../Components/BlogHome";
-import OrderHome from "../Components/OrderHome";
+import OrderHome from "../Components/OrderForm/OrderForm";
 import OrderHomeStep from "../Components/OrderHomeStep";
 import OrderStepHomeResponsive from "../Components/OrderForm/OrderStepHomeResponsive";
 

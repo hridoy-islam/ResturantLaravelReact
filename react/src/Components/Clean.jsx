@@ -6,12 +6,12 @@ export default function Clean() {
     return (
         <div className="bg-white lg:flex justify-around items-center">
             <div className=''>
-                <img className='lg:pt-24 pt-12 w-3/4 mx-auto lg:w-full' src={clean_img} alt="" />
+                <img className='lg:pt-24 pt-12 w-10/12 mx-auto lg:w-full' src={clean_img} alt="" />
             </div>
             <div>
                 <div className="relative isolate px-6 pt-6 lg:px-8">
 
-                    <div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-20">
+                    <div className="mx-auto max-w-2xl pt-12 lg:pt-0 lg:py-20">
 
                         <div className="lg:text-left text-center">
                             <h2 className='text-2xl font-bold text-primary tracking-widest'>CLEAN</h2>

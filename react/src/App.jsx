@@ -2,10 +2,11 @@ import { Toaster } from 'react-hot-toast';
 import { RouterProvider } from "react-router-dom";
 import MainContext from "./Contexts/MainContext";
 import router from "./Router/Router";
-// import ScrollToTop from "react-scroll-to-top";
 import "./App.css";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
-import Loader from './Components/Loader';
+import axios from 'axios';
+const token = localStorage.getItem('fitnesstoken');
+axios.defaults.headers.common = {'Authorization': `bearer ${token}`}
 
 function App() {
 

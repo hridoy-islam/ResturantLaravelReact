@@ -2,45 +2,45 @@ import axios from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from "react-router-dom";
+import { Link,  Navigate,  useLocation,  } from "react-router-dom";
 import { userContext } from "../Contexts/MainContext";
 import logo from '../assets/blacklogo.png';
 import Loader from "../Components/Loader";
 
 export default function Login() {
-    const navigate = useNavigate();
+    const location = useLocation();
     const { user, setUser, setToken, loading } = useContext(userContext)
     const { register, handleSubmit, } = useForm();
-    
-    const onSubmit = data =>
-
-        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/auth/login`, data)
-            .then(({ data }) => {
-                if (data.success) {
-                    toast.success(data.message);
-                    localStorage.setItem('fitnesstoken', data.accessToken);
-                localStorage.setItem('details', JSON.stringify(data.user));
-                setUser(data.user);
-                setToken(data.accessToken);
-                    navigate('/user/dashboard');
-                    if(loading){
-                        return <Loader></Loader>
-                    }
-                }
-                else {
-                    toast.error(data.message);
-                }
-                
-            })
-            .catch(error => {
-                toast.error(error.message);
-            });
-            
     if (user?.email) {
-        return navigate("/user/dashboard");
+        return <Navigate to={"/"} replace state={{from: location}}  />;
+    }
+    const onSubmit = data => {
+        axios.post(`${import.meta.env.VITE_BACKEND_API_URL}/auth/login`, data)
+        .then(({ data }) => {
+            if (data.success) {
+                toast.success(data.message);
+                localStorage.setItem('fitnesstoken', data.accessToken);
+            localStorage.setItem('details', JSON.stringify(data.user));
+            setUser(data.user);
+            setToken(data.accessToken);
+            <Navigate to={"/"} state={{from: location}}  />;
+                if(loading){
+                    return <Loader></Loader>
+                }
+            }
+            else {
+                toast.error(data.message);
+            }
+            
+        })
+        .catch(error => {
+            toast.error(error.message);
+        });
     }
 
-
+       
+            
+    
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

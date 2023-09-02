@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { userContext } from "../Contexts/MainContext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 
 
@@ -19,17 +19,34 @@ const OrderSummary = () => {
     const navigate = useNavigate()
 
     const [disabled, setDisable] = useState(true);
-    
-    if (!user) {
-        return <Navigate to="/login" />
-    }
+    const userEmail = user.email
     const data = {
-        firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date, payType
+        firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date, payType, userEmail
     }
     const orderData = { ...order, ...data }
 
     const resetData = () => {
-        setOrder(null);
+        let updatedValue = { plan: '',
+        step: 0,
+        duration: 0,
+        meal: 0,
+        price: 0,
+        basePrice: 0,
+        snacks: {
+            price: 0,
+            added: false,
+        },
+        breakFastLight: {
+            price: 0,
+            added: false,
+        },
+        breakFastFull: {
+            price: 0,
+            added: false,
+        }, };
+        setOrder(
+            ...updatedValue
+        );
         setFirstName(null);
         setLastName(null);
         setEmail(null)

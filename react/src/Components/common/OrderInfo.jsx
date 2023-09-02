@@ -2,13 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../Contexts/MainContext";
 
 const OrderInfo = () => {
-    const { setOrder, setFirstName, firstName, lastName, setLastName, email, setEmail, phone, setPhone, dob, setDob, country, setCountry, user } = useContext(userContext)
+    const { setOrder, setFirstName, firstName, lastName, setLastName, setEmail, phone, setPhone, dob, setDob, country, setCountry, email } = useContext(userContext)
 
     const [disabled, setDisable] = useState(true);
 
     const checkInputs = () => {
-        if(firstName != null && lastName != null && phone != null && dob != null && country != null){
-            setEmail(user?.email)
+        if(firstName != null && lastName != null && email !=null && phone != null && dob != null && country != null){
             setDisable(false)
         }
     }
@@ -23,6 +22,10 @@ const OrderInfo = () => {
     }
     const handleLastName = (e) => {
         setLastName(e.target.value)
+    }
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
     }
 
     const handlePhone =(e) => {
@@ -66,8 +69,8 @@ const OrderInfo = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 grid-cols-1 gap-4 mt-4 my-4">
                         <label className="w-full"><span className="ml-1 font-normal">Email</span>
                             <input
-                            defaultValue={user?.email}
-                            disabled="true"
+                            onChange={handleEmail}
+                            defaultValue={email}
                             type="email" required className="input input-bordered input-secondary w-full mt-1 " /></label>
                         <label className="w-full"><span className="ml-1 font-normal">Phone Number</span>
                             <input
@@ -82,7 +85,14 @@ const OrderInfo = () => {
                             onChange={handleDob}
                             defaultValue={dob}
                             required className="input input-bordered input-secondary w-full mt-1 " /></label>
-                        <label className="w-full"><span className="ml-1 font-normal">Nationality</span>
+                        <label className="w-full">
+                        <span className="ml-1 font-normal">Country</span>
+                        <input
+                            onChange={handleCountry}
+                            defaultValue={country}
+                            type="text" required className="input input-bordered input-secondary w-full mt-1 "
+                            />
+                            {/* <span className="ml-1 font-normal">Nationality</span>
                             <select 
                             onChange={handleCountry}
                             defaultValue={country}
@@ -92,7 +102,8 @@ const OrderInfo = () => {
                                 <option>India</option>
                                 <option>Pakistan</option>
                                 <option>Dubai</option>
-                            </select></label>
+                            </select> */}
+                            </label>
                     </div>
                     <div className="mt-10">
                     <button 

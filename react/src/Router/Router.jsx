@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Cancel from "../Components/Cancel";
 import AdminLayout from "../Components/Layouts/AdminLayout";
 import Main from "../Components/Layouts/Main";
-import UserLayout from "../Components/Layouts/UserLayout";
 import OrderSummary from "../Components/OrderSummary";
 import Success from "../Components/Success";
 import About from "../Pages/About";
@@ -10,11 +9,10 @@ import AllBlog from "../Pages/Admin/AllBlog";
 import AllOrders from "../Pages/Admin/AllOrders";
 import CreateBlog from "../Pages/Admin/CreateBlog";
 import CreatePlan from "../Pages/Admin/CreatePlan";
-import Customer from "../Pages/Admin/Customer";
+// import Customer from "../Pages/Admin/Customer";
 import Order from "../Pages/Admin/Order";
 import PlanList from "../Pages/Admin/PlanList";
 import Subscribe from "../Pages/Admin/Subscribe";
-import UserList from "../Pages/Admin/UserList";
 import BlogDetails from "../Pages/BlogDetails";
 import Blog from "../Pages/Blogs";
 import Faq from "../Pages/Faq";
@@ -27,8 +25,7 @@ import Menu from "../Pages/Menu";
 import MusclesGain from "../Pages/MusclesGain";
 import NotFound from "../Pages/NotFound";
 import Register from "../Pages/Register";
-import Thanks from "../Pages/Thanks";
-import Profile from "../Pages/User/Account";
+import Profile from "../Pages/User/Profile";
 import Dashboard from "../Pages/User/Dashboard";
 import MyProfile from "../Pages/User/MyProfile";
 import CreateMenu from "../Pages/Admin/CreateMenu";
@@ -106,10 +103,6 @@ const router = createBrowserRouter([
                 element: <Faq />,
             },
             {
-                path: "/thanks",
-                element: <Thanks />,
-            },
-            {
                 path: "/payment",
                 element: <OrderSummary />,
             },
@@ -159,10 +152,6 @@ const router = createBrowserRouter([
         element: <AdminLayout />,
         children: [
             {
-                path: "/admin/users",
-                element: <UserList />,
-            },
-            {
                 path: "/admin/orders",
                 element: <AllOrders />,
             },
@@ -173,10 +162,6 @@ const router = createBrowserRouter([
             {
                 path: "/admin/all-plans",
                 element: <PlanList />,
-            },
-            {
-                path: "/admin/Customer",
-                element: <Customer />,
             },
             {
                 path: "/admin/order",

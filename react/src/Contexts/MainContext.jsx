@@ -20,23 +20,23 @@ const MainContext = ({ children }) => {
     const [deliveryinstruction, setDeliveryinstruction] = useState(null);
     const [date, setDate] = useState(null);
     const [city, setCity] = useState(null);
-
+ 
     const [durationPlan, setDurationPlan] = useState([
         {
             day: 6,
-            title: '6 Days',
+            title: '6 Days / Week',
         },
         {
             day: 5,
-            title: '5 Days',
+            title: '5 Days / Week',
         },
         {
             day: 20,
-            title: '20 Days',
+            title: '20 Days / Month',
         },
         {
             day: 24,
-            title: '24 Days',
+            title: '24 Days / Month',
         }
 
     ])

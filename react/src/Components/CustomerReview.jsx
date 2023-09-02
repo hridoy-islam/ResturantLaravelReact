@@ -48,7 +48,7 @@ export default class SimpleSlider extends Component {
                 <Slider {...settings}>
 
                     <div>
-                        <div className="bg-[#7ab3354c] h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
+                        <div className="bg-[#7ab3354c] lg:h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
                             
                             <h3 className="text-md font-normal text-justify pb-4">I have just started this program, and I love, love and love it! Now planning to switch to their monthly plan, and I am surprised how delicious the food is! Recommended!</h3>
                             <div className="flex items-center justify-start">
@@ -64,16 +64,10 @@ export default class SimpleSlider extends Component {
                                     </span>
                                 </span>
                             </div>
-                            {/* <div className="flex items-center justify-start">
-                                <span className="flex items-center">
-                                    <FcGoogle/>
-                                    <h2 className="text-lg font-medium text-secondary">1 Months Ago</h2>
-                                </span>
-                            </div> */}
                         </div>
                     </div>
                     <div>
-                        <div className="bg-[#7ab3354c] h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
+                        <div className="bg-[#7ab3354c] lg:h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
                             <h3 className="text-md font-normal text-justify pb-4">The food was finger-licking good, and I have reached my target weight during this month. I would order again. <br/>Highly recommended!</h3>
                             <div className="flex items-center justify-start">
                                 <img className="w-12 h-12 rounded-full mr-3" src='https://prepmeal.ae/assets/front/images/Emma-Emirates-Hill-Dubai.jpeg' alt="profile" />
@@ -91,7 +85,7 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
                     <div>
-                        <div className="bg-[#7ab3354c] h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
+                        <div className="bg-[#7ab3354c] lg:h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
                             
                             <h3 className="text-md font-normal text-justify pb-4">The rep was so kind and efficient. The chat service itself was fantastic because it was so easy and quick to get my requests handled. Awesome service!</h3>
                             <div className="flex items-center justify-start">
@@ -110,7 +104,7 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
                     <div>
-                        <div className="bg-[#7ab3354c] h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
+                        <div className="bg-[#7ab3354c] lg:h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
                         <h3 className="text-md font-normal text-justify pb-4">The food arrived warm. It is unknown how long it was warm, so I won't chance eating it. Complete bummer. The customer service was wonderful.</h3>
                             <div className="flex items-center justify-start">
                                 <img className="w-12 h-12 rounded-full mr-3" src='https://user-images.trustpilot.com/5ca9fcab1afc26744b8514ac/73x73.png' alt="profile" />
@@ -128,7 +122,7 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
                     <div>
-                        <div className="bg-[#7ab3354c] h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
+                        <div className="bg-[#7ab3354c] lg:h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
                             <h3 className="text-md font-normal text-justify pb-4">The Fitness Dine offers a fresh, delicious and healthy meal plan, and I loved the food! I would recommend it to my friends for subscription and ordering.</h3>
                             <div className="flex items-center justify-start">
                                 <img className="w-12 h-12 rounded-full mr-3" src='https://prepmeal.ae/assets/front/images/FawazBaderRawdahAbuDhabi.jpeg' alt="profile" />
@@ -146,7 +140,7 @@ export default class SimpleSlider extends Component {
                         </div>
                     </div>
                     <div>
-                        <div className="bg-[#7ab3354c] h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
+                        <div className="bg-[#7ab3354c] lg:h-[320px] py-10 px-6 rounded-3xl w-11/12 mx-auto text-center">
                             
                             <h3 className="text-md font-normal text-justify pb-4">The Fitnessdine is the best and is serving the delicious yet healthiest and fresh food in UAE. They made us feel welcomed and gave us an amazing experience.</h3>
                             <div className="flex items-center justify-start">
