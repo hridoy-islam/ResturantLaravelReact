@@ -19,7 +19,7 @@ const OrderSummary = () => {
     const navigate = useNavigate()
 
     const [disabled, setDisable] = useState(true);
-    const userEmail = user.email
+    const userEmail = user?.email
     const data = {
         firstName, lastName, email, dob, phone, country, deliveryinstruction, gmap, address, apartment, city, date, payType, userEmail
     }

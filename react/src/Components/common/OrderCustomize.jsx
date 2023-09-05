@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
+import { Link } from "react-router-dom";
 
 const OrderCustomize = () => {
     const { order, setOrder, durationPlan, mealsTime } = useContext(userContext);
@@ -122,22 +123,22 @@ const OrderCustomize = () => {
             <div className=" p-10 rounded-lg mb-12">
                 <div className="flex justify-between items-center ">
                     <h3 className="text-3xl text-primary font-bold">Customize Your Plan</h3>
-                    <button className="text-secondary btn bg-white border border-primary rounded-lg">
+                    <Link to={'/menu'} className="text-secondary btn bg-white border border-primary rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                         </svg>
 
-                        Our Menu</button>
+                        Our Menu</Link>
                 </div>
                 <div className="my-4 bg-white">
                     <h2 className="text-xl font-bold">Choose plan duration :</h2>
-                    <div className="flex gap-3 mt-3">
+                    <div className="grid grid-cols-2 gap-6 ml-6 mt-3">
 
                         {
                             durationPlan.map((item, index) =>
-                                <button key={index} onClick={() => selectDuration(item.day)}
-                                    className={`border py-2 px-2 w-full rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white text-black'}`}
-                                > {item.title}</button>
+                                <div key={index} onClick={() => selectDuration(item.day)}
+                                    className={` border py-2 px-2 w-11/12 rounded-md text-md ${order.duration === item.day ? ' border-primary bg-primary text-white' : 'border-secondary bg-white border  text-black'}`}
+                                > <button className={` py-1 px-2 ml-[-32px] rounded-md  bg-[#b8e994] text-black`}>{item.title}</button>  <span className="font-semibold ">{item.discount}</span></div>
                             )
                         }
                     </div>

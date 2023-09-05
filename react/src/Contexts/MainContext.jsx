@@ -23,20 +23,24 @@ const MainContext = ({ children }) => {
  
     const [durationPlan, setDurationPlan] = useState([
         {
-            day: 6,
-            title: '6 Days / Week',
-        },
-        {
             day: 5,
             title: '5 Days / Week',
+            discount: 'Up to 5% off'
+        },
+        {
+            day: 6,
+            title: '6 Days / Week',
+            discount: 'Up to 6% off'
         },
         {
             day: 20,
             title: '20 Days / Month',
+            discount: 'Up to 8% off'
         },
         {
             day: 24,
             title: '24 Days / Month',
+            discount: 'Up to 10% off'
         }
 
     ])

@@ -17,6 +17,7 @@ const OrderForm = () => {
             btn: 'Select Plan',
             url:'/weight-loss-plan',
             img: weight_loss,
+            price: '740',
         },
         
         {
@@ -27,6 +28,7 @@ const OrderForm = () => {
             btn: 'Select Plan',
             url:'/muscles-Gain-plan',
             img: MUSCLES,
+            price: '900',
         },
         // {
         //     id: '4',
@@ -45,6 +47,7 @@ const OrderForm = () => {
             btn: 'Select Plan',
             url:'/keto-plan',
             img: KETO,
+            price: '1020',
         },
         {
             id: '6',
@@ -54,6 +57,7 @@ const OrderForm = () => {
             btn: 'Select Plan',
             url:'/vegetarian-plan',
             img: VEGETARIAN,
+            price: '770',
         }
     ]
 

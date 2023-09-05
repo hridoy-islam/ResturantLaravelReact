@@ -40,6 +40,7 @@ import EditMenu from "../Pages/Admin/EditMenu";
 import Footer from "../Components/Shared/Footer";
 import CashOnDelivery from "../Components/CashOnDelivery";
 import OrderView from "../Pages/Admin/OrderView";
+import Invoice from "../Pages/Admin/Invoice";
 
 const router = createBrowserRouter([
     {
@@ -143,7 +144,12 @@ const router = createBrowserRouter([
             {
                 path: "/user/order/:id/",
                 element: <OrderView />,
-            }
+            },
+            {
+                path: "/user/order/invoice/:id",
+                element: <Invoice />,
+            },
+
 
         ]
     },

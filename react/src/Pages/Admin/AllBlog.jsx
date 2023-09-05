@@ -49,8 +49,6 @@ const AllBlog = () => {
                             <th className='text-lg font-bold'>Title</th>
                             <th className='text-lg font-bold'>Description</th>
                         </tr>
-
-
                         {blogs?.length > 0 && blogs?.map((item, index) => <tr key={index}>
                             <td>{item.title}</td>
                             <td>{item.description?.slice(0, 40)}</td>
@@ -58,7 +56,6 @@ const AllBlog = () => {
                                 <button onClick={() => handleDelete(item._id)} className=' btn-sm bg-red-500 p-2 text-white rounded-sm mx-1 my-1'>Delete</button>
                             </td>
                         </tr>)}
-
                     </thead>
                     <tbody>
                     </tbody>

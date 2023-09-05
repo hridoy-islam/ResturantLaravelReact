@@ -27,7 +27,7 @@ const EditBlog = () => {
                     navigate('/admin/blog');
                 }
                 else {
-                    toast.success("Something Went Wrong");
+                    toast.error("Something Went Wrong");
                     navigate('/admin/blog');
                 }
                 reset()
@@ -108,7 +108,7 @@ const EditBlog = () => {
                     <p className="Error">{errors.description && "Enter valid content"}</p> */}
 
                     <div>
-                        <button type='submit' className="btn btn-primary px-12 rounded-md mt-12 text-white">Add</button>
+                        <button type='submit' className="btn btn-primary px-12 rounded-md mt-12 text-white">Update</button>
                     </div>
 
                 </form>

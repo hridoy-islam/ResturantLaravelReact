@@ -1,10 +1,10 @@
-import img from "../../src/assets/order-faq-img.png"
-import order1 from "../../src/assets/order1.svg"
+import img from "../../src/assets/clean2.png"
+import order1 from "../../src/assets/order1.png"
 import order2 from "../../src/assets/order2.svg"
 import order3 from "../../src/assets/order3.svg"
 const OrderFaq = () => {
     return (
-        <div className=" bg-gray-200 lg:my-12 my-12 py-12">
+        <div className=" bg-gray-200 lg:my-12 mt-12 py-12">
             <div className="lg:flex justify-between items-center container mx-auto  lg:py-6 py-6">
                 <div> 
                     <h1 className="lg:text-6xl text-4xl text-center lg:text-left text-secondary font-bold pb-6">How to Get Started?</h1>

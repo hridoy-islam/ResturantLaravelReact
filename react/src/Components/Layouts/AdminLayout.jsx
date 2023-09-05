@@ -13,11 +13,11 @@ const AdminLayout = () => {
         content = <div>
         <div>
             <HeaderMenu />
-            <div className='container mx-auto lg:mt-36 mb-24 lg:p-12 lg:text-left text-center lg:border-2 lg:flex justify-between mr-6'>
-                <div className="lg:w-3/12">
+            <div className='container mx-auto lg:mt-24 mb-24 lg:p-8 lg:text-left text-center lg:border-2 lg:flex justify-between mr-6'>
+                <div className="lg:w-2/12">
                     <SideNav></SideNav>
                 </div>
-                <div className="lg:w-9/12 mx-auto lg:ml-12">
+                <div className="lg:w-10/12 mx-auto lg:ml-12">
                     <Outlet></Outlet>
                 </div>
             </div>
