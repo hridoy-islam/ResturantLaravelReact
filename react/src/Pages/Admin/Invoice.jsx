@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/blacklogo.png";
-import { useParams } from "react-router-dom";
-import {  FaTruck, FaCcAmazonPay } from "react-icons/fa";
+import { Link, useParams } from "react-router-dom";
+import { FaTruck, FaCcAmazonPay } from "react-icons/fa";
 import axios from "axios";
 import Pdf from "react-to-pdf";
 
@@ -24,27 +24,38 @@ const Invoice = () => {
     return (
         <div className="bg-gray-100 p-6 h-full">
 
-            <div  className="mx-auto  w-[86%]" ref={ref}>
+            <div className="mx-auto  w-[86%]" ref={ref}>
                 <div className="bg-white rounded-xl">
                     <div className="p-6 h-full flex justify-between items-center">
                         <span>
                             <img className="w-36" src={logo} alt="logo" />
                         </span>
-                        <h2 className="text-2xl font-bold">INVOICE </h2>
+                        <h2 className="text-xl font-medium">ORDER #{orderDetail?._id} </h2>
                     </div>
                     <div className="p-6 h-full flex justify-between items-center">
                         <span>
-                            <h2 className="text-lg font-medium text-left">Hello, {orderDetail?.firstName} {orderDetail?.lastName}.</h2>
-                            <h2 className="text-lg font-medium text-left">{orderDetail?.email}</h2>
-                            <h3 className="text-lg font-medium text-left">Thank you for shopping from our store <br /> and for your order.</h3>
+                            <h2 className="text-2xl pb-2 font-semibold text-left">Customer Information </h2>
+                            <h3 className="text-lg font-medium text-left">Customer Name : {orderDetail?.firstName} {orderDetail?.lastName}.</h3>
+                            <h3 className="text-lg font-medium text-left">Customer Email : {orderDetail?.email}</h3>
+                            <h3 className="text-lg font-medium text-left">Customer Number : {orderDetail?.phone}</h3>
                         </span>
                         <span>
-                            <h2 className="text-lg font-medium text-right">ORDER #{orderDetail?._id}</h2>
-                            <h3 className="text-lg font-medium text-right">{orderDetail?.date} </h3>
+                            <h3 className="text-lg font-medium text-right">Order Date : {orderDetail?.date} </h3>
+                            <h3 className="text-lg font-medium text-right">Payment Method : {orderDetail?.paymentType === "cod" ? "Cash On Delivery" : "Card"} </h3>
+                            <h3 className="text-lg font-medium text-right capitalize">Payment Status : {orderDetail?.orderStatus} </h3>
+                        </span>
+                    </div>
+                    <div className="pl-6 h-full flex justify-between items-center">
+                        <span>
+                            <h2 className="text-2xl font-semibold text-left">Delivery Information </h2>
+                            <h3 className="flex font-medium text-lg pt-2">Address : {orderDetail?.address}</h3>
+                            <h3 className="flex font-medium text-lg ">Apartment : {orderDetail?.apartment}</h3>
+                            <h3 className="flex font-medium text-lg ">Country : {orderDetail?.city} , {orderDetail?.country}</h3>
+                            <h3 className="flex font-medium text-lg ">Instruction : {orderDetail?.deliveryinstruction}</h3>
                         </span>
                     </div>
                     <div className="p-6 h-full">
-                        <h3 className="text-xl font-bold pb-4 ">Order Summary</h3>
+                        <h3 className="text-xl font-bold pb-4 pt-6">Order Summary</h3>
                         <table className="table table-xs">
                             <thead>
                                 <tr>
@@ -59,7 +70,7 @@ const Invoice = () => {
                                 <tr className='my-2' >
                                     {/* <td className='text-lg font-normal'>{item._id}</td> */}
                                     <td className='text-lg font-semibold text-center'>01</td>
-                                    <td className='text-lg font-semibold text-center'>{orderDetail?.plan} </td>
+                                    <td className='text-lg font-semibold text-center'>{orderDetail?.plan} {orderDetail?.breakFastLight.added === "true" ? "+ BreakFast Light" : ""} {orderDetail?.breakFastFull.added === "true" ? "+ BreakFast Full" : ""} <br/> For {orderDetail?.duration} Days   </td>
                                     <td className='text-lg font-semibold text-center'>{orderDetail?.price} AED</td>
                                     <td className='text-lg font-semibold text-center'>1</td>
                                     <td className='text-lg font-semibold text-center'>{orderDetail?.price} AED</td>
@@ -68,34 +79,19 @@ const Invoice = () => {
                             <tbody>
                             </tbody>
                         </table>
-                    <h3 className="text-xl font-bold text-right pr-10 pt-1 mt-3 border-t-2">Total:  {orderDetail?.price} AED</h3>
+                        <h3 className="text-xl font-bold text-right pr-6 pt-1 mt-3 border-t-2">Total :  {orderDetail?.price} AED</h3>
                     </div>
-                    <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  gap-6 justify-center pt-6">
-                    <div className=" px-6 py-8  rounded-lg">
-                        <h2 className="font-bold text-2xl flex items-center"><span className="pr-2"><FaTruck /></span>Delivery Information</h2>
-                        <h3 className="flex font-medium text-lg pt-2">Address : <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.address}</span></h3>
-                        <h3 className="flex font-medium text-lg ">Apartment : <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.apartment}</span></h3>
-                        <h3 className="flex font-medium text-lg ">Country : <span className="font-medium text-lg pl-2 text-gray-500">{orderDetail?.city} , {orderDetail?.country}</span></h3>
-                        {/* <h3 className="flex font-medium text-lg ">Country : <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.country}</span></h3> */}
-                        <h3 className="flex font-medium text-lg ">Instruction: <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.deliveryinstruction}</span></h3>
-                    </div>
-                    <div className=" px-6 py-8  rounded-lg">
-                        <h2 className="font-bold text-2xl flex items-center"><span className="pr-2"><FaCcAmazonPay /></span>Payment Method</h2>
-                        <h3 className="flex font-medium text-lg pt-2">Payment Type : <span className="font-medium text-lg pl-2 text-gray-500"> Card</span></h3>
-                        <h3 className="flex font-medium text-lg ">Transaction ID : <span className="font-medium text-lg pl-2 text-gray-500">4185939336</span></h3>
-                    </div>
-                    </div>
-                    <h3 className="text-lg font-medium py-12 pl-6">Have a nice day.</h3>
+                    <h3 className="text-lg font-medium py-12 pl-6 ">Thank you for Purchase from fitnessdine.com <br /> sales@fitnessdine.com</h3>
                 </div>
-                
+
             </div>
 
             <Pdf targetRef={ref} filename={`${orderDetail?.plan}.pdf`}>
                 {({ toPdf }) => (
                     <div className="text-end mt-4 mr-16">
                         <button className="pdf-btn text-xl font-base rounded-lg text-white bg-secondary border px-3 py-2" onClick={toPdf}>
-                        Download
-                    </button>
+                            Download
+                        </button>
                     </div>
                 )}
             </Pdf>
