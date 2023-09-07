@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const Orders = () => {
     const [orders, setOrders] = useState();
-    console.log(orders)
     const { user } = useContext(userContext)
     
     const fetchData = () => {

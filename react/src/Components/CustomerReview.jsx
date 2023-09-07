@@ -43,8 +43,8 @@ export default class SimpleSlider extends Component {
             ]
         };
         return (
-            <div className="container mx-auto pt-8 lg:pb-24">
-                <h2 className="text-5xl text-center py-12 text-secondary font-bold">Our Customer Review</h2>
+            <div className="container mx-auto lg:py-12">
+                <h2 className="text-5xl text-center  py-12 text-secondary font-bold">Our Customer Review</h2>
                 <Slider {...settings}>
 
                     <div>

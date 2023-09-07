@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaUserAlt, FaTruck, FaCcAmazonPay } from "react-icons/fa";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import { useContext } from "react";
+import { userContext } from "../../Contexts/MainContext";
 
 // Create styles
 
@@ -11,6 +13,8 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 // const ref = React.createRef();
 const OrderView = () => {
     const [orderDetail, setOrderDetail] = useState();
+    const {user} = useContext(userContext)
+    console.log(user)
     const { id } = useParams();
     const fetchData = () => {
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/order/${id}`)
@@ -22,14 +26,15 @@ const OrderView = () => {
     useEffect(() => {
         fetchData()
     }, [])
-    console.log(orderDetail)
     return (
         <div className="">
 
             <div className="flex items-center justify-between rounded-lg py-3 px-4 bg-gray-100 mt-6">
                 <h3 className="text-xl font-semibold">Order Details  #{orderDetail?._id}</h3>
                 {/* <Link className="btn btn-outline font-semibold px-6">PDF</Link> */}
-                <form action="">
+                {/* {
+                    user?.role == "admin" ?
+                    <form action="">
                     <select name="" id="" className="px-3 py-3 rounded-lg mr-2 bg-gray-100 border border-black">
                         <option value="">Order Status</option>
                         <option value="">Pending</option>
@@ -37,21 +42,15 @@ const OrderView = () => {
                         <option value="">Complete</option>
                     </select>
                     <button className="btn btn-outline font-semibold px-3">Change Status</button>
-                    <Link to={`/user/order/invoice/${id}`} className="btn btn-outline font-semibold px-3 ml-3">Invoice </Link >
+                    <Link to={`/user/order/invoice/${id}`} className="btn btn-outline font-semibold px-3 ml-3">Invoice </Link ></form>
+                    :
+                    ""
+                } */}
+                
                     
                     
-                    {/* <Pdf targetRef={ref} ref={ref} filename={`${orderDetail?.plan}.pdf`}>
-                        {({ toPdf }) => (
-                            <div className="text-end mt-4 mr-16">
-                                <button className="pdf-btn text-xl font-base rounded-lg text-white bg-secondary border px-3 py-2" onClick={toPdf}>
-                                    Download
-                                </button>
-                            </div>
-                        )}
-                    </Pdf> */}
-                    {/* <button className="btn btn-outline font-semibold px-6">Invoice</button> */}
 
-                </form>
+                
             </div>
 
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  gap-6 justify-center pt-6">
@@ -75,7 +74,7 @@ const OrderView = () => {
                     <h3 className="flex font-medium text-lg ">Apartment : <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.apartment}</span></h3>
                     <h3 className="flex font-medium text-lg ">City : <span className="font-medium text-lg pl-2 text-gray-500">{orderDetail?.city}</span></h3>
                     <h3 className="flex font-medium text-lg ">Country : <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.country}</span></h3>
-                    <h3 className="flex font-medium text-lg ">Delivery Instruction : <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.deliveryinstruction}</span></h3>
+                    <h3 className="flex font-medium text-lg ">Instruction: <span className="font-medium text-lg pl-2 text-gray-500"> {orderDetail?.deliveryinstruction}</span></h3>
                 </div>
                 <div className="shadow-md shadow-gray-400 px-6 py-8  rounded-lg">
                     <h2 className="font-bold text-2xl flex items-center"><span className="pr-2"><FaCcAmazonPay /></span>Payment Info</h2>

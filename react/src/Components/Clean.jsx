@@ -4,9 +4,9 @@ import clean_img from '../../src/assets/clean.png'
 export default function Clean() {
 
     return (
-        <div className="bg-white lg:flex justify-around items-center">
-            <div className=''>
-                <img className='lg:pt-24 pt-12 w-10/12 mx-auto lg:w-full' src={clean_img} alt="" />
+        <div className="bg-white lg:flex justify-around items-center lg:pt-24 pt-12">
+            <div className='rounded-lg '>
+                <img className='  w-10/12 mx-auto rounded-2xl lg:w-full' src={clean_img} alt="" />
             </div>
             <div>
                 <div className="relative isolate px-6 pt-6 lg:px-8">

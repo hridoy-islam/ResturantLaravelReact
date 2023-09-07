@@ -1,8 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/blacklogo.png";
-import { Link, useParams } from "react-router-dom";
-import { FaTruck, FaCcAmazonPay } from "react-icons/fa";
+import {  useParams } from "react-router-dom";
 import axios from "axios";
 import Pdf from "react-to-pdf";
 
@@ -20,7 +19,6 @@ const Invoice = () => {
     useEffect(() => {
         fetchData()
     }, [])
-    console.log(orderDetail)
     return (
         <div className="bg-gray-100 p-6 h-full">
 
@@ -62,6 +60,7 @@ const Invoice = () => {
                                     {/* <th className='text-lg font-bold'>Order Id</th> */}
                                     <th className='text-lg font-bold text-center'>No.</th>
                                     <th className='text-lg font-bold text-center'>Meal Plan</th>
+                                    <th className='text-lg font-bold text-center'>Meal</th>
                                     <th className='text-lg font-bold text-center'>Price</th>
                                     <th className='text-lg font-bold text-center'>Quantity</th>
                                     <th className='text-lg font-bold text-center'>Subtotal</th>
@@ -71,6 +70,7 @@ const Invoice = () => {
                                     {/* <td className='text-lg font-normal'>{item._id}</td> */}
                                     <td className='text-lg font-semibold text-center'>01</td>
                                     <td className='text-lg font-semibold text-center'>{orderDetail?.plan} {orderDetail?.breakFastLight.added === "true" ? "+ BreakFast Light" : ""} {orderDetail?.breakFastFull.added === "true" ? "+ BreakFast Full" : ""} <br/> For {orderDetail?.duration} Days   </td>
+                                    <td className='text-lg font-semibold text-center'>{orderDetail?.meal} meals</td>
                                     <td className='text-lg font-semibold text-center'>{orderDetail?.price} AED</td>
                                     <td className='text-lg font-semibold text-center'>1</td>
                                     <td className='text-lg font-semibold text-center'>{orderDetail?.price} AED</td>
@@ -81,7 +81,7 @@ const Invoice = () => {
                         </table>
                         <h3 className="text-xl font-bold text-right pr-6 pt-1 mt-3 border-t-2">Total :  {orderDetail?.price} AED</h3>
                     </div>
-                    <h3 className="text-lg font-medium py-12 pl-6 ">Thank you for Purchase from fitnessdine.com <br /> sales@fitnessdine.com</h3>
+                    <h3 className="text-lg font-medium py-12 pl-6 ">Thank you for Purchase from <br/> fitnessdine.com <br /> sales@fitnessdine.com <br/> +971 56 914 2494 </h3>
                 </div>
 
             </div>

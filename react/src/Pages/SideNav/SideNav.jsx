@@ -35,10 +35,10 @@ const SideNav = () => {
                 (
                     <>
 
-                        <p className="text-2xl font-semibold my-4">
+                        <p className="text-xl font-semibold my-4">
                             <Link to="/user/dashboard">Dashboard</Link>
                         </p >
-                        <p className="text-2xl font-semibold my-4">
+                        <p className="text-xl font-semibold my-4">
                             <Link to={`/user/order/`}>My Orders</Link>
                         </p >
                         {/* <p className="text-2xl font-semibold my-4">
