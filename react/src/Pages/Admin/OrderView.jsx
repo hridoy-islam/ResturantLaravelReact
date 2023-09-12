@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaUserAlt, FaTruck, FaCcAmazonPay } from "react-icons/fa";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { useContext } from "react";
 import { userContext } from "../../Contexts/MainContext";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 // Create styles
 
@@ -13,9 +15,32 @@ import { userContext } from "../../Contexts/MainContext";
 // const ref = React.createRef();
 const OrderView = () => {
     const [orderDetail, setOrderDetail] = useState();
-    const {user} = useContext(userContext)
-    console.log(user)
+    const { user } = useContext(userContext);
     const { id } = useParams();
+    const navigate = useNavigate();
+    const {
+        register,
+        handleSubmit,
+        reset
+    } = useForm();
+    const onsubmit = data =>
+        axios.patch(`${import.meta.env.VITE_BACKEND_API_URL}/order/${id}`, data)
+            .then(({ data }) => {
+                if (!data.success) {
+                    toast.success("Updated Status Successful");
+                    navigate(`/admin/order/${id}`);
+                }
+                else {
+                    toast.error("Something Went Wrong");
+                    navigate('/admin/order');
+                }
+                reset()
+
+            })
+            .catch(error => {
+                const res = error.response;
+                toast.error(res);
+            });
     const fetchData = () => {
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/order/${id}`)
             .then(function (response) {
@@ -32,25 +57,21 @@ const OrderView = () => {
             <div className="flex items-center justify-between rounded-lg py-3 px-4 bg-gray-100 mt-6">
                 <h3 className="text-xl font-semibold">Order Details  #{orderDetail?._id}</h3>
                 {/* <Link className="btn btn-outline font-semibold px-6">PDF</Link> */}
-                {/* {
+                {
                     user?.role == "admin" ?
-                    <form action="">
-                    <select name="" id="" className="px-3 py-3 rounded-lg mr-2 bg-gray-100 border border-black">
-                        <option value="">Order Status</option>
-                        <option value="">Pending</option>
-                        <option value="">Approved</option>
-                        <option value="">Complete</option>
-                    </select>
-                    <button className="btn btn-outline font-semibold px-3">Change Status</button>
-                    <Link to={`/user/order/invoice/${id}`} className="btn btn-outline font-semibold px-3 ml-3">Invoice </Link ></form>
-                    :
-                    ""
-                } */}
-                
-                    
-                    
+                        <form onSubmit={handleSubmit(onsubmit)}>
+                            <select name="orderStatus" id="orderStatus" defaultValue={orderDetail?.orderStatus} {...register('orderStatus')}className="px-3 py-3 rounded-lg mr-2 bg-gray-100 border border-black">
+                                <option disabled selected value={''}>Order Status</option>
 
-                
+                                <option value={'Pending'}>Pending</option>
+                                <option value={'Running'}>Running</option>
+                                <option value={'Completed'}>Completed</option>
+                            </select>
+                            <button type='submit' className="btn btn-outline font-semibold px-3">Change Status</button>
+                            <Link to={`/user/order/invoice/${id}`} className="btn btn-outline font-semibold px-3 ml-3">Invoice </Link ></form>
+                        :
+                        ""
+                }
             </div>
 
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  gap-6 justify-center pt-6">

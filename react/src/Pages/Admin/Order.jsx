@@ -3,10 +3,15 @@ import axios from 'axios';
 import PageTitle from '../../Components/Shared/PageTitle';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import DatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment/moment';
+// import OrderView from './OrderView';
 const Order = () => {
-
+    const [startDate, setStartDate] = useState(new Date());
     let [search, setSearch] = useState("");
+    var today = moment().format('YYYY-MM-DD');
     // const [orders, setOrders] = useState([]);
     // const fetchData = () => {
     //     axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/order/`)
@@ -19,28 +24,28 @@ const Order = () => {
     //     fetchData()
     // }, [])
 
-    let [orders, setOrders] = useState([]);
-    let [orderStatus, setOrderStatus] = useState(`${import.meta.env.VITE_BACKEND_API_URL}/order`);
-    const filterData = () => {
-        axios.get(orderStatus)
-            .then(function (response) {
-                // handle success
+    // let [orders, setOrders] = useState([]);
+    // let [orderStatus, setOrderStatus] = useState(`${import.meta.env.VITE_BACKEND_API_URL}/order`);
+    // const filterData = () => {
+    //     axios.get(orderStatus)
+    //         .then(function (response) {
+    //             // handle success
 
-                setOrders(response.data);
-            })
-    }
-    useEffect(() => {
-        filterData()
-    }, [orderStatus, setOrderStatus])
-
-    // const [orders, setOrders] = useState([]);
-    // let [orderStatus, setOrderStatus] = useState(`${import.meta.env.VITE_BACKEND_API_URL}/order`)
+    //             setOrders(response.data);
+    //         })
+    // }
     // useEffect(() => {
-    //     fetch(orderStatus)
-    //         .then((res) => res.json())
-    //         .then((data) => setOrders(data));
-    // }, [orderStatus, setOrderStatus]);
+    //     filterData()
+    // }, [orderStatus, setOrderStatus])
 
+    const [orders, setOrders] = useState([]);
+    let [orderStatus, setOrderStatus] = useState(`${import.meta.env.VITE_BACKEND_API_URL}/order`)
+    useEffect(() => {
+        fetch(orderStatus)
+            .then((res) => res.json())
+            .then((data) => setOrders(data));
+    }, [orderStatus, setOrderStatus]);
+ console.log(orders?.date)
     return (
         <div>
             <PageTitle title="Order" />
@@ -56,20 +61,26 @@ const Order = () => {
                         <option value={`${import.meta.env.VITE_BACKEND_API_URL}/order`}>
                             All Orders
                         </option>
-                        <option value={`${import.meta.env.VITE_BACKEND_API_URL}/order/?orderStatus=pending`}>
+                        <option value={`${import.meta.env.VITE_BACKEND_API_URL}/order/?orderStatus=Pending`}>
                             Pending Order
                         </option>
-                        <option value={`${import.meta.env.VITE_BACKEND_API_URL}/order/?orderStatus=running`}>
+                        <option value={`${import.meta.env.VITE_BACKEND_API_URL}/order/?orderStatus=Running`}>
                             Running order
                         </option>
-                        <option value={`${import.meta.env.VITE_BACKEND_API_URL}/order/?orderStatus=completed`}>
+                        <option value={`${import.meta.env.VITE_BACKEND_API_URL}/order/?orderStatus=Completed`}>
                             Completed order
                         </option>
                     </select>
-                    {/* <form action="">
-                        <input type="date" name="" id="" className="px-2 py-3 rounded-lg mr-2 bg-gray-100 border border-black" />
-                        <input type="date" name="" id="" className="px-2 py-3 rounded-lg mr-2 bg-gray-100 border border-black" />
-                    </form> */}
+
+                    <div onClick={(e) => setOrderStatus(e.target.value)}>
+                    <DatePicker value={`${import.meta.env.VITE_BACKEND_API_URL}/order/datequery/?createdAt=2023-08-31`} selected={startDate} onChange={(date) => setStartDate(date)} />
+                    <button type="submit" >Submit</button>
+                        </div>
+
+                    <form   onClick={(e) => setOrderStatus(e.target.value)}>
+                        <input  type="date" name="date" id="date"  className="px-2 py-3 rounded-lg mr-2 bg-gray-100 border border-black" />
+                        <button type="submit" value={`${import.meta.env.VITE_BACKEND_API_URL}/order/datequery/?date=2023-09-15`}>Submit</button>
+                    </form>
                     {/* <button className="btn btn-outline font-semibold px-3">Apply Filter</button> */}
                 </div>
             </div>
@@ -96,7 +107,7 @@ const Order = () => {
                                 <td className='text-lg font-normal'>{item.email}</td>
                                 <td className='text-lg font-normal'>{item.plan}</td>
                                 <td className='text-lg font-normal'>{item.orderStatus}</td>
-                                <td className='text-lg font-normal'>{item.date}</td>
+                                <td className='text-lg font-normal'>{item.createdAt}</td>
                                 <td className='text-lg font-normal'>{item.price} AED</td>
                                 <td> <Link to={`/admin/order/${item._id}`} className='text-white bg-primary px-3 py-2'>view</Link></td>
                             </tr>)}
